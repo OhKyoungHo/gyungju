@@ -12,16 +12,16 @@ public class ViewController {
 		return step;
 	}
 	
-//	@RequestMapping("/academy/{step}")
-//	public String viewAcademy(@PathVariable String step) {
-//		return "/academy/"+step;
-//	}
-//	
-//	@RequestMapping("/admin/{step}")
-//	public String viewAdmin(@PathVariable String step) {
-//		return "/admin/"+step;
-//	}
-//	
+	@RequestMapping("/academy/{step}")
+	public String viewAcademy(@PathVariable String step) {
+		return "/academy/"+step;
+	}
+	
+	@RequestMapping("/admin/{step}")
+	public String viewAdmin(@PathVariable String step) {
+		return "/admin/"+step;
+	}
+	
 //	@RequestMapping("/lecture/{step}")
 //	public String viewLecture(@PathVariable String step) {
 //		return "/lecture/"+step;

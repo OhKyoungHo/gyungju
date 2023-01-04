@@ -1,7 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
-      <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Educal – Online Learning and Education HTML5 Template </title>
@@ -119,7 +118,7 @@
                                     <a href="course-grid">Courses</a>
                                     <ul class="submenu">
                                        <li><a href="course-grid">Courses</a></li>
-                                       <li><a href="newsList">뉴스리스트</a></li>
+                                       <li><a href="course-list">Course List</a></li>
                                        <li><a href="course-sidebar">Course sidebar</a></li>
                                        <li><a href="course-details">Course Details</a></li>
                                     </ul>

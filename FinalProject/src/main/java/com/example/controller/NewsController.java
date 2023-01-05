@@ -1,4 +1,4 @@
-	package com.example.controller;
+package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

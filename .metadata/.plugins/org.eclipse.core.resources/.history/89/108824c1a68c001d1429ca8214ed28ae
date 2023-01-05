@@ -1,0 +1,7 @@
+package com.example.service;
+
+
+public interface AnnouncementService  {
+
+	List<AnnouncementVO> getAnnouncementList(AnnouncementVO vo);
+}

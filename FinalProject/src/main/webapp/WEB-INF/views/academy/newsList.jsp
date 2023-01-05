@@ -473,8 +473,9 @@
                                           </div>
                                        </div>
                                     </div>
+                                 </div>  
                                  </c:forEach>   
-                                 </div>                                                                                                                                                             
+                                                                                                                                                                                              
                               </div>
                            </div>
                          </div>
@@ -491,63 +492,60 @@
                            <!-- 해당 페이지가 첫번째 페이지가 아닌경우-->
                            <!-- 맨처음페이지로 이동 -->
                            <c:choose>
-                           <c:when test="${elist.first}"></c:when>
-                           
-                           <c:otherwise>
-                           <li class="prev">
-                              <a href="newsList?page=1" class="link-btn link-prev">
-                                 Prev
-                                 <i class="arrow_left"></i>
-                                 <i class="arrow_left"></i>
-                              </a>
-                           </li>
-                        </c:otherwise>
-                     </c:choose>
-
-                  <!-- 페이지 그룹 -->
-                  <!-- 시작블럭을 반복시작 인덱스로 종료블럭을 반복종료 인덱스로 설정  -->
-                  <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
-                  <!-- 현재페이지의 +1이 i랑 같은 경우 다음페이지로 이동하게 설정 -->
-                  <!-- 현재페이지의 +1이 i랑 다른 경우 다음 페이지로 이동하게 설정-->
-                  <c:choose>
-                  <c:when test="${pageNumber+1 == i}">
-                     <li>
-                        <a href="newsList?page=${i}"><span>${i}</span></a>
-                     </li>
-                  </c:when>
-                  <c:otherwise>
-                     <li><a href="newsList?page=${i}"><span>${i}</span></a></li>
-                  </c:otherwise>
-                  </c:choose>
-                  </c:forEach>
-                  <!-- 맨마지막페이지 -->
-                  <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
-                  <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
-                  <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
-                  <!-- 마지막페이지로 이동 -->
-                  <c:choose>     
-                  <c:when test="${elist.last}"></c:when>
-                  <c:otherwise>
-                     <li class="next">
-                        <a href="newsList?page=${totalPages}" class="link-btn">
-                        Next
-                        <i class="arrow_right"></i>
-                        <i class="arrow_right"></i>
-                        </a>
-                     </li>
-                  </c:otherwise>
-                  </c:choose>
+                              <c:when test="${elist.first}"></c:when>
+                              <c:otherwise>
+                                 <li class="prev">
+                                    <a href="newsList?page=1" class="link-btn link-prev">
+                                       Prev
+                                    <i class="arrow_left"></i>
+                                    <i class="arrow_left"></i>
+                                    </a>
+                                 </li>
+                              </c:otherwise>
+                           </c:choose>
+                        <!-- 페이지 그룹 -->
+                        <!-- 시작블럭을 반복시작 인덱스로 종료블럭을 반복종료 인덱스로 설정  -->
+                           <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
+                           <!-- 현재페이지의 +1이 i랑 같은 경우 다음페이지로 이동하게 설정 -->
+                           <!-- 현재페이지의 +1이 i랑 다른 경우 다음 페이지로 이동하게 설정-->
+                              <c:choose>
+                                 <c:when test="${pageNumber+1 == i}">
+                                    <li>
+                                       <a href="newsList?page=${i}"><span>${i}</span></a>
+                                    </li>
+                                 </c:when>
+                                 <c:otherwise>
+                                    <li><a href="newsList?page=${i}"><span>${i}</span></a></li>
+                                 </c:otherwise>
+                                 </c:choose>
+                              </c:forEach>
+                              <!-- 맨마지막페이지 -->
+                              <!-- last : 해당 페이지가 마지막 페이지인지 여부(true/false로 구분)-->
+                              <!-- 해당페이지가 마지막인 경우에는 아무것도 설정안함-->
+                              <!-- 해당 페이지가 마지막 페이지가 아닌경우-->
+                              <!-- 마지막페이지로 이동 -->
+                              <c:choose>     
+                                 <c:when test="${elist.last}"></c:when>
+                                 <c:otherwise>
+                                    <li class="next">
+                                       <a href="newsList?page=${totalPages}" class="link-btn">
+                                       Next
+                                       <i class="arrow_right"></i>
+                                       <i class="arrow_right"></i>
+                                       </a>
+                                    </li>
+                                 </c:otherwise>
+                              </c:choose>
                         </ul>
                      </div>
                   </div>
                </div>
-            </div>
-         </div>
-               </div>
+               <!--row의 끝-->
             </div>
          </section>
          <!-- course area end -->
       </main>
+         
          <!-- footer area start -->
          <footer>
             <div class="footer__area footer-bg">

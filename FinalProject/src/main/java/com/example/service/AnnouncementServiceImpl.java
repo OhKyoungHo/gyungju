@@ -37,10 +37,19 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 		AnnoRepo.save(vo);
 	}
 	
-//	//관리자페이지 삭제하기
-//	public void deleteAnnouncement(AnnouncementVO vo) {
-//		AnnoRepo.deleteById(vo.getAnId());
-//	}
+	//관리자페이지 공지 삭제하기
+	public void announcementDelete(AnnouncementVO vo) {
+		AnnoRepo.deleteById(vo.getAnId());
+	}
+	
+	//관리자페이지 공지 수정하기
+	public void announcementUpdate(AnnouncementVO vo) {
+		AnnouncementVO result = AnnoRepo.findById(vo.getAnId()).get();
+		result.setAnTitle(vo.getAnTitle());
+		result.setAnContent(vo.getAnContent());
+		
+		AnnoRepo.save(result);
+	}
 	
 
 }

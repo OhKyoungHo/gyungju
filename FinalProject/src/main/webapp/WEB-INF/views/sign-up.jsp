@@ -39,7 +39,7 @@
                     <div class="loading-content">
                         <img class="loading-logo-text" src="assets/img/logo/logo-text-2.png" alt="" />
                         <div class="loading-stroke">
-                            <img class="loading-logo-icon" src="assets/img/logo/logo-icon.png" alt="" />
+                            <img class="loading-logo-icon" src="assets/img/logo/logo-icon.gif" alt="" />
                         </div>
                     </div>
                 </div>
@@ -350,55 +350,80 @@
                                 <div class="sign__header mb-35">
                                     <div class="sign__in text-center">
                                         <a href="#" class="sign__social g-plus text-start mb-15"><i class="fab fa-google-plus-g"></i>Sign Up with Google</a>
-                                        <p><span>........</span> Or, <a href="sign-up">sign up</a> with your email<span> ........</span></p>
+                                        <p><span>........</span> Or, <a href="sign-up">sign up</a> with your account<span> ........</span></p>
                                     </div>
                                 </div>
+                                
                                 <div class="sign__form">
+                                    <!-- bk 회원가입 버튼 액션-->
                                     <form action="insertMember" type="post">
                                         <div class="sign__input-wrapper mb-25">
-                                            <h5>Account Name</h5>
+                                            <h5>ID</h5>
                                             <div class="sign__input">
-                                                <input type="text" placeholder="ID" id="m_id" name="MId" required/>
-                                                <i class="fal fa-user"></i>
+                                                <input type="text" placeholder="ID" id="m_id" name="memId" required/>                                                
+                                                <i class="fal fa-user"></i>                                                
                                             </div>
+                                            <!-- 유효성검사 js 연결(아이디) -->
+                                            <p id="chkNotice" size="2"></p>
+                                            
                                         </div>
+
 
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>Password</h5>
                                             <div class="sign__input">
-                                                <input type="password" placeholder="Password" id="m_pass" name="MPass" required/>
+                                                <input type="password" placeholder="Password" id="m_pass" name="memPass" required/>
                                                 <i class="fal fa-lock"></i>
                                             </div>
+                                            <!-- 유효성검사 js 연결(비밀번호)-->
+                                            <p id="chkNotice2" size="2"></p>
                                         </div>
                                         <div class="sign__input-wrapper mb-10">
                                             <h5>Re-Password</h5>
                                             <div class="sign__input">
-                                                <input type="password" placeholder="Re-Password" />
+                                                <input type="password" placeholder="Re-Password" id="m_pass_ck"/>
                                                 <i class="fal fa-lock"></i>
                                             </div>
+                                            <!-- 유효성검사 js 연결(비밀번호 확인)-->
+                                            <p id="chkNotice3" size="2"></p>
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>Full Name</h5>
                                             <div class="sign__input">
-                                                <input type="text" placeholder="Full name" id="m_name" name="m_name" required/>
+                                                <input type="text" placeholder="Full name" id="m_name" name="memName" required/>
                                                 <i class="fal fa-user"></i>
                                             </div>
+                                            <!-- 유효성검사 js 연결(이름)-->
+                                            <p id="chkNotice4" size="2"></p>
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>Phone Number</h5>
                                             <div class="sign__input">
-                                                <input type="tel" placeholder="Phone number" id="m_tel" name="m_tel" required/>
-                                                <i class="fal fa-envelope"></i>
+                                                <input type="tel" placeholder="Phone number" id="m_tel" name="memTel" required/>
+                                                <i class="fal fa-phone"></i>
                                             </div>
+                                            <!-- 유효성검사 js 연결(폰번호)-->
+                                            <p id="chkNotice5" size="2"></p>
                                         </div>
 
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>E-mail</h5>
                                             <div class="sign__input">
-                                                <input type="email" placeholder="E-mail address" id="m_email" name="m_email" required/>
+                                                <input type="email" placeholder="E-mail address" id="m_email" name="memEmail" required/>
                                                 <i class="fal fa-envelope"></i>
+                                            </div>
+                                            <!-- 유효성검사 js 연결(이메일)-->
+                                            <p id="chkNotice6" size="2"></p>
+                                        </div>
+
+                                        <div class="sign__input-wrapper mb-25">
+                                            <h5>Postal Code</h5>
+                                            <div class="sign__input">
+                                                <!-- onclick 을 통해서 주소 찾기 api 가능-->
+                                                <input type="text" placeholder="Postal code" id="m_post" name="m_post"  onclick="findAddress()"  readonly  required/>
+                                                <i class="fal fa-location"></i>
                                             </div>
                                         </div>
 
@@ -406,24 +431,19 @@
                                             <h5>Address</h5>
                                             <div class="sign__input">
                                                 <input type="text" placeholder="Address" id="m_addr" name="m_addr" required/>
-                                                <i class="fal fa-envelope"></i>
+                                                <i class="fal fa-location-arrow"></i>
                                             </div>
                                         </div>
                                         <div class="sign__input-wrapper mb-25">
                                             <h5>Detailed Address</h5>
                                             <div class="sign__input">
                                                 <input type="text" placeholder="Detailed address" id="m_addr_sub" name="m_addr_sub" required/>
-                                                <i class="fal fa-envelope"></i>
+                                                <i class="fal fa-location-arrow"></i>
+
                                             </div>
                                         </div>
 
-                                        <div class="sign__input-wrapper mb-25">
-                                            <h5>Postal Code</h5>
-                                            <div class="sign__input">
-                                                <input type="text" placeholder="Postal code" id="m_post" name="m_post" required/>
-                                                <i class="fal fa-envelope"></i>
-                                            </div>
-                                        </div>
+                                
 
                                         <div class="sign__action d-flex justify-content-between mb-30">
                                             <div class="sign__agree d-flex align-items-center">
@@ -574,5 +594,31 @@
         <script src="assets/js/main.js"></script>
         <script src="assets/js/jquery-3.6.3.min.js"></script>
         <script src="assets/js/sign-up.js"></script>
+        <!-- Address API -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+   
+   <script type="text/javascript">
+   
+    //function of Address API
+      function findAddress() {
+          new daum.Postcode({
+              oncomplete: function(data) {
+   
+                  var addr = ''; // 주소 변수
+                  var extraAddr = ''; // 참고항목 변수
+   
+                  if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                      addr = data.roadAddress;
+                  } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                      addr = data.jibunAddress;
+                  }
+   
+                  document.getElementById("m_post").value = data.zonecode;
+                  document.getElementById("m_addr").value = addr;
+                  document.getElementById("m_addr_sub").focus();
+              }
+          }).open();
+      }
+</script>
     </body>
 </html>

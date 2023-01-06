@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.AnnouncementVO;
@@ -19,6 +18,7 @@ public class AdminController {
 
 	@Autowired
 	private EducationService eduService;
+	
 	@Autowired
 	private AnnouncementService announcementService;
 	
@@ -36,6 +36,7 @@ public class AdminController {
 		m.addAttribute("result", list);
 		return "admin/academyList";
 	}
+	
 	//경주
 	//관리자에 공지 목록띄움
 	@RequestMapping("/announcement_m")
@@ -55,18 +56,29 @@ public class AdminController {
 	
 	//경주 
 	//공지 등록하기
-	@RequestMapping("/announcementInsert")
+	@RequestMapping("/announcementInsertReal")
 	public String announcementInsert(AnnouncementVO vo) {
+		System.out.println("1");
+		System.out.println("AD ID: " + vo.getAdId());
 		announcementService.announcementInsert(vo);
-		return "redirect:/admin/announcement_m";
+		System.out.println("2");
+		return "redirect:announcement_m";
+	}	
+
+	//경주
+	//공지내용 삭제하기
+	@RequestMapping("/announcementDelete")
+	public String deleteAnnouncement(AnnouncementVO vo) {
+		announcementService.announcementDelete(vo);
+		return "redirect:announcement_m";
 	}
 	
 	//경주
-	//공지내용 삭제하기
-//	@RequestMapping("/announcement_m")
-//	public String deleteAnnouncement(AnnouncementVO vo) {
-//		announcementService.deleteAnnouncement(vo);
-//		return "admin/announcement_m";
-//	}
-	
+	//공지내용 수정하기
+	@RequestMapping("announcementUpdate")
+	public String updateAnnouncement(AnnouncementVO vo) {
+		announcementService.announcementUpdate(vo);
+		return "redirect:announcement_m";
+	}
+
 }

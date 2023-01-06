@@ -10,27 +10,27 @@ import com.example.persistence.EducationRepository;
 
 @Service
 public class EducationServiceImpl implements EducationService {
-	
-	@Autowired
-	private EducationRepository eduRepo;
+   
+   @Autowired
+   private EducationRepository eduRepo;
 
-	@Override
-	public List<EducationVO> getBoardList(EducationVO vo) {
-		List<EducationVO> list = (List<EducationVO>) eduRepo.findAll();
-		System.out.println(list);
-		return list;
-	}
+   @Override
+   public List<EducationVO> getBoardList(EducationVO vo) {
+      List<EducationVO> list = (List<EducationVO>) eduRepo.findAll();
+      System.out.println(list);
+      return list;
+   }
 
-	@Override
-	public EducationVO getBoard(EducationVO vo) {
-		return eduRepo.findById(vo.getEd_id()).get();
-	}
-	
-	//경호
-	//관리자페이지
-	//상품 전체 조회
-	public List<EducationVO> selectAllAcademy() {
-		return (List<EducationVO>) eduRepo.findAll();
-	}
+   @Override
+   public EducationVO getBoard(EducationVO vo) {
+      return eduRepo.findById(vo.getEdId()).get();
+   }
+   
+   //경호
+   //관리자페이지
+   //상품 전체 조회
+   public List<EducationVO> selectAllAcademy() {
+      return (List<EducationVO>) eduRepo.findAll();
+   }
 
 }

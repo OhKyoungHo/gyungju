@@ -1,0 +1,14 @@
+package com.example.persistence;
+
+import org.springframework.data.jpa.repository.Query;
+
+public interface RankRepository {
+
+	@Query("SELECT e.ed_name AS NAME , ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star\r\n"
+			+ "FROM education e left outer join review r\r\n"
+			+ "ON e.ed_id = r.ed_id\r\n"
+			+ "GROUP BY e.ed_name\r\n"
+			+ "ORDER BY star DESC\r\n"
+			+ "LIMIT 3", nativeQuery=true)
+	List<EducationVO, ReviewVO> rankQuery(String word);
+}

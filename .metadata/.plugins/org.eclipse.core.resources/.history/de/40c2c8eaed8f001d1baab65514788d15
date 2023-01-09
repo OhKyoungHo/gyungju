@@ -10,7 +10,7 @@ import com.example.domain.ReviewVO;
 
 public interface RankRepository extends CrudRepository<EducationVO, Integer> {
 
-	@Query(value="SELECT e.ed_name AS NAME , e.ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star\r\n"
+	@Query(value="SELECT e.ed_name AS NAME , ed_pic AS pic, ed_title AS title, round(avg(r.star),2) AS star\r\n"
 			+ "FROM education AS e left outer join review AS r\r\n"
 			+ "ON e.ed_id = r.ed_id\r\n"
 			+ "GROUP BY e.ed_name\r\n"

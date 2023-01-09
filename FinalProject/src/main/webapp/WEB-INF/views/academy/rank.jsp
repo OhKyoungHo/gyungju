@@ -346,7 +346,7 @@
                            <div class="blog__meta d-flex align-items-center justify-content-between">
                               <div class="blog__author d-flex align-items-center">
                                  <span><i class="icon_star"></i></span>
-                                 <span>${rank[3]}</span>
+                                 <div>${rank[3]}</div>
                               </div>
                               <div class="blog__date d-flex align-items-center">
                                  <a href="event-details.html" class="link-btn">
@@ -373,9 +373,7 @@
                            <div class="events__item-inner d-sm-flex align-items-center justify-content-between white-bg" style="margin-left: -11%; margin-right: -11%;">
                               <span><h4>4</h4></span>
                               <h3 class="events__title"><a href="event-details.html">${rankOther[0]}</a></h3>
-
                               <div class="events__content">
-                                 
                                  <div class="events__meta">
                                     <span><i class="icon_star"></i>&nbsp;&nbsp;${rankOther[3]}</span>
                                  </div>

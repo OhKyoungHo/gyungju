@@ -338,14 +338,17 @@
                      <div class="blog__item white-bg mb-30 transition-3 fix">
                         <div class="blog__thumb w-img fix">
                            <a href="blog-details.html">
+                              <!--sql 첫번쨰 인덱스를 출력, 해당 사진 -->
                               <img src="../assets/img/course/${rank[1]}" alt="" width='100' height='260'>
                            </a>
                         </div>
                         <div class="blog__content">
+                           <!--sql 첫번쨰 인덱스를 출력, 해당 학원이름 -->
                            <h3 class="blog__title"><a href="blog-details.html">${rank[0]}</a></h3>
                            <div class="blog__meta d-flex align-items-center justify-content-between">
                               <div class="blog__author d-flex align-items-center">
                                  <span><i class="icon_star"></i></span>
+                                 <!--sql 첫번쨰 인덱스를 출력, 해당 학원 후기 평균낸 점수 -->
                                  <div>${rank[3]}</div>
                               </div>
                               <div class="blog__date d-flex align-items-center">
@@ -371,10 +374,13 @@
                      <div class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
                         <div class="events__item mb-10 hover__active">
                            <div class="events__item-inner d-sm-flex align-items-center justify-content-between white-bg" style="margin-left: -11%; margin-right: -11%;">
+                              <!-- 나중에 순위 메길것 -->
                               <span><h4>4</h4></span>
+                              <!--sql 첫번쨰 인덱스를 출력, 해당 학원이름 -->
                               <h3 class="events__title"><a href="event-details.html">${rankOther[0]}</a></h3>
                               <div class="events__content">
                                  <div class="events__meta">
+                                    <!--sql 첫번쨰 인덱스를 출력, 해당 학원 후기 평균낸점수 -->
                                     <span><i class="icon_star"></i>&nbsp;&nbsp;${rankOther[3]}</span>
                                  </div>
                               </div>

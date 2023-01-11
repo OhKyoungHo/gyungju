@@ -1,0 +1,21 @@
+package com.example.controller;
+
+@Controller
+@RequestMapping("calendar")
+public class CalendarController {
+
+	@Autowired(required = false)
+	private CalenService service;
+
+	@GetMapping(params="method=list")
+	public String list() {
+		return "fullcalendar.jsp";
+	}
+	
+	@GetMapping(params = "method=data")
+	public String data(Model d) {
+		d.addAttribute("list", service.calenList());
+		return "pageJsonReport";
+	}
+	
+}

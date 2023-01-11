@@ -1,0 +1,16 @@
+package com.example.persistence;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.domain.CalendarVO;
+
+public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> {
+
+	@Query(value="SELECT cal_id, cal_title, cal_start,cal_end "
+			+ "FROM CALENDAR", nativeQuery=true)
+	List<CalendarVO> CalendarSearch();
+	
+}

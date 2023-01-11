@@ -1,8 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
-      <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+      
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Educal – Online Learning and Education HTML5 Template </title>
@@ -27,6 +29,7 @@
       <style>
          @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
          </style>
+      
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -408,10 +411,9 @@
 
                            <form id="selectForm" action=/academy/course-sidebar method="GET">
                               <select name="order">
-                                 <option>--선택--</option>
-                               
+                                 <option >--선택--</option>
                                  <option value="new">최신 등록순</option>
-                          
+                                 <option value="star">별점평균높은순</option>
                               </select>
                            </form>
 
@@ -430,13 +432,14 @@
                               <div class="row">
 
 
-
+                               <!--화면 상세리스트 값들 나오는 부분 -->
                                  <c:forEach items="${academyList}" var="education">
                                     <input type="hidden" value="${education.edDays}" name="edDays">
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="course__item white-bg mb-30 fix">
                                        <div class="course__thumb w-img p-relative fix">
                                           <a href="course-details?edId=${education.edId}">
+                                         
                                              <!--해당 교육과정 관련 이미지 저장 경로 지정-->
                                              <img src="../assets/img/course/${education.ed_pic}" alt="" width='370' height='260' >
                                           </a>
@@ -452,11 +455,19 @@
                                                    <img id="likeBtn" src="https://cdn-icons-png.flaticon.com/512/812/812327.png" alt="찜하기">
                                                 </a><input type="hidden" id="like_check" value="1"></span>
                                              </div>
-                                             <div class="course__rating">
-                                                <!--별점과 값은 평균내서 값 넣음-->
-                                                <span><i class="icon_star"></i>${avg}</span>
-                                             </div>
-                                          </div>
+
+                                                       <!-- 별점출력 부분 값 지정해주기-->
+                                            <c:forEach items="${avg}" var="avg">
+                                             <c:if test="${avg[0] == education.edId}" >
+                                                <div class="course__rating">
+                                                   <span><i class="icon_star"></i>${avg[1]}</span>
+                                                 </div>
+                                             </c:if>
+                                          </c:forEach>
+                                            
+                                         
+
+                                       </div>
                                           <h3 class="course__title"><a href="course-details?edId=${education.edId}">${education.edTitle}</a></h3>
                                           <div class="course__teacher d-flex align-items-center">
                                              <div class="course__teacher-thumb mr-15">
@@ -467,7 +478,7 @@
                                           <div class="course__tag-2 mt-15">
                                              <!--0106 여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
                                            <span><i class="fal fa-tag"></i>
-                                            ${education.ed_keyword}</span>
+                                            ${education.edKeyword}</span>
                                          </div>
                                        </div>
                                        <div class="course__more d-flex justify-content-between align-items-center">
@@ -485,6 +496,7 @@
                                     </div>
                                  </div>
                               </c:forEach>
+                           
                               </div>
                            </div>
                            <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
@@ -513,10 +525,16 @@
                                                             <img id="likeBtn" src="https://cdn-icons-png.flaticon.com/512/812/812327.png" alt="찜하기">
                                                          </a><input type="hidden" id="like_check" value="1"></span>
                                                       </div>
-                                                      <div class="course__rating">
-                                                         <!--별점 평균내서 값 넣음-->
-                                                         <span><i class="icon_star"></i>${avg} (44)</span>
-                                                      </div>
+
+                                          <!-- 별점출력 부분 값 지정해주기-->
+                                                 <c:forEach items="${avg}" var="avg">
+                                                      <c:if test="${avg[0] == education.edId}" >
+                                                         <div class="course__rating">
+                                                            <span><i class="icon_star"></i>${avg[1]}</span>
+                                                         </div>
+                                                      </c:if>
+                                                </c:forEach>
+
                                                    </div>
                                                    <h3 class="course__title">
                                                       <a href="course-details">${education.edTitle}</a>
@@ -530,7 +548,7 @@
                                                    <div class="course__tag-2 mt">
                                                       <!--여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
                                                     <span><i class="fal fa-tag"></i>
-                                                     ${education.ed_keyword}</span>
+                                                     ${education.edKeyword}</span>
                                                   </div>
                                                 </div>
                                                 <div class="course__more course__more-2 course__more-3 d-flex justify-content-between align-items-center">
@@ -886,6 +904,7 @@
       <script src="../assets/js/search.js"></script><!--0103 카테고리 검색용 추가 찬주-->
       <script src="../assets/js/jquerySelectBox.js"></script><!--0104 ~순 추가 제이쿼리-->
       <script src="../assets/js/wishList.js"></script><!--0106 좋아요 버튼 관련 ajax-->
+      <script src="../assets/js/jquery-3.6.3.min.js"></script>
 
   
    </body>

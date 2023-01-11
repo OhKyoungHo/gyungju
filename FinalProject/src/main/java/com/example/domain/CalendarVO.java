@@ -14,12 +14,15 @@ import lombok.Data;
 @Entity
 @Table(name="calendar")
 public class CalendarVO {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer calId;
 	
-	private Date calDate;
-	private String calTime;
+	private Date calStart;
+	private Date calEnd;
+	private String calTitle;
 	private Integer tId;
+
+
 }

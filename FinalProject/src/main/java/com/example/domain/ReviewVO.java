@@ -21,7 +21,7 @@ public class ReviewVO {
    private Integer RId;
    
    @Column(name="m_id")
-   private String MId;
+   private String memId;
    
    
    @Column(name="re_date")

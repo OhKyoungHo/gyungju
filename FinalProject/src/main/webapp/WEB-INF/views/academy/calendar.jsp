@@ -69,6 +69,7 @@
 		            	title : '<%=vo.getCalTitle()%>',
 		                start : '<%=vo.getCalStart()%>',
 		                end : '<%=vo.getCalEnd()%>',
+		                display: 'background',
 		                color : '#' + Math.round(Math.random() * 0xffffff).toString(16)
              		},
 				<% }

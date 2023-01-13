@@ -10,8 +10,7 @@ import com.example.domain.CalendarVO;
 public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> {
 
 	// 달력에 입력된 db값을 List화
-	@Query(value="SELECT cal_id, cal_title, cal_start,cal_end, t_id "
-			+ "FROM CALENDAR", nativeQuery=true)
+	@Query(value="SELECT cal_id, cal_title, cal_start,cal_end, t_id, cal_reserve FROM calendar WHERE cal_reserve = 0;", nativeQuery=true)
 	List<CalendarVO> CalendarSearch();
 	
 }

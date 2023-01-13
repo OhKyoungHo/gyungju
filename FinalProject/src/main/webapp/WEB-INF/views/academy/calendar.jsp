@@ -17,6 +17,10 @@
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
   <!-- fullcalendar 언어 CDN -->
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.min.js'></script>
+  <!-- sweet alert창 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <style>
   /* body 스타일 */
   html, body {
@@ -38,6 +42,9 @@
   <div id='calendar-container'>
     <div id='calendar'></div>
   </div>
+  
+  
+  
   
   <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -66,16 +73,33 @@
             		<% if (calendarList != null) {%>
             		<% for (CalendarVO vo : calendarList) {%>
             		{
+            			id :'<%=vo.getCalId()%>',
 		            	title : '<%=vo.getCalTitle()%>',
 		                start : '<%=vo.getCalStart()%>',
 		                end : '<%=vo.getCalEnd()%>',
-		                display: 'background',
-		                color : '#' + Math.round(Math.random() * 0xffffff).toString(16)
+		                
+		                
              		},
 				<% }
 			} %>
-					]
-				
+					],
+			 eventClick: function(test) {
+			    	Swal.fire({
+						icon: 'success',
+						text: test.event.start.getFullYear()+"년 "+test.event.start.getMonth()+1+"월 "+test.event.start.getDate()+"일 "+test.event.start.getHours()+"시 "+test.event.start.getMinutes()+"분의 강의를 예약하시겠습니까?",
+						showCancelButton: true,
+						focusConfirm: true,
+						confirmButtonText: '예약',
+						cancelButtonText: '취소'
+
+					}).then((result) => {
+						if (result.isConfirmed) {
+							
+						window.location.href="index-2?calId="+test.event.id;
+						}
+					})
+			    
+  			}
 			});
 			calendar.render();
 		});

@@ -1,14 +1,11 @@
 package com.example.service;
 
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
 import com.example.domain.ReviewVO;
@@ -36,9 +33,26 @@ public class ReviewServiceImpl implements ReviewService {
       return avgStar;        
    }
 
+   //@Override
+   //public Page<ReviewVO> a(Pageable paging, String temp_ed_id) {
+      //return reviewRepository.getReviewAndPaging(paging, temp_ed_id);
+   //}
    
 
+      //별점 평균값
+      @Transactional
+      public  List<Object[]> avgStarvc(){
 
+         List<Object[]> avgStarvc = reviewRepository.avgStarvc();
+         return avgStarvc;        
+      }
+
+
+      /*** 관리자 페이지 ***/
+      //리뷰리스트 출력
+      public List<ReviewVO> reviewList(){
+         return (List<ReviewVO>) reviewRepository.findAll();
+      };
 
 
 

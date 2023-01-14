@@ -1,7 +1,7 @@
 
  var locked = 0;
 
-                                       function show(별){
+                                       function show(star){
                                           if(locked)
                                              return;
                                           
@@ -18,7 +18,7 @@
                                              
                                           }
 
-                                          switch (별){
+                                          switch (star){
                                              case 1:
                                                 stateMsg = "1점";
                                                 break;
@@ -41,7 +41,7 @@
 
                                        }
 
-                                       function noshow(별){
+                                       function noshow(star){
                                           if(locked)
                                              return;
                                           var i;
@@ -55,8 +55,8 @@
                                           }
                                        }
 
-                                       function lock(별){
-                                          show(별);
+                                       function lock(star){
+                                          show(star);
                                           locked =1;
                                        }
 
@@ -64,8 +64,8 @@
 
 
 
-                                       function mark(별){
-                                          lock(별);
+                                       function mark(star){
+                                          lock(star);
                                           alert("별점선택"+star);
                                           document.cmtfrm.star.value= star;
                                        }

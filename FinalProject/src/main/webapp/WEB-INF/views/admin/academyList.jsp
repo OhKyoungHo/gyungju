@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +26,26 @@
     <!-- Custom styles for this page -->
     <link href="../admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+        <!-- Custom styles for this template-->
+        <link href="/admin/css/sb-admin-2.css" rel="stylesheet">
+        <style> 
+        a:hover {
+        text-decoration: none;
+    }
+    .admina{
+    
+        font-weight: normal;
+      white-space: nowrap;
+      text-align: left;
+             }
+    .adminb{
+    
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: right;
+         }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -34,111 +54,80 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
                 <div class="sidebar-brand-icon rotate-n-15">
+                    
                 </div>
-                <div class="sidebar-brand-text mx-3"> CODE O'CLOCK Admin</div>
+                <div class="sidebar-brand-text mx-3">CODE O' CLOCK Admin </div>
+            </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-             <!-- 메인페이지로 이동Nav Item - Dashboard -->
-             <li class="nav-item active">
+            <!-- 메인페이지로 이동Nav Item - Dashboard -->
+            <li class="nav-item active">
                 <a class="nav-link" href="index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>User Page</span></a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Interface
             </div>
 
-            <!-- 관리자페이지 메뉴바 Nav Item - Utilities Collapse Menu -->
-<li class="nav-item"><a class="nav-link collapsed" href="admin/itemList.do"
-    data-toggle="collapse" data-target="#collapseOne"
-    aria-expanded="true" aria-controls="collapseOne"> <i
-        class="fas fa-fw fa-cog"></i> <span>학원 관리</span>
+<!-- Nav Item - Utilities Collapse Menu -->
+<li class="nav-item"><a class="nav-link" href="/admin/academyList">
+    <i class="fas  fa-graduation-cap"></i> <span>학원 관리</span>
 </a>
-    <div id="collapseOne" class="collapse"
-        aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="academyList">학원 목록</a> <a
-                class="collapse-item" href="academyRegister">학원 등록</a>
-        </div>
-    </div></li>
-    <li class="nav-item"><a class="nav-link collapsed" href="admin/itemList.do"
-        data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo"> <i
-            class="fas fa-fw fa-cog"></i> <span>강사 관리</span>
+   </li>
+    <li class="nav-item"><a class="nav-link" href="/admin/teacherlist">
+       <i class="fas fa fa-users"></i> <span>강사 관리</span>
     </a>
-        <div id="collapseTwo" class="collapse"
-            aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="admin/itemList.do">강사 목록</a> <a
-                    class="collapse-item" href="admin/itemRegister.do">강사 등록</a>
-            </div>
-        </div></li>
-        <li class="nav-item"><a class="nav-link collapsed" href="admin/itemList.do"
-            data-toggle="collapse" data-target="#collapseThree"
-            aria-expanded="true" aria-controls="collapseThree"> <i
-                class="fas fa-fw fa-cog"></i> <span>강의 관리</span>
+       </li>
+        <li class="nav-item"><a class="nav-link" href="/admin/lecturelist"> 
+            <i class="fa fa-play-circle"></i> <span>강의 관리</span>
         </a>
-            <div id="collapseThree" class="collapse"
-                aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="admin/itemList.do">강의 목록</a> <a
-                        class="collapse-item" href="admin/itemRegister.do">강의 등록</a>
-                </div>
-            </div></li>
+        </li>
 
-            <li class="nav-item"><a class="nav-link" href="admin/member.do">
-                <i class="fas fa-fw fa-table"></i> <span>회원관리</span>
+         <li class="nav-item"><a class="nav-link" href="/admin/memberlist">
+                <i class="fas fa-user"></i> <span>회원관리</span>
         </a></li>    
 
         <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item"><a class="nav-link collapsed" href="admin/faq.do"
+<li class="nav-item"><a class="nav-link collapsed" href=""
     data-toggle="collapse" data-target="#collapseFive"
     aria-expanded="true" aria-controls="collapseFive"> <i
-        class="fas fa-fw fa-cog"></i> <span>게시판관리</span>
+        class="fas fa-file"></i> <span>게시판관리</span>
 </a>
     <div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">홈페이지에 게시된 각종 글 관리</h6>
-            <a class="collapse-item" href="admin/faq.do">FAQ 관리</a> <a
-                class="collapse-item" href="admin/qna.do">QnA 관리</a> <a
-                class="collapse-item" href="admin/notice.do">공지사항 관리</a>
+            <a class="collapse-item" href="">FAQ 관리</a> 
+            <a class="collapse-item" href="">QnA 관리</a> 
+            <a class="collapse-item" href="/admin/announcement_m">공지사항 관리</a>
         </div>
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="admin/itemCharts.do">
-        <i class="fas fa-fw fa-chart-area"></i> <span>결제내역관리</span>
+<li class="nav-item"><a class="nav-link" href="">
+        <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
 </a></li>
 
-<li class="nav-item"><a class="nav-link" href="admin/calCharts.do">
-        <i class="fas fa-fw fa-chart-area"></i> <span>신고관리</span>
+<li class="nav-item"><a class="nav-link" href="">
+        <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
 </a></li>
-
-<!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">Interface</div>
 
 
 <!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="admin/orderList.do">
-        <i class="fas fa-fw fa-table"></i> <span>정산관리</span>
+<li class="nav-item"><a class="nav-link" href="">
+        <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
 
@@ -153,6 +142,7 @@
 
 </ul>
 <!-- End of Sidebar -->
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -163,11 +153,9 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
                     <!-- Topbar Search -->
                     <form
@@ -176,7 +164,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-dark type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
@@ -365,6 +353,7 @@
                 </nav>
                 <!-- End of Topbar -->
 
+              
                 <!-- 목록페이지시작Begin Page Content -->
                 <div class="container-fluid">
 
@@ -372,58 +361,66 @@
                     <h1 class="h3 mb-2 text-gray-800">학원 목록</h1>
                     <p class="mb-4"></p>
 
-                    <!-- 학원 목록 테이블 -->
-                    <div class="card shadow mb-4">
+                 
+                       <!-- 학원 목록 테이블 -->
+                       <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">학원 목록</h6>
+                            <h6 class="m-0 font-weight-bold text-dark">학원 목록</h6>
                         </div>
+                        <div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="100%"   cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>교육과정번호</th>
+                                            <th>번호</th>
                                             <th>교육과정제목</th>
                                             <th>학원이름</th>
                                             <th>수업개강일</th>
                                             <th>수업종강일</th>
                                             <th>카테고리 키워드</th>
+                                            <th>상태</th>
+                                            <th></th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>교육과정번호</th>
+                                            <th>번호</th>
                                             <th>교육과정제목</th>
                                             <th>학원이름</th>
                                             <th>수업개강일</th>
                                             <th>수업종강일</th>
                                             <th>카테고리 키워드</th>
+                                            <th>상태</th>
+                                            <th></th>
+                                            
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <c:forEach var='education' items='${result}'>
                                         <tr>
-                                        	<td>${education.ed_id}</td>
-                                        	<td>${education.edTitle}</td>
-                                        	<td>${education.ed_name}</td>
-                                        	<td><fmt:formatDate value="${education.ed_start_date}" pattern="YYYY.MM.DD" /> </td>
+                                        	<td>${education.edId}</td>
+                                        	<td class="edutd"><a href="/admin/academyRegister?edId=${education.edId}">${education.edTitle}</a></td>
+                                        	<td>${education.edName}</td>
+                                        	<td><fmt:formatDate value="${education.ed_start_date}" pattern="YYYY.MM.DD"/> </td>
                                         	<td><fmt:formatDate value="${education.ed_end_date}" pattern="YYYY.MM.DD" /></td>
-                                            <td>${education.ed_keyword}</td>
+                                            <td>${education.edKeyword}</td>
                                             
-                                        	<!-- <td style="text-align:center;">
+                                        	 <td style="text-align:center;">
                                         	
-												<a href="academyModify?ed_id=${vo.ed_id}"
+												<a href="수정하기"
 												class="btn btn-info btn-circle btn-sm">
 													<i class="fas fa-info-circle" aria-hidden="true"></i>
 												</a>
-											</td>-->
+											</td>
 											<!-- 삭제 버튼 클릭시 클릭한 시퀀스에 해당하는 글 삭제 -->
-											<!--<td style="text-align:center;">
-                                                <a href="deleteAcademy?ed_id=${vo.ed_id}" 
+											<td style="text-align:center;">
+                                                <a href="/admin/deleteAcademy?edId=${education.edId}" 
                                                 	class="btn btn-danger btn-circle btn-sm">
                                                     <i class="fas fa-trash" aria-hidden="true"></i>
                                                 </a>
-                                            </td>-->
+                                            </td>
                                         </tr>
                                         </c:forEach>
                                     </tbody>
@@ -437,15 +434,15 @@
 
             </div>
             <!-- End of Main Content -->
-
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Your Website 2021</span>
                     </div>
                 </div>
             </footer>
+            
             <!-- End of Footer -->
 
         </div>
@@ -473,28 +470,28 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../admin/vendor/jquery/jquery.min.js"></script>
-    <script src="../admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../admin/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../admin/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../admin/js/demo/datatables-demo.js"></script>
+       <!-- Bootstrap core JavaScript-->
+       <script src="/admin/vendor/jquery/jquery.min.js"></script>
+       <script src="/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   
+       <!-- Core plugin JavaScript-->
+       <script src="/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+   
+       <!-- Custom scripts for all pages-->
+       <script src="/admin/js/sb-admin-2.min.js"></script>
+   
+       <!-- Page level plugins -->
+       <script src="/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+       <script src="/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+   
+       <!-- Page level custom scripts -->
+       <script src="/admin/js/demo/datatables-demo.js"></script>
 
 </body>
 

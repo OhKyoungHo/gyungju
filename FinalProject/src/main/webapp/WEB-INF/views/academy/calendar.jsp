@@ -95,7 +95,7 @@
 					}).then((result) => {
 						if (result.isConfirmed) {
 							
-						window.location.href="index-2?calId="+test.event.id;
+						window.location.href="reservation?calId="+test.event.id;
 						}
 					})
 			    

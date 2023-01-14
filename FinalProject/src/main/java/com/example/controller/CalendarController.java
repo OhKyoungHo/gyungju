@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.domain.CalendarVO;
 import com.example.persistence.CalendarRepository;
 
+
 @Controller
 @RequestMapping("/academy")
 public class CalendarController {
@@ -23,6 +24,8 @@ public class CalendarController {
 	//서비스, 서비스임플 단을 통하지않고 바로 레포지토리 단을 통하여 코드실행
 	@Autowired
 	private CalendarRepository calRepo;
+	
+	
 	
 	//DB에 입력된 강사 스케쥴을 달력에 구현하는 과정
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
@@ -41,5 +44,7 @@ public class CalendarController {
 		mv.setViewName(viewpage);
 		return mv;
 	}
+	
+	
 
 }

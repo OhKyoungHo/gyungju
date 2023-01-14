@@ -23,6 +23,8 @@ public class CalendarVO {
 	private Date calEnd;
 	private String calTitle;
 	private Integer tId;
+	
+	private Integer calReserve;
 
 
 }

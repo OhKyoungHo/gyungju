@@ -27,6 +27,12 @@ public class ViewController {
 		return "/lecture/"+step;
 	}
 	
+
+	@RequestMapping("/lecture/teacher/{step}")
+	public String viewTeacher(@PathVariable String step) {
+		return "/lecture/teacher/"+step;
+	}
+	
 	@RequestMapping("/mypage/{step}")
 	public String viewMyPage(@PathVariable String step) {
 		return "/mypage/"+step;

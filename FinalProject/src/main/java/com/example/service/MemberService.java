@@ -29,8 +29,10 @@ public interface MemberService {
 	// 아이디로 회원 정보 찾기
 	public MemberVO findByMemIdString(MemberVO vo);
 
-
 	
+   /*** 관리자 페이지 ***/
+   //회원정보 리스트 출력
+   public List<MemberVO> memberList();
 	
 	
 

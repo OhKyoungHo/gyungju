@@ -157,8 +157,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        <ul class="submenu">
                                           <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                           <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
+                                          <li><a href="/lecture/tutor">선생님</a></li>
+                                          <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
@@ -227,8 +227,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        <ul class="submenu">
                                           <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                           <li><a href="/academy/rank">학원 랭크</a></li>
-                                          <li><a href="/tutor">선생님</a></li>
-                                          <li><a href="/lecture">강의</a></li>
+                                          <li><a href="/lecture/tutor">선생님</a></li>
+                                          <li><a href="/lecture/lecture-sidebar">강의</a></li>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">

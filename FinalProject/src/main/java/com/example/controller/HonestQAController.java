@@ -12,7 +12,7 @@ import com.example.domain.MemberVO;
 import com.example.service.HonestQAService;
 
 @Controller
-@RequestMapping("/academy")
+@RequestMapping("/board")
 public class HonestQAController {
 
 	@Autowired
@@ -22,7 +22,7 @@ public class HonestQAController {
 	@RequestMapping("/insertHQ")
 	public String insertHQ(HonestQuestionVO vo, HttpSession session) {
 		System.out.println(vo);
-		
+			
 		honestQAService.insertHQ(vo);
 		return "redirect:honest-review-list2";
 	}

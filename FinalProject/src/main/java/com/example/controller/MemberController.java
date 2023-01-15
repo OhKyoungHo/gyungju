@@ -27,7 +27,7 @@ public class MemberController {
 	public String insertMember(MemberVO vo) {
 		System.out.println(vo);   //회원가입 할 때 생성되는 vo
 		memberService.insertMember(vo);   
-		return "redirect:index";   
+		return "redirect:academy/index";   
 	}
 
 	//로그인
@@ -40,7 +40,7 @@ public class MemberController {
 		if (!result.isEmpty()) {   //로그인
 			session.setAttribute("memIdInt", vo.getMemIdInt());
 			session.setAttribute("memIdString", vo.getMemIdString());
-			return "redirect:academy/index-2";
+			return "redirect:academy/index";
 		} else {   //로그인 실패
 			return "redirect:sign-in";
 		}
@@ -59,7 +59,7 @@ public class MemberController {
 		System.out.println("###nickname#### : " + userInfo.getMemName());
 		System.out.println("###email#### : " + userInfo.getMemEmail());
 
-		return "redirect:index";	
+		return "redirect:academy/index";	
 	}
 
 	   //로그아웃
@@ -67,7 +67,7 @@ public class MemberController {
    public String logoutMember(HttpSession session) {
       session.removeAttribute("memIdInt");
       session.removeAttribute("memIdString");
-      return "redirect:/academy/index-2";
+      return "redirect:/academy/index";
    }
 
 

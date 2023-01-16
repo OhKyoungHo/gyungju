@@ -197,7 +197,17 @@ public class AdminController {
 	public String lectureList(Model m) {
 		List<LectureVO> list = lectureService.lectureList();
 		m.addAttribute("lectureList", list);
-		return "admin/lecturelist";
+		return "/admin/lecturelist";
+	}
+	
+	//경호
+	//강의 상세정보 보기
+	@RequestMapping("/lectureRegister")
+	public String lectureRegister(Model m, LectureVO vo) {
+		LectureVO result = lectureService.getBoard(vo);
+		System.out.println(result);
+		m.addAttribute("lectureList", result);
+		return "/admin/lectureRegister";
 	}
 
 }

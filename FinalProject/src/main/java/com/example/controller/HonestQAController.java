@@ -22,9 +22,9 @@ public class HonestQAController {
 	@RequestMapping("/insertHQ")
 	public String insertHQ(HonestQuestionVO vo, HttpSession session) {
 		System.out.println(vo);
-			
+		
 		honestQAService.insertHQ(vo);
-		return "redirect:honest-review-list2";
+		return "redirect:/board/honestQuestionList";
 	}
 	
 	// 솔직 질문 목록 띄우기

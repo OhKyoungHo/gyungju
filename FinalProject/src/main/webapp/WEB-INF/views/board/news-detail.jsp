@@ -25,6 +25,7 @@
       <link rel="stylesheet" href="/assets/css/elegantFont.css">
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/css/onoff.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -77,7 +78,7 @@
                                  <a href="course-grid" class="cat-menu d-flex align-items-center">
                                     <div class="cat-dot-icon d-inline-block">
                                      
-                                       <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                     </div>
                                 
@@ -399,8 +400,8 @@
                             <nav aria-label="breadcrumb">
                               <ol class="breadcrumb">
                                  <!-- home을 눌렀을땐 메인페이지, 뉴스를 누를떈 뉴스리스트 페이지로 이동-->
-                                <li class="breadcrumb-item"><a href="index-2">Home</a></li>
-                                <li class="breadcrumb-item"><a href="newsList">뉴스</a></li>
+                                <li class="breadcrumb-item"><a href="/academy/index">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/board/newsList">뉴스</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">뉴스상세페이지</li>
                               </ol>
                             </nav>

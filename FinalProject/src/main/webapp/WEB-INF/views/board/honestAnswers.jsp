@@ -25,6 +25,7 @@
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
       <link rel="stylesheet" href="/assets/css/honest-review.css">
+      <link rel="stylesheet" href="/assets/css/onoff.css">
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -77,7 +78,7 @@
                                  <a href="course-grid" class="cat-menu d-flex align-items-center">
                                     <div class="cat-dot-icon d-inline-block">
                                      
-                                       <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
+                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
 
                                     </div>
                                 
@@ -116,7 +117,7 @@
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
-                                       <a href="honestAnswer">게시판</a>
+                                       <a>게시판</a>
                                        <ul class="submenu">
                                           <li><a href="/board/honestQuestionList">솔직 답변</a></li>
                                           <li><a href="/board/codingBoard">코딩 게시판</a></li>

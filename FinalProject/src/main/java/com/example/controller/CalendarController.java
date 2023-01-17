@@ -47,7 +47,7 @@ public class CalendarController {
 	
 	@RequestMapping("/reservation")
 	public String reservation() {
-		calRepo.reservation();
+		calRepo.reservation(s);
 		return "redirect:calendar";
 	}
 	

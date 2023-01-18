@@ -1,6 +1,8 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ page import="java.util.List"%>
+<%@ page import="com.example.domain.CalendarVO"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
@@ -9,6 +11,8 @@
       <title>Educal – Online Learning and Education HTML5 Template </title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--캘린더-->
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
       <!-- Place favicon.ico in the root directory -->
       <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
       <!-- CSS here -->
@@ -25,6 +29,33 @@
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
       <link rel="stylesheet" href="/assets/css/onoff.css">
+      <!--캘린더-->
+       <!-- jquery CDN -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <!-- fullcalendar CDN -->
+      <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+      <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+      <!-- fullcalendar 언어 CDN -->
+      <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.min.js'></script>
+      <!-- sweet alert창 -->
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+      <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+      <style>
+         /* body 스타일 */
+         html, body {
+           overflow: hidden;
+           font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+           font-size: 15px;
+         }
+         /* 캘린더 위의 해더 스타일(날짜가 있는 부분) */
+         .fc-header-toolbar {
+           padding-top: 1em;
+           padding-left: 1em;
+           padding-right: 1em;
+           
+         }
+       </style>
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -392,15 +423,7 @@
                <img class="page-title-shape-7" src="/assets/img/page-title/page-title-shape-4.png" alt="">
             </div>
             <div class="container">
-
-
-           
-
-
-
-
-               <div class="row">
-                  
+               <div class="row">   
                   <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                      <div class="teacher__details-thumb p-relative w-img pr-30">
                         <img src="/assets/img/course/${tListDetails.tcPic}" alt="" width='340' height='400'>
@@ -408,7 +431,9 @@
                            <img class="teacher-details-shape-1" src="/assets/img/teacher/details/shape/shape-1.png" alt="">
                            <img class="teacher-details-shape-2" src="/assets/img/teacher/details/shape/shape-2.png" alt="">
                         </div>
-                     </div>
+                        <br/>
+                     <button class="e-btn e-btn-4" data-bs-toggle="modal" data-bs-target="#exampleModal" value="${tListDetails.teacherId}">스케쥴</button>
+                     </div> 
                   </div>
                   <div class="col-xxl-8 col-xl-8 col-lg-8">
                      <div class="teacher__wrapper">
@@ -417,22 +442,17 @@
                               <h4>${tListDetails.tcName}</h4> <!--선생 이름 tcName-->
                               <span>Teaches Interior Markater</span>
                            </div>
-                     
                         </div>
                         <div class="teacher__bio">
                            <h3> ${tListDetails.tcSpec} <!--tcSpec--></h3>
                            <p> ${tListDetails.tcIntro} </p> <!-- tcIntro-->
                         </div>
-                  
-
-
                         <div class="teacher__courses pt-55">
                            <div class="section__title-wrapper mb-30">
                               <h2 class="section__title">${tListDetails.tcName}선생님 <span class="yellow-bg yellow-bg-big">  강의목록<img src="/assets/img/shape/yellow-bg.png" alt=""></span></h2>
                            </div>
                            <div class="teacher__course-wrapper">
                               <div class="row">
-
                                  <c:forEach items="${lecture}" var="lecture" > 
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="course__item white-bg mb-30 fix">
@@ -443,8 +463,6 @@
                                          <a href="lecture-details?vcId=${lecture.vcId}">
                                              <img src="/assets/img/course/${lecture.vc_pic}" alt=""> 
                                           </a>
-                                          
-
                                           <div class="course__tag">
                                              <a href="#">${tListDetails.tcName}선생님 / 수업리스트</a>
                                           </div>
@@ -516,6 +534,18 @@
 
 
       </main>
+
+      <!-- modal: HonestQuestion -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <!-- calendar 태그 -->
+               <div id='calendar-container'>
+                  <div id='calendar'></div>
+               </div>
+            </div>
+         </div>
+      </div>
 
          <!-- footer area start -->
          <footer>
@@ -638,6 +668,71 @@
       <script src="/assets/js/wow.min.js"></script>
       <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="/assets/js/main.js"></script>
+      <script>
+         document.addEventListener('DOMContentLoaded', function() {
+           
+            var calendarEl = document.getElementById('calendar');
+
+            
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+               width:'700px',
+               initialView : 'dayGridMonth',
+               locale : 'ko', // 한국어 설정
+               headerToolbar : {
+                  left: 'prev,next today',
+                  center: 'title'	,
+                  end : 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                   },
+                   height: '700px', // calendar 높이 설정
+                   expandRows: true, // 화면에 맞게 높이 재설정
+                   slotMinTime: '08:00', // Day 캘린더에서 시작 시간
+                   slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
+                   navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
+                   nowIndicator: true, // 현재 시간 마크
+                   selectable : true,
+                   droppable : true,
+                eventLimit : true,
+                backgroundColor: '#378006',
+                display: 'background',
+                events : [ 
+                        <% List<CalendarVO> calendarList = (List<CalendarVO>) request.getAttribute("calendarList"); %>
+                           <% if (calendarList != null) {%>
+                              <% for (CalendarVO vo : calendarList) {%>
+                                 {
+                                    id :'<%=vo.getCalId()%>',
+                                    title : '<%=vo.getCalTitle()%>',
+                                    start : '<%=vo.getCalStart()%>',
+                                    end : '<%=vo.getCalEnd()%>',
+                                    
+                                    
+                                 },
+                                 <% }
+                              } %>
+                           ],
+                           eventClick: function(test) {
+                              Swal.fire({
+                                 icon: 'success',
+                                 text: test.event.start.getFullYear()+"년 "+test.event.start.getMonth()+1+"월 "+test.event.start.getDate()+"일 "+test.event.start.getHours()+"시 "+test.event.start.getMinutes()+"분의 강의를 예약하시겠습니까?",
+                                 showCancelButton: true,
+                                 focusConfirm: true,
+                                 confirmButtonText: '예약',
+                                 cancelButtonText: '취소'
+                                 
+                              }).then((result) => {
+                                 if (result.isConfirmed) {
+                                    
+                                    window.location.href="reservation?calId="+test.event.id;
+                                 }
+                              })
+                              
+                           }
+                        });
+                        calendar.render();
+                     });
+                     
+                     
+                     </script>
    </body>
 </html>
 

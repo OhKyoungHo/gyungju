@@ -22,7 +22,7 @@ public class CalendarVO {
 	private Date calStart;
 	private Date calEnd;
 	private String calTitle;
-	private Integer tId;
+	private Integer teacherId;
 	
 	private Integer calReserve;
 

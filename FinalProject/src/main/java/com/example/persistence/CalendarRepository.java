@@ -16,6 +16,6 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 	List<CalendarVO> CalendarSearch();
 	
 	@Query(value="UPDATE calendar SET cal_reserve = 1 WHERE cal_id = ?1", nativeQuery = true)
-	Integer reservation();
+	Integer reservation(String calId);
 	
 }

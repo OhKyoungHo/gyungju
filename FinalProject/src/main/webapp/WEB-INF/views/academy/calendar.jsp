@@ -94,7 +94,7 @@
 
 					}).then((result) => {
 						if (result.isConfirmed) {
-							
+						
 						window.location.href="reservation?calId="+test.event.id;
 						}
 					})

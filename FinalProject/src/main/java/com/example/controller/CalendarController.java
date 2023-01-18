@@ -18,7 +18,7 @@ import com.example.persistence.CalendarRepository;
 
 
 @Controller
-@RequestMapping("/academy")
+@RequestMapping("/lecture")
 public class CalendarController {
 	
 	//서비스, 서비스임플 단을 통하지않고 바로 레포지토리 단을 통하여 코드실행
@@ -26,13 +26,12 @@ public class CalendarController {
 	private CalendarRepository calRepo;
 	
 	
-	
 	//DB에 입력된 강사 스케쥴을 달력에 구현하는 과정
-	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
+	@RequestMapping(value = "/lecture-details", method = RequestMethod.GET)
 	//ModelAndView를 이용하여 구현
 	public ModelAndView getCalendarList(HttpServletRequest request) {
 //		System.out.println("/academy/calendar");
-		String viewpage = "/academy/calendar";
+		String viewpage = "/lecture/lecture-details";
 		List<CalendarVO> calendar = null;
 		try {
 			calendar = calRepo.CalendarSearch();
@@ -45,11 +44,13 @@ public class CalendarController {
 		return mv;
 	}
 	
-	@RequestMapping("/reservation")
-	public String reservation() {
-		calRepo.reservation(s);
-		return "redirect:calendar";
-	}
+//	@RequestMapping("/reservation")
+//	public String reservation(String calId) {
+//		System.out.println("calId:" + calId);
+//
+//		calRepo.reservation(calId);
+//		return "redirect:/lecture-details";
+//	}
 	
 	
 

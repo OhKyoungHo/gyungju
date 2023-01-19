@@ -432,7 +432,7 @@
                            <img class="teacher-details-shape-2" src="/assets/img/teacher/details/shape/shape-2.png" alt="">
                         </div>
                         <br/>
-                     <button class="e-btn e-btn-4" data-bs-toggle="modal" data-bs-target="#exampleModal" value="${tListDetails.teacherId}">스케쥴</button>
+                        <input type="button" value="스케쥴" onclick = 'location.href="calendar?tId=${tListDetails.teacherId}"'/>
                      </div> 
                   </div>
                   <div class="col-xxl-8 col-xl-8 col-lg-8">
@@ -534,18 +534,6 @@
 
 
       </main>
-
-      <!-- modal: HonestQuestion -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <!-- calendar 태그 -->
-               <div id='calendar-container'>
-                  <div id='calendar'></div>
-               </div>
-            </div>
-         </div>
-      </div>
 
          <!-- footer area start -->
          <footer>
@@ -668,71 +656,7 @@
       <script src="/assets/js/wow.min.js"></script>
       <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="/assets/js/main.js"></script>
-      <script>
-         document.addEventListener('DOMContentLoaded', function() {
-           
-            var calendarEl = document.getElementById('calendar');
-
-            
-
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-               width:'700px',
-               initialView : 'dayGridMonth',
-               locale : 'ko', // 한국어 설정
-               headerToolbar : {
-                  left: 'prev,next today',
-                  center: 'title'	,
-                  end : 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-                   },
-                   height: '700px', // calendar 높이 설정
-                   expandRows: true, // 화면에 맞게 높이 재설정
-                   slotMinTime: '08:00', // Day 캘린더에서 시작 시간
-                   slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
-                   navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
-                   nowIndicator: true, // 현재 시간 마크
-                   selectable : true,
-                   droppable : true,
-                eventLimit : true,
-                backgroundColor: '#378006',
-                display: 'background',
-                events : [ 
-                        <% List<CalendarVO> calendarList = (List<CalendarVO>) request.getAttribute("calendarList"); %>
-                           <% if (calendarList != null) {%>
-                              <% for (CalendarVO vo : calendarList) {%>
-                                 {
-                                    id :'<%=vo.getCalId()%>',
-                                    title : '<%=vo.getCalTitle()%>',
-                                    start : '<%=vo.getCalStart()%>',
-                                    end : '<%=vo.getCalEnd()%>',
-                                    
-                                    
-                                 },
-                                 <% }
-                              } %>
-                           ],
-                           eventClick: function(test) {
-                              Swal.fire({
-                                 icon: 'success',
-                                 text: test.event.start.getFullYear()+"년 "+test.event.start.getMonth()+1+"월 "+test.event.start.getDate()+"일 "+test.event.start.getHours()+"시 "+test.event.start.getMinutes()+"분의 강의를 예약하시겠습니까?",
-                                 showCancelButton: true,
-                                 focusConfirm: true,
-                                 confirmButtonText: '예약',
-                                 cancelButtonText: '취소'
-                                 
-                              }).then((result) => {
-                                 if (result.isConfirmed) {
-                                    
-                                    window.location.href="reservation?calId="+test.event.id;
-                                 }
-                              })
-                              
-                           }
-                        });
-                        calendar.render();
-                     });
-                     
-                     
-                     </script>
+      
    </body>
 </html>
 

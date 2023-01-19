@@ -27,11 +27,11 @@ public class CalendarController {
 	
 	
 	//DB에 입력된 강사 스케쥴을 달력에 구현하는 과정
-	@RequestMapping(value = "/lecture-details", method = RequestMethod.GET)
+	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	//ModelAndView를 이용하여 구현
 	public ModelAndView getCalendarList(HttpServletRequest request) {
 //		System.out.println("/academy/calendar");
-		String viewpage = "/lecture/lecture-details";
+		String viewpage = "/lecture/calendar";
 		List<CalendarVO> calendar = null;
 		try {
 			calendar = calRepo.CalendarSearch();
@@ -44,13 +44,13 @@ public class CalendarController {
 		return mv;
 	}
 	
-//	@RequestMapping("/reservation")
-//	public String reservation(String calId) {
-//		System.out.println("calId:" + calId);
-//
-//		calRepo.reservation(calId);
-//		return "redirect:/lecture-details";
-//	}
+	@RequestMapping("/reservation")
+	public String reservation(String calId) {
+		System.out.println("calId:" + calId);
+
+		calRepo.reservation(calId);
+		return "redirect:/lecture-details";
+	}
 	
 	
 

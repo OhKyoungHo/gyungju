@@ -37,9 +37,6 @@ public class LectureController {
 	@Autowired
 	private ReviewRepository reviewRepository;
 	
-	//서비스, 서비스임플 단을 통하지않고 바로 레포지토리 단을 통하여 코드실행
-	@Autowired
-	private CalendarRepository calRepo;
 
 	@GetMapping("/lecture-sidebar")
 	public String getLectureList(Model m, 
@@ -133,14 +130,7 @@ public class LectureController {
 
 		return "lecture/lecture-details";
 	}//end of getBoard
-	
-	@RequestMapping("/reservation")
-	public String reservation(String calId) {
-		System.out.println("calId:" + calId);
 
-		calRepo.reservation(calId);
-		return "redirect:/lecture-details";
-	}
 
 
 }

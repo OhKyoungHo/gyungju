@@ -2,6 +2,7 @@ package com.example.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +23,8 @@ public class CalendarVO {
 	private Date calStart;
 	private Date calEnd;
 	private String calTitle;
+	
+	@Column(name="t_id", nullable=false)
 	private Integer teacherId;
 	
 	private Integer calReserve;

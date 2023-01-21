@@ -432,7 +432,7 @@
                            <img class="teacher-details-shape-2" src="/assets/img/teacher/details/shape/shape-2.png" alt="">
                         </div>
                         <br/>
-                        <input type="button" value="스케쥴" onclick = 'location.href="calendar?tId=${tListDetails.teacherId}"'/>
+                        <input type="button" value="스케쥴" class="e-btn" style= "margin-left: 35%;" onclick = 'location.href="calendar?tId=${tListDetails.teacherId}"'/>
                      </div> 
                   </div>
                   <div class="col-xxl-8 col-xl-8 col-lg-8">

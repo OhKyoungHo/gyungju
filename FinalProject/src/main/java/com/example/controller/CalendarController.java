@@ -49,7 +49,7 @@ public class CalendarController {
 		System.out.println("calId:" + calId);
 
 		calRepo.reservation(calId);
-		return "redirect:/lecture/index";
+		return "redirect:/lecture/tutor";
 	}
 	
 	

@@ -22,6 +22,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
   <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <style>
+  /*Calendar api에 css */
   /* body 스타일 */
   html, body {
     overflow: hidden;
@@ -39,23 +40,27 @@
 </head>
 <body style="padding:30px;">
   <!-- calendar 태그 -->
+  <!-- calendar 호출 -->
   <div id='calendar-container'>
     <div id='calendar'></div>
   </div>
   
   
   
-  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
   <script>
+  //calendar
   document.addEventListener('DOMContentLoaded', function() {
+  	//calendar 호출
 	var calendarEl = document.getElementById('calendar');
 	var calendar = new FullCalendar.Calendar(calendarEl, {
-		initialView : 'dayGridMonth',
+		initialView : 'dayGridMonth', //시작부분 월 기준으로 설정
 		locale : 'ko', // 한국어 설정
 		headerToolbar : {
-        	left: 'prev,next today',
-            center: 'title'	,
-            end : 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        	left: 'prev,next today', //왼쪽부분에 이전달, 다음달, 오늘 설정
+            center: 'title'	,		 // 가운데에 title 설정
+            end : 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'	// 오른쪽부분에 나올것 설정
             },
             height: '700px', // calendar 높이 설정
         	expandRows: true, // 화면에 맞게 높이 재설정
@@ -63,11 +68,11 @@
         	slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
         	navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
         	nowIndicator: true, // 현재 시간 마크
-			selectable : true,
-			droppable : true,
-			eventLimit : true,
+			selectable : true, // 선택가능 서렂ㅇ
+			droppable : true,  
+			eventLimit : true, 
 			backgroundColor: '#378006',
-			display: 'background',
+			display: 'background', 
 			events : [ 
   					<% List<CalendarVO> calendarList = (List<CalendarVO>) request.getAttribute("calendarList"); %>
             		<% if (calendarList != null) {%>
@@ -82,27 +87,59 @@
              		},
 				<% }
 			} %>
-					],
+					], // 달력에 나오는 일정들 db통해 설정
 			 eventClick: function(test) {
 			    	Swal.fire({
 						icon: 'success',
 						text: test.event.start.getFullYear()+"년 "+test.event.start.getMonth()+1+"월 "+test.event.start.getDate()+"일 "+test.event.start.getHours()+"시 "+test.event.start.getMinutes()+"분의 강의를 예약하시겠습니까?",
 						showCancelButton: true,
 						focusConfirm: true,
-						confirmButtonText: '예약',
+						confirmButtonText: '결제',
 						cancelButtonText: '취소'
 
 					}).then((result) => {
 						if (result.isConfirmed) {
-						
+						check();
 						window.location.href="reservation?calId="+test.event.id;
 						}
 					})
 			    
-  			}
+  			} // 이벤트 클릭시에 스윗알럿창 띄우고 컨트롤을 통해 예약설정
 			});
 			calendar.render();
 		});
+		
+		var check = function() {
+  		//class가 btn_payment인 태그를 선택했을 때 작동한다.
+	
+	  	IMP.init("imp58188004");
+	  	//결제시 전달되는 정보
+		 IMP.request_pay({
+			    pg: "html5_inicis",
+			    pay_method: "card",
+			    //merchant_uid: "결제 번호",
+			    name: "아이리버 무선 마우스 외 1개",
+			    amount: 10000,
+			    buyer_email: "이메일@gmail.com",
+			    buyer_name: "홍길동",
+			    buyer_tel: "010-4242-4242",
+			    buyer_addr: "서울특별시 강남구 신사동",
+			    buyer_postcode: "01181",
+					m_redirect_url : "/"
+					
+			  }, function (rsp) { // callback
+							if (rsp.success) {
+			           alert('결제가 성공했습니다.');
+			
+			            // 결제 성공 로직
+			
+			        } else {
+			            alert('결제에 실패했습니다.');
+			
+			            // 결제 실패 로직
+			        }
+			   });
+			}
   
 
 </script>

@@ -44,11 +44,11 @@ public class CalendarController {
 		return mv;
 	}
 	
+	//스윗알럿에 뜬 예약확인창에 예약버튼을 눌를경우 실행
 	@RequestMapping("/reservation")
 	public String reservation(Integer calId) {
-		System.out.println("calId:" + calId);
-
 		calRepo.reservation(calId);
+		// 추후에 마이페이지로 리턴값수정해야함
 		return "redirect:/lecture/tutor";
 	}
 	

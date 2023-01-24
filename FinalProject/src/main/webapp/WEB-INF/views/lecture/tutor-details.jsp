@@ -432,6 +432,7 @@
                            <img class="teacher-details-shape-2" src="/assets/img/teacher/details/shape/shape-2.png" alt="">
                         </div>
                         <br/>
+                        <!-- 스케쥴 버튼(각 선생님의 일정을 가지고 calendar페이지로 이동)-->
                         <input type="button" value="스케쥴" class="e-btn" style= "margin-left: 35%;" onclick = 'location.href="calendar?tId=${tListDetails.teacherId}"'/>
                      </div> 
                   </div>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.domain.EducationVO;
+import com.example.domain.TeacherVO;
 import com.example.persistence.EducationRepository;
 
 @Service
@@ -39,4 +40,26 @@ public class EducationServiceImpl implements EducationService {
    public void deleteAcademy(EducationVO vo) {
     eduRepo.deleteById(vo.getEdId());
    };
+   
+   
+   
+   //찬주
+   //교육과정등록
+   public void insertEducation(EducationVO vo) {
+	   eduRepo.save(vo);
+   }
+   
+   
+
+	//찬주 국비/부트 가져오기
+	public List<EducationVO> AllEducation(){
+		return (List<EducationVO>) eduRepo.findAll();
+	}
+   
+	//국비/부트에서 승인여부 0 1주기 위함
+	public void updateEducation(EducationVO evo) {
+		
+		eduRepo.save(evo);
+	}
+ 
 }

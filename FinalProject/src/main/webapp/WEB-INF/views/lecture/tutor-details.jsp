@@ -1,8 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<%@ page import="java.util.List"%>
-<%@ page import="com.example.domain.CalendarVO"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
    <head>
@@ -11,8 +9,6 @@
       <title>Educal – Online Learning and Education HTML5 Template </title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!--캘린더-->
-      <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
       <!-- Place favicon.ico in the root directory -->
       <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
       <!-- CSS here -->
@@ -29,33 +25,6 @@
       <link rel="stylesheet" href="/assets/css/default.css">
       <link rel="stylesheet" href="/assets/css/style.css">
       <link rel="stylesheet" href="/assets/css/onoff.css">
-      <!--캘린더-->
-       <!-- jquery CDN -->
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <!-- fullcalendar CDN -->
-      <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
-      <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
-      <!-- fullcalendar 언어 CDN -->
-      <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.min.js'></script>
-      <!-- sweet alert창 -->
-      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-      <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
-      <style>
-         /* body 스타일 */
-         html, body {
-           overflow: hidden;
-           font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-           font-size: 15px;
-         }
-         /* 캘린더 위의 해더 스타일(날짜가 있는 부분) */
-         .fc-header-toolbar {
-           padding-top: 1em;
-           padding-left: 1em;
-           padding-right: 1em;
-           
-         }
-       </style>
    </head>
    <body>
       <!--[if lte IE 9]>
@@ -260,7 +229,7 @@
                               </div>
                            </div>
                            <div class="header__btn ml-20 d-none d-sm-block">
-                              <a href="logoutMember" class="e-btn">로그아웃</a>
+                              <a href="/logoutMember" class="e-btn">로그아웃</a>
                            </div>
                            <div class="sidebar__menu d-xl-none">
                               <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
@@ -423,7 +392,15 @@
                <img class="page-title-shape-7" src="/assets/img/page-title/page-title-shape-4.png" alt="">
             </div>
             <div class="container">
-               <div class="row">   
+
+
+           
+
+
+
+
+               <div class="row">
+                  
                   <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                      <div class="teacher__details-thumb p-relative w-img pr-30">
                         <img src="/assets/img/course/${tListDetails.tcPic}" alt="" width='340' height='400'>
@@ -431,10 +408,7 @@
                            <img class="teacher-details-shape-1" src="/assets/img/teacher/details/shape/shape-1.png" alt="">
                            <img class="teacher-details-shape-2" src="/assets/img/teacher/details/shape/shape-2.png" alt="">
                         </div>
-                        <br/>
-                        <!-- 스케쥴 버튼(각 선생님의 일정을 가지고 calendar페이지로 이동)-->
-                        <input type="button" value="스케쥴" class="e-btn" style= "margin-left: 35%;" onclick = 'location.href="calendar?tId=${tListDetails.teacherId}"'/>
-                     </div> 
+                     </div>
                   </div>
                   <div class="col-xxl-8 col-xl-8 col-lg-8">
                      <div class="teacher__wrapper">
@@ -442,28 +416,38 @@
                            <div class="teacher__info">
                               <h4>${tListDetails.tcName}</h4> <!--선생 이름 tcName-->
                               <span>Teaches Interior Markater</span>
+                              <!-- 스케쥴 버튼(각 선생님의 일정을 가지고 calendar페이지로 이동)-->
+                              <input type="button" value="스케쥴" class="e-btn" style= "margin-left: 35%;" onclick = 'location.href="calendar?tId=${tListDetails.teacherId}"'/>
                            </div>
+                     
                         </div>
                         <div class="teacher__bio">
                            <h3> ${tListDetails.tcSpec} <!--tcSpec--></h3>
                            <p> ${tListDetails.tcIntro} </p> <!-- tcIntro-->
+                           
                         </div>
+                  
+
+
                         <div class="teacher__courses pt-55">
                            <div class="section__title-wrapper mb-30">
                               <h2 class="section__title">${tListDetails.tcName}선생님 <span class="yellow-bg yellow-bg-big">  강의목록<img src="/assets/img/shape/yellow-bg.png" alt=""></span></h2>
                            </div>
                            <div class="teacher__course-wrapper">
                               <div class="row">
+
                                  <c:forEach items="${lecture}" var="lecture" > 
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="course__item white-bg mb-30 fix">
                                        <div class="course__thumb w-img p-relative fix">
-                                          <!--그 선생님의 수업으로 넘어갈 수 있게-->
+                                           <!--그 선생님의 수업으로 넘어갈 수 있게-->
                                          <!--order=${param.order}--> 
                                     
                                          <a href="lecture-details?vcId=${lecture.vcId}">
-                                             <img src="/assets/img/course/${lecture.vc_pic}" alt=""> 
-                                          </a>
+                                          <img src="/assets/img/lecture/${lecture.vc_pic}" alt=""> 
+                                       </a>
+                                          
+
                                           <div class="course__tag">
                                              <a href="#">${tListDetails.tcName}선생님 / 수업리스트</a>
                                           </div>
@@ -488,7 +472,7 @@
                                              <span>Free</span>
                                           </div>
                                           <div class="course__btn">
-                                             <a href="course-details" class="link-btn">
+                                             <a href="lecture-details?vcId=${lecture.vcId}" class="link-btn">
                                                 Know Details
                                                 <i class="far fa-arrow-right"></i>
                                                 <i class="far fa-arrow-right"></i>
@@ -657,7 +641,5 @@
       <script src="/assets/js/wow.min.js"></script>
       <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="/assets/js/main.js"></script>
-      
    </body>
 </html>
-

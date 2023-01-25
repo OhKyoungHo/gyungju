@@ -272,76 +272,61 @@
                <div class="cartmini__close">
                   <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
                </div>
-               <div class="cartmini__widget">
-                  <div class="cartmini__inner">
+               <div class="cartmini__widget ">
+                  <div class="cartmini__inner" style="overflow-x:hidden;">
                      <ul>
+                        <c:forEach items="${jjimList}" var="wish">
                         <li>
                            <div class="cartmini__thumb">
                               <a href="#">
-                                 <img src="/assets/img/course/sm/cart-1.jpg" alt="">
+                                 <img src="/assets/img/lecture/${wish[3]}" alt="">
                               </a>
                            </div>
                            <div class="cartmini__content">
-                              <h5><a href="#">Strategy law and organization Foundation </a></h5>
+                              <h5><a href="#">${wish[0]} </a></h5>
                               <div class="product-quantity mt-10 mb-10">
-                                 <span class="cart-minus">-</span>
-                                 <input class="cart-input" type="text" value="1" />
-                                 <span class="cart-plus">+</span>
                               </div>
                               <div class="product__sm-price-wrapper">
-                                 <span class="product__sm-price">$46.00</span>
+                                 <span class="product__sm-price">${wish[3]}</span>
                               </div>
                            </div>
-                           <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
+                           <a href="/mypage/deleteJjim?memIdInt=${wish[2]}&jjId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
                         </li>
-                        <li>
-                           <div class="cartmini__thumb">
-                              <a href="#">
-                                 <img src="/assets/img/course/sm/cart-2.jpg" alt="">
-                              </a>
-                           </div>
-                           <div class="cartmini__content">
-                              <h5><a href="#">Fundamentals of music theory Learn new</a></h5>
-                              <div class="product-quantity mt-10 mb-10">
-                                 <span class="cart-minus">-</span>
-                                 <input class="cart-input" type="text" value="1" />
-                                 <span class="cart-plus">+</span>
-                              </div>
-                              <div class="product__sm-price-wrapper">
-                                 <span class="product__sm-price">$32.00</span>
-                              </div>
-                           </div>
-                           <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
-                        </li>
-                        <li>
-                           <div class="cartmini__thumb">
-                              <a href="#">
-                                 <img src="/assets/img/course/sm/cart-3.jpg" alt="">
-                              </a>
-                           </div>
-                           <div class="cartmini__content">
-                              <h5><a href="#">Strategy law and organization Foundation </a></h5>
-                              <div class="product-quantity mt-10 mb-10">
-                                 <span class="cart-minus">-</span>
-                                 <input class="cart-input" type="text" value="1" />
-                                 <span class="cart-plus">+</span>
-                              </div>
-                              <div class="product__sm-price-wrapper">
-                                 <span class="product__sm-price">$62.00</span>
-                              </div>
-                           </div>
-                           <a href="#" class="cartmini__del"><i class="fal fa-times"></i></a>
-                        </li>
+                        </c:forEach>
                      </ul>
                   </div>
                   <div class="cartmini__checkout">
-                     <div class="cartmini__checkout-title mb-30">
-                        <h4>Subtotal:</h4>
-                        <span>$113.00</span>
-                     </div>
+        
                      <div class="cartmini__checkout-btn">
-                        <a href="wishlist" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
-                        <a href="" class="e-btn w-100"> <span></span> checkout</a>
+                        <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
+                     </div>
+                  </div>
+                  <div class="cartmini__inner ">
+                     <ul>
+                        <c:forEach items="${wishList}" var="wish">
+                        <li>
+                           <div class="cartmini__thumb">
+                              <a href="#">
+                                 <img src="/assets/img/course/${wish[4]}" alt="">
+                              </a>
+                           </div>
+                           <div class="cartmini__content">
+                              <h5><a href="#">${wish[0]} </a></h5>
+                              <div class="product-quantity mt-10 mb-10">
+                              </div>
+                              <div class="product__sm-price-wrapper">
+                                 <span class="product__sm-price">${wish[3]}</span>
+                              </div>
+                           </div>
+                           <a href="/mypage/deleteWish?memIdInt=${wish[2]}&wId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
+                        </li>
+                        </c:forEach>
+                     </ul>
+                  </div>
+                  <div class="cartmini__checkout">
+        
+                     <div class="cartmini__checkout-btn">
+                        <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
                      </div>
                   </div>
                </div>
@@ -548,6 +533,10 @@
                         <div class="section__title-wrapper section-padding mb-60 text-center">
                            <span>memIdInt : ${sessionScope.memIdInt}</span> <br/>
                            <span>memIdString : ${sessionScope.memIdString}</span>
+
+                           <!-- 채팅방연동할라고 찬주가 추가해놓은 히든값-->
+                           <input id="memberId" type="hidden" value="${sessionScope.memIdString}"> 
+                           
                            <h2 class="section__title"><span class="yellow-bg">2023년 1월 <img
                                     src="/assets/img/shape/yellow-bg-2.png" alt=""></span> 부트캠프 랭킹</h2>
                            <!--<p>You don't have to struggle alone, you've got our assistance and help.</p>-->

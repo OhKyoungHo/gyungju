@@ -17,17 +17,24 @@ import lombok.Data;
 public class CalendarVO {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer calId;
 	
 	private Date calStart;
 	private Date calEnd;
 	private String calTitle;
 	
-	@Column(name="t_id", nullable=false)
+	@Column(name="t_id")
 	private Integer teacherId;
 	
 	private Integer calReserve;
+	
+	private Integer vcId;
+	
+	@Column(name="m_idint")
+	private Integer memIdInt;
+	
+	private String roomId;
 
 
 }

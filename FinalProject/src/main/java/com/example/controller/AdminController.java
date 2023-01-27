@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.AnnouncementVO;
+import com.example.domain.CalendarVO;
 import com.example.domain.EducationVO;
 import com.example.domain.LectureVO;
 import com.example.domain.MemberVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.TeacherVO;
+import com.example.persistence.CalendarRepository;
 import com.example.persistence.EducationRepository;
 import com.example.persistence.TeacherRepository;
 import com.example.service.AnnouncementService;
@@ -51,6 +53,9 @@ public class AdminController {
 	
 	@Autowired
 	private MemberService memService;
+	
+	@Autowired
+	private CalendarRepository calRepo;
 
 	//경호
    //학원등록 페이지로 이동
@@ -255,5 +260,12 @@ public class AdminController {
 		m.addAttribute("lectureList", result);
 		return "/admin/lectureRegister";
 	}
-
+	
+//	//경주
+//	//결제내역 보기
+//	@RequestMapping("/checkout")
+//	public String checkout(CalendarVO vo) {
+//		calRepo
+//		return "/admin/checkout";
+//	}
 }

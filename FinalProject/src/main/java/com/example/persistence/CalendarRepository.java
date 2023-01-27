@@ -35,4 +35,8 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 			+ "WHERE c.m_idint =?1", nativeQuery=true)
 	List<Map<String, Object>> MemberCalendarSearch(Integer memIdInt);
 	
+//	//관리자모드에서 결제내역 출력
+//	@Query(value="")
+//	List<CalendarVO> CheckoutInfom();
+	
 }

@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	locale : 'ko', // 한국어 설정
 	headerToolbar : {
 		 left: 'prev,next today', //왼쪽부분에 이전달, 다음달, 오늘 설정
-		  center: 'title'   ,       // 가운데에 title 설정
+		  center: 'title',       // 가운데에 title 설정
 		  end : 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'   // 오른쪽부분에 나올것 설정
 		  },
 		  height: '700px', // calendar 높이 설정
@@ -74,9 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		 nowIndicator: true, // 현재 시간 마크
 	   	 selectable : true, // 선택가능 서렂ㅇ
 	   	 droppable : true,  
-	   	 eventLimit : true, 
-	   	 backgroundColor: '#378006',
-	   	 display: 'background', 
+	   	 //eventLimit : true, 
+	   	 //backgroundColor: '#378006',
+	   	 //display: 'background', 
 	   	 events : [ 
 				   <% List<CalendarVO> calendarList = (List<CalendarVO>) request.getAttribute("calendarList"); %>
 					<% if (calendarList != null) {%>
@@ -84,10 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
 					{
 					   id :'<%=vo.getCalId()%>',
 					   title : '<%=vo.getCalTitle()%>',
-						start : '<%=vo.getCalStart()%>',
-						end : '<%=vo.getCalEnd()%>',
-						
-						
+					   start : '<%=vo.getCalStart()%>',
+					   end : '<%=vo.getCalEnd()%>'
 					 },
 			  <% }
 		   } %>
@@ -103,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			 }).then((result) => {
 				if (result.isConfirmed) {
-				   //alert("1>"+test.event.id);
 				   x(test.event.id, test.event.title, test.event.start, test.event.end);
 				   //window.location.href="reservation?calId="+test.event.id;
 				}
@@ -119,23 +116,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	
 	var x = function(test_id, test_title, test_start, test_end){
-	  
-		  //alert("2>"+test_id);
-
-
+	
+		//alert( Math.trunc((Number(test_end) - Number(test_start))/1000/60/60) );
 		  IMP.request_pay({
 			 pg : 'html5_inicis',
 			 pay_method : 'card', //생략 가능
 			 merchant_uid: "CODE_O_CLOCK"+ new Date().getTime(), // 상점에서 관리하는 주문 번호 
 			 name : test_title, // 상품이름 및 갯수
-			 amount : ((test_end)-(test_start))*10000, //결제 금액 
+			 amount : Math.trunc((Number(test_end) - Number(test_start))/1000/60/60)*10000, //결제 금액 
 			 buyer_email : 'support@kosmo.com', 
-			 buyer_name : '최기태', 
+			 buyer_name : 'JBK', 
 			 buyer_tel : '+00 111 222 3333',
 			 buyer_addr : 'Seoul, Geumcheon-gu, Gasan digital 2-ro, 123 building2) 4th-floor (suite.413) World Meridian',
 			 buyer_postcode : '123-456'
 		  }, function(rsp) { 
-			 console.log(rsp);
 			 if ( rsp.success ) {
 			 var msg = '결제가 완료되었습니다.';
 			 msg += '고유ID : ' + rsp.imp_uid;

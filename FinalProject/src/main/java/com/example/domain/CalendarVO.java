@@ -1,6 +1,7 @@
 package com.example.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,6 +36,12 @@ public class CalendarVO {
 	private Integer memIdInt;
 	
 	private String roomId;
+	
+	private Date checkoutDate;
+	
+	private String checkoutName;	
+	
+	private Integer price;
 
 
 }

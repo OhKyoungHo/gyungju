@@ -116,18 +116,8 @@
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="">
+<li class="nav-item"><a class="nav-link" href="/admin/checkout">
         <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
-</a></li>
-
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
-</a></li>
-
-
-<!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
 
@@ -226,7 +216,7 @@
                                             
                                             <c:if test = "${academyRegister.edId != null}">
                                             <td class="iValue" id="addImg"  colspan="2">
-                                                <img src="../assets/img/course/${academyRegister.edPic}" alt="" width='300' height='300' ></td>
+                                                <img src="/assets/img/course/${academyRegister.edPic}" alt="" width='300' height='300' ></td>
                                                 <input type="hidden" name="edPic" value="${academyRegister.edPic}">
                                             </c:if>  
 
@@ -334,6 +324,6 @@
    <!-- Page level custom scripts -->
    <script src="../admin/js/demo/chart-area-demo.js"></script>
    <script src="../admin/js/demo/chart-pie-demo.js"></script>
-   <script src="../assets/js/alljs.js"></script>
+   <script src="/assets/js/alljs.js"></script>
 
 </body>

@@ -261,11 +261,13 @@ public class AdminController {
 		return "/admin/lectureRegister";
 	}
 	
-//	//경주
-//	//결제내역 보기
-//	@RequestMapping("/checkout")
-//	public String checkout(CalendarVO vo) {
-//		calRepo
-//		return "/admin/checkout";
-//	}
+	//경주
+	//결제내역 보기
+	@RequestMapping("/checkout")
+	public String checkout(Model m, CalendarVO vo) {
+		List<CalendarVO> list = calRepo.CheckoutInfom(vo);
+		m.addAttribute("checkoutList",list);
+		return "/admin/checkout";
+	}
+
 }

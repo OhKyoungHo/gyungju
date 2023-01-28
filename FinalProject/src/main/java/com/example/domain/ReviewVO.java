@@ -19,7 +19,7 @@ public class ReviewVO {										//리뷰
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name="re_id")
-   private Integer ReId;									//리뷰번호
+   private Integer reId;									//리뷰번호
    
    @Column(name="m_idint")
    private Integer memIdInt;								//회원아이디
@@ -36,7 +36,8 @@ public class ReviewVO {										//리뷰
    @Column(name="re_content")
    private String reContent; 								//리뷰작성글
    
-   private Integer vc_id;									//화상수업번호
+   @Column(name="vc_id")
+   private Integer vcId;									//화상수업번호
    
    @Column(name="ed_id")
    private Integer edId;									//교육과정번호

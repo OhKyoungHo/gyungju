@@ -116,18 +116,8 @@
     </div></li>    
            
 <!-- Nav Item - Charts -->
-<li class="nav-item"><a class="nav-link" href="">
+<li class="nav-item"><a class="nav-link" href="/admin/checkout">
         <i class="fas fa-credit-card"></i> <span>결제내역관리</span>
-</a></li>
-
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-exclamation-triangle"></i> <span>신고관리</span>
-</a></li>
-
-
-<!-- Nav Item - Tables -->
-<li class="nav-item"><a class="nav-link" href="">
-        <i class="fas fa-calculator"></i> <span>정산관리</span>
 </a></li>
 
 
@@ -191,37 +181,30 @@
                                                 cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th>결제일</th>
-                                                        <th>결제 내용</th>
+                                                        <th>예약 번호</th>
                                                         <th>결제자</th>
+                                                        <th>결제 내용</th>
                                                         <th>결제금액</th>
+                                                        <th>결제일</th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>결제일</th>
-                                                        <th>결제 내용</th>
+                                                        <th>예약 번호</th>
                                                         <th>결제자</th>
+                                                        <th>결제 내용</th>
                                                         <th>결제금액</th>
+                                                        <th>결제일</th>
                                                     </tr>
                                                 </tfoot>
                                                 <tbody>
-                                                    <c:forEach items='${result}' var='anno' >
+                                                    <c:forEach items='${checkoutList}' var='checkout' >
                                                         <tr>
-                                                            <td>${anno.anId}</td>
-                                                            <td>${anno.anTitle}</td>
-                                                            <td><fmt:formatDate value="${anno.anDate}"
-                                                                pattern="YYYY.MM.DD" /></td>
-                                                            <td style="text-align: center;"><a
-                                                                    href="announcementModify?anId=${anno.anId}"
-                                                                    class="btn btn-info btn-circle btn-sm"> <i
-                                                                        class="fas fa-info-circle"></i>
-                                                                </a></td>
-                                                            <td style="text-align: center;"><a
-                                                                    href="announcementDelete?anId=${anno.anId}"
-                                                                    class="btn btn-danger btn-circle btn-sm"> <i
-                                                                        class="fas fa-trash"></i>
-                                                                </a></td>
+                                                            <td>${checkout.calId}</td>
+                                                            <td>${checkout.checkoutName}</td>
+                                                            <td>${checkout.calTitle}</td>
+                                                            <td>${checkout.price}</td>
+                                                            <td><fmt:formatDate value="${checkout.checkoutDate}" pattern="YYYY.MM.DD" /></td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>

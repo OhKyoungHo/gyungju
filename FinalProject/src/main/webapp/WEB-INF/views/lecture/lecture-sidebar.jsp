@@ -472,8 +472,8 @@
                                              <img src="/assets/img/lecture/${lecture.vc_pic}" alt="" width='370' height='260' >
                                           </a>
                                           <div class="course__tag">
-                                             <!-- 국비/ 부트캠프 인지-->
-                                             <a href="#">국비 or 부트캠프</a>
+                                             <!-- 화상-->
+                                             <a href="#">화상 교육</a>
                                           </div>
                                        </div>
                                        <div class="course__content">
@@ -499,9 +499,9 @@
                                           <h3 class="course__title"><a href="lecture-details?vcId=${lecture.vcId}">${lecture.vcTitle}</a></h3>
                                           <div class="course__teacher d-flex align-items-center">
                                              <div class="course__teacher-thumb mr-15">
-                                                <img src="/assets/img/course/charity.png" alt="">
+                                                <img src="/assets/img/teacher/${lecture.teacherPic}" alt="">
                                              </div>
-                                             <h6><a href="instructor-details">선생님이름</a></h6>
+                                             <h6><a href="/lecture/tutor?keywords=${lecture.teacherName}">${lecture.teacherName}T</a></h6>
                                           </div>
                                           <div class="course__tag-2 mt-15">
                                              <!--0106 여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
@@ -565,13 +565,13 @@
 
                                                    </div>
                                                    <h3 class="course__title">
-                                                      <a href="lecture-details">${lecture.vcTitle}</a>
+                                                      <a href="lecture-details?vcId=${lecture.vcId}">${lecture.vcTitle}</a>
                                                    </h3>
                                                    <div class="course__teacher d-flex align-items-center">
                                                       <div class="course__teacher-thumb mr-15">
                                                          <img src="/assets/img/course/charity.png" alt="">
                                                       </div>
-                                                      <h6><a href="instructor-details">선생님이름</a></h6>
+                                                      <h6><a href="lecture-details?vcId=${lecture.vcId}">선생님이름</a></h6>
                                                    </div>
                                                    <div class="course__tag-2 mt">
                                                       <!--여기에 해당하는 키워드(값들 꺼내서)들 넣기-->
@@ -584,7 +584,7 @@
                                                       <span></span>
                                                    </div>
                                                    <div class="course__btn">
-                                                      <a href="lecture-details" class="link-btn">
+                                                      <a href="lecture-details?vcId=${lecture.vcId}" class="link-btn">
                                                          상세보기
                                                          <i class="far fa-arrow-right"></i>
                                                          <i class="far fa-arrow-right"></i>
@@ -683,7 +683,7 @@
                      <div class="course__sidebar pl-70">
                         <div class="course__sidebar-widget grey-bg">
                            <div class="course__sidebar-info">
-                              <h3 class="course__sidebar-title">All Curriculum</h3>
+                              <h3 class="course__sidebar-title">화상 Keywords</h3>
 
 
 
@@ -695,21 +695,31 @@
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
                                        <input class="m-check-input" type="checkbox" 
                                              id="m-all" name ="keywords" value="JAVA"  onclick='checkOnlyOne(this)'>
-                                       <label class="m-check-label" for="m-eng">JAVA</label>
+                                       <label class="m-check-label" for="m-eng">JAVA / 자바</label>
                                     </div>
                                  </li>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
                                        <input class="m-check-input" type="checkbox" 
                                           id="m-all" name ="keywords" value="Python"  onclick='checkOnlyOne(this)'>
-                                       <label class="m-check-label" for="m-eng">Python</label>
+                                       <label class="m-check-label" for="m-eng">Python / 파이썬</label>
                                     </div>
                                  </li>
                                  <li>
                                     <div class="course__sidebar-check mb-10 d-flex align-items-center">
                                        <input class="m-check-input" type="checkbox" 
                                           id="m-all" name ="keywords"  value="JavaScript" onclick='checkOnlyOne(this)'>
-                                       <label class="m-check-label" for="m-eng">JavaScript</label>
+                                       <label class="m-check-label" for="m-eng">JavaScript / 자바스크립트</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                     
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                      <h5><추가 과목></h5> 
                                     </div>
                                  </li>
                                  <li>
@@ -761,16 +771,103 @@
                                        <label class="m-check-label" for="m-eng">딥러닝</label>
                                     </div>
                                  </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                     
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                      <h5><요즘 추세></h5> 
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="MVP" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">MVP</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="UI" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">UI</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="React " onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">React </label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="Node" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">Node</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="자연어처리" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">자연어처리</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="데이터 분석" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">데이터 분석</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="그로프로세스" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">그로프로세스</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="아이데이션" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">아이데이션</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="알고리즘" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">알고리즘</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords" value="시각화" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">시각화</label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="course__sidebar-check mb-10 d-flex align-items-center">
+                                       <input class="m-check-input" type="checkbox"
+                                           id="m-all" name ="keywords"  value="기초통계" onclick='checkOnlyOne(this)'>
+                                       <label class="m-check-label" for="m-eng">기초통계</label>
+                                    </div>
+                                 </li>
                               </ul>
-                          
                            </div>
                         </div>
                         <!--카테고리 선택후 전송버튼-->
                         <div class="course__sidebar-widget grey-bg">
                            <div class="course__sidebar-course">
                               <h5 class="course__sidebar-title">키워드별 검색</h5>
-                                 <input type="submit" value="검색" onclick='sub(this)'>
-                                 <button></button>  
+                              <button >
+                                 <input type="submit"  id = "sBtn" class="e-btn" value="검색" onclick='sub(this)'>
+                                </button>  
                            </div>
                         </div>
                      </form>
@@ -783,76 +880,41 @@
          </section>
          <!-- course area end -->
 
-         <!-- cta area start -->
-         <section class="cta__area mb--120">
-            <div class="container">
-               <div class="cta__inner blue-bg fix">
-                  <div class="cta__shape">
-                     <img src="/assets/img/cta/cta-shape.png" alt="">
-                  </div>
-                  <div class="row align-items-center">
-                     <div class="col-xxl-7 col-xl-7 col-lg-8 col-md-8">
-                        <div class="cta__content">
-                           <h3 class="cta__title">You can be your own Guiding star with our help</h3>
-                        </div>
-                     </div>
-                     <div class="col-xxl-5 col-xl-5 col-lg-4 col-md-4">
-                        <div class="cta__more d-md-flex justify-content-end p-relative z-index-1">
-                           <a href="#" class="e-btn e-btn-white">Get Started</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!-- cta area end -->
+         
 
       </main>
 
          <!-- footer area start -->
          <footer>
-            <div class="footer__area footer-bg">
-               <div class="footer__top pt-190 pb-40">
+            <div class="footer__area grey-bg-2">
+               <div class="footer__top pt-20 pb-0">
                   <div class="container">
                      <div class="row">
                         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <div class="footer__logo">
-                                    <a href="index">
-                                       <img src="/assets/img/logo/logo-2.png" alt="">
-                                    </a>
-                                 </div>
+                                 <img src="/assets/img/logo/logo.png" alt="">
                               </div>
-                              <div class="footer__widget-body">
-                                 <p>Great lesson ideas and lesson plans for ESL teachers! Educators can customize lesson plans to best.</p>
+                              <div class="footer__widget-body footer__widget-body-2">
+                                 
 
-                                 <div class="footer__social">
-                                    <ul>
-                                       <li><a href="#"><i class="social_facebook"></i></a></li>
-                                       <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
-                                       <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
-                                    </ul>
-                                 </div>
+                                 
                               </div>
                            </div>
                         </div>
-                        <div class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
+                        <div
+                           class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Company</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__link">
-                                    <ul>
-                                       <li><a href="#">About</a></li>
-                                       <li><a href="#">Courses</a></li>
-                                       <li><a href="#">Events</a></li>
-                                       <li><a href="#">Instructor</a></li>
-                                       <li><a href="#">Career</a></li>
-                                       <li><a href="#">Become a Teacher</a></li>
-                                       <li><a href="#">Contact</a></li>
-                                    </ul>
+                                 <div class="footer__link footer__link-2">
+                                    <div class="footer__logo">
+                                       <a href="index">
+
+                                       </a>
+                                    </div>
                                  </div>
                               </div>
                            </div>
@@ -860,18 +922,11 @@
                         <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Platform</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__link">
-                                    <ul>
-                                       <li><a href="#">Browse Library</a></li>
-                                       <li><a href="#">Library</a></li>
-                                       <li><a href="#">Partners</a></li>
-                                       <li><a href="#">News & Blogs</a></li>
-                                       <li><a href="#">FAQs</a></li>
-                                       <li><a href="#">Tutorials</a></li>
-                                    </ul>
+                                 <div class="footer__link footer__link-2">
+                                    
                                  </div>
                               </div>
                            </div>
@@ -879,20 +934,26 @@
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
                            <div class="footer__widget footer__pl-70 mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Subscribe</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__subscribe">
+                                 <div class="footer__subscribe footer__subscribe-2">
                                     <form action="#">
                                        <div class="footer__subscribe-input mb-15">
-                                          <input type="email" placeholder="Your email address">
-                                          <button type="submit">
-                                             <i class="far fa-arrow-right"></i>
-                                             <i class="far fa-arrow-right"></i>
-                                          </button>
+                                          
+                                          <div class="footer__social" style="margin-left: 100px;">
+                                             <ul>
+                                                <li><a href="#"><i class="social_facebook"></i></a></li>
+                                                <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
+                                                <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
+                                             </ul>
+                                          </div>
+                                          
                                        </div>
+                                       
                                     </form>
-                                    <p>Get the latest news and updates right at your inbox.</p>
+                                    
+                                    
                                  </div>
                               </div>
                            </div>
@@ -900,12 +961,12 @@
                      </div>
                   </div>
                </div>
-               <div class="footer__bottom">
+               <div class="footer__bottom footer__bottom-2">
                   <div class="container">
                      <div class="row">
                         <div class="col-xxl-12">
-                           <div class="footer__copyright text-center">
-                              <p>© 2022 Educal, All Rights Reserved. Design By <a href="index">Theme Pure</a></p>
+                           <div class="footer__copyright footer__copyright-2 text-center">
+                              <p>Shout out to Soyun Kim <a href="">By BK jeon</a></p>
                            </div>
                         </div>
                      </div>

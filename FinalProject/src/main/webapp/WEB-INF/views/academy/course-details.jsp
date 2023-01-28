@@ -481,12 +481,7 @@
          </div>
          <div class="course__sidebar-widget-2 white-bg mb-20">
             <div class="course__video">
-               <div class="course__video-thumb w-img mb-25">
-                  <img src="assets/img/course/video/course-video.jpg" alt="">
-                  <div class="course__video-play"> 
-                     <a href="https://youtu.be/yJg-Y5byMMw" data-fancybox="" class="play-btn"> <i class="fas fa-play"></i> </a>
-                  </div>
-               </div>
+             
                <div class="course__video-meta mb-25 d-flex align-items-center justify-content-between">
                   <div class="course__video-price">
                      <h5>${education.edName}</h5>
@@ -555,64 +550,58 @@
          </div>
 
 
+
+
+
          <div class="course__sidebar-widget-2 white-bg mb-20">
             <div class="course__sidebar-course">
-               <h3 class="course__sidebar-title">Recommend</h3>
+               <h3 class="course__sidebar-title">Recommend Education</h3>
                <ul>
                   <li>
                      <div class="course__sm d-flex align-items-center mb-30">
 
                         <div class="course__sm-thumb mr-20">
-                           <a href="course-details?edId=${education.edId=127}">
-                              <img src="/assets/img/course/${education.edPic='127.PNG'}" alt=""> 
+                           <a href="course-sidebar?keywords=${education.edName}">
+                              <img src="/assets/img/course/${education.edPic}" alt=""> 
                            </a>
                         </div>
 
                         <div class="course__sm-content">
                          
-                           <h5>항해개발자백엔드</h5>
+                           <h5>${education.edName}</h5>
                            <div class="course__sm-price">
-                              <span>${education.edPrice}</span>
+                              <span>이 학원이 더 궁금해?!</span>
                            </div>
                         </div>
                      </div>
                   </li>
+
+                   <li>
+                     <h3 class="course__sidebar-title">Event</h3>
+                  </li>
+
                   <li>
-                     <div class="course__sm d-flex align-items-center mb-30">
-
-                        <div class="course__sm-thumb mr-20">
-                           <a href="course-details?edId=${education.edId=129}">
-                              <img src="/assets/img/course/${education.edPic='129.PNG'}" alt="">
-                           </a>
-                        </div>
-
-                        <div class="course__sm-content">
+                     <div class="course__sm-content">
                          
-                           <h5>Java·AI[18기]</h5>
-                           <div class="course__sm-price">
-                              <span>${education.edPrice}</span>
-                           </div>
+                      
+                        <div class="course__sm-price">
+                          
+                           <h3>코클에서 쉽게확인하기!</h3>
+                             
+                          
                         </div>
                      </div>
-                  </li>
-                  <li>
-                     <div class="course__sm d-flex align-items-center mb-30">
 
-                        <div class="course__sm-thumb mr-20">
-                           <a href="course-details?edId=${education.edId=100}">
-                              <img src="/assets/img/course/${education.edPic='132.PNG'}" alt="">
-                           </a>
-                        </div>
 
-                        <div class="course__sm-content">
-                         
-                           <h5>백엔드개발자취업캠프</h5>
-                           <div class="course__sm-price">
-                              <span>${education.edPrice}</span>
-                           </div>
-                        </div>
-                     </div>
+                     <img src="/assets/img/event2.png" alt=""> 
+
+                     
                   </li>
+                  
+
+
+                  
+                 
                </ul>
             </div>
          </div>
@@ -636,6 +625,9 @@
                               <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false"> <i class="icon_star_alt"></i> <span>후기</span> </button>
                               </li>
+                              <li class="nav-item" role="presentation">
+                                 <button class="nav-link" id="member-tab" data-bs-toggle="tab" data-bs-target="#member" type="button" role="tab" aria-controls="member" aria-selected="false"> <i class="fal fa-user"></i> <span>위치</span> </button>
+                               </li>
                               
                               
                             </ul>
@@ -663,59 +655,15 @@
                                           <li> <i class="icon_check"></i> 3) 실시간 리뷰로 편하게 비교하세요</li>
                                        </ul>
                                     </div>
-                                    <div class="course__instructor mb-45">
-                                       <h3>Code a clock 추천학원</h3>
-                                       <div class="course__instructor-wrapper d-md-flex align-items-center">
-
-
-                                          <div class="course__instructor-item d-flex align-items-center mr-70">
-                                             <div class="course__instructor-thumb mr-20">
-                                               
-                                                <!-- 우리가 추천하는 수업 넣어주면 됌-->
-                                              <a href="course-details?edId=${education.edId=127}">
-                                                <img src="/assets/img/course/${education.edPic='127.PNG'}" alt=""> 
-                                              </a>
-
-                                             </div>
-                                             <div class="course__instructor-content">
-                                                <h6>항해개발자백엔드</h6>
-                                                <p>스파르타</p>
-                                             </div>
-                                          </div>
-
-
-                                          <div class="course__instructor-item d-flex align-items-center mr-70">
-                                             <div class="course__instructor-thumb mr-20">
-                                               
-                                                <!-- 우리가 추천하는 수업 넣어주면 됌-->
-                                              <a href="course-details?edId=${education.edId=129}">
-                                                <img src="/assets/img/course/${education.edPic='129.PNG'}" alt=""> 
-                                              </a>
-
-                                             </div>
-                                             <div class="course__instructor-content">
-                                                <h6>Java·AI[18기]</h6>
-                                                <p>솔데스크</p>
-                                             </div>
-                                          </div>
-
-
-                                          <div class="course__instructor-item d-flex align-items-center mr-70">
-                                             <div class="course__instructor-thumb mr-20">
-                                               
-                                                <!-- 우리가 추천하는 수업 넣어주면 됌-->
-                                              <a href="course-details?edId=${education.edId=100}">
-                                                <img src="/assets/img/course/${education.edPic='132.PNG'}" alt=""> 
-                                              </a>
-
-                                             </div>
-                                             <div class="course__instructor-content">
-                                                <h6>백엔드개발자취업캠프</h6>
-                                                <p>멀티캠퍼스</p>
-                                             </div>
-                                          </div>
+                                    <div class="course__description-list mb-45">
+                                       <h4>Code a clock은 이런분들을 원해요!</h4>
+                                          <ul>
+                                             <li> <i class="icon_check"></i> 1) 실무에서 배우지 못한부분을 더 배우고 싶으신분!<li>
+                                             <li> <i class="icon_check"></i> 2) 실시간으로 변화하는 코딩없무를 빠르게 캐치하고 싶으신분!</li>
+                                             <li> <i class="icon_check"></i> 3) 저렴한 가격으로 수업받고 싶으신분!</li>
+                                          </ul>
                                        </div>
-                                    </div>
+               
                                  </div>
                          </div><!--1번 내용 div 끝-->
 
@@ -792,9 +740,9 @@
                                          
                                           <!-- 별점 큰부분 옆 이미지 대체-->
                                           <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                                                <img src="/assets/img/star/re.png "  height="255" width="440">
+                                                <img src="/assets/img/star/re.png "  height="252" width="440">
                                           </div>
-                                 </div>
+                                    </div>
                             </div>
                                                 <!-- 0105 찬주 등록된 리뷰확인 -->
                                                    <div class="course__comment mb-75" id="reviewBox">
@@ -813,7 +761,7 @@
                                                                         <h4>${reviewList.memIdString}</h4>
                                                                      </div>
                                                                      <div class="course__comment-info float-start">
-                                                                        <span>${reviewList.reDate}</span>
+                                                                        <fmt:formatDate value="${reviewList.reDate}" pattern="yyyy년 MM월 dd일 "/>    
                                                                      </div>
                                                                      <div class="course__comment-rating float-start float-sm-end">
                                                                         <tr>
@@ -858,11 +806,13 @@
                                                                                        <c:choose>
                                                                                        <c:when test="${pageNumber+1 == i}">
                                                                                           <li>
-                                                                                             <a href="course-details?page=${i}&edId=${param.edId}"><span id="a">${i}</span></a>
+                                                                                             <button class = "zz"><span id="a">${i}</span></button>
                                                                                           </li>
                                                                                        </c:when>
                                                                                        <c:otherwise>
-                                                                                          <li><a href="course-details?page=${i}&edId=${param.edId}"><span id="b">${i}</span></a></li>
+                                                                                          <li>
+                                                                                            <button class = "zz"><span id="b">${i}</span></button> 
+                                                                                          </li>
                                                                                        </c:otherwise>
                                                                                        </c:choose>
                                                                                        </c:forEach>
@@ -901,7 +851,7 @@
                                                                      <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
                                                                      <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
                                                                      <input type="text" name="memIdString" value="${sessionScope.memIdString}"  id = memIdString> <!-- "${sessionScope.memIdString}"-->
-                                                                     <input type="hidden" name="memIdInt" value="17"  id = memIdInt> <!-- "${sessionScope.memIdInt}"-->
+                                                                     <input type="hidden" name="memIdInt" value="${sessionScope.memIdInt}"  id = memIdInt>
                                                                      
                                                                   </div>
                                                                </div>
@@ -942,56 +892,146 @@
                                                       </div>
                                                    </div>
                                                    <!--0105 리뷰부분 종료 여기까지-->
+
+                                                   
                                                       
                                                 </div>
                                              </div>
+
+                                       <!--지도API부분-->      
+                              <div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
+                                 <div class="course__member mb-45">
+                                    
+                                     <!-- ======= Contact Section ======= -->
+          <section id="contact" class="contact">
+            <div class="container">
+      
+              <div class="section-title">
+                <h2>Contact</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+              </div>
+      
+              <div>
+               <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B8%88%EC%B2%9C%EA%B5%AC%20%EB%94%94%EC%A7%80%ED%84%B8%EB%A1%9C9%EA%B8%B8%2099%20%EC%8A%A4%ED%83%80%EB%B0%B8%EB%A6%AC&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+              </div>
+      
+              <div class="row mt-5">
+      
+                  <div class="col-lg-4">
+                     <div class="info">
+
+         
+                       <div class="email">
+                        <i class="fal fa-location"></i>
+                         <h4>Location:</h4>
+                         <p>서울 금천구 가산디지털2로 101 
+                         </p>
+                       </div>
+         
+
+         
+                     </div>
+         
+                   </div>     
+      
+                
+      
+                  <div class="col-lg-4">
+                     <div class="info">
+
+         
+                       <div class="email">
+                        <i class="fal fa-envelope"></i>
+                         <h4>Email:</h4>
+                         <p>skquddnr9709@gmail.com</p>
+                       </div>
+         
+
+         
+                     </div>
+         
+                   </div>                 
+                   
+      
+                
+
+                
+      
+                  <div class="col-lg-4">
+                     <div class="info">
+
+         
+                       <div class="phone">
+                        <i class="fal fa-phone"></i>
+                         <h4>Call:</h4>
+                         <p>+82 10 6585 9709</p>
+                       </div>
+         
+                     </div>                     
+         
+                   </div>  
+                   
+                   
+                   
+      
+                
+      
+
+                
+              </div> <!--end of row mt-5-->
+      
+
+              
+            </div>
+
+            
+          </section><!-- End Contact Section -->
+      
+
+
+
+                                 </div>
+                              </div>
+
+
+
+
+
+
                                           </div>         
       </main>
    </div>
          <!-- footer area start -->
          <footer>
-            <div class="footer__area footer-bg">
-               <div class="footer__top pt-190 pb-40">
+            <div class="footer__area grey-bg-2">
+               <div class="footer__top pt-20 pb-0">
                   <div class="container">
                      <div class="row">
                         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <div class="footer__logo">
-                                    <a href="index">
-                                       <img src="/assets/img/logo/logo-2.png" alt="">
-                                    </a>
-                                 </div>
+                                 <img src="/assets/img/logo/logo.png" alt="">
                               </div>
-                              <div class="footer__widget-body">
-                                 <p>Great lesson ideas and lesson plans for ESL teachers! Educators can customize lesson plans to best.</p>
+                              <div class="footer__widget-body footer__widget-body-2">
+                                 
 
-                                 <div class="footer__social">
-                                    <ul>
-                                       <li><a href="#"><i class="social_facebook"></i></a></li>
-                                       <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
-                                       <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
-                                    </ul>
-                                 </div>
+                                 
                               </div>
                            </div>
                         </div>
-                        <div class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
+                        <div
+                           class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Company</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__link">
-                                    <ul>
-                                       <li><a href="#">About</a></li>
-                                       <li><a href="#">Courses</a></li>
-                                       <li><a href="#">Events</a></li>
-                                       <li><a href="#">Instructor</a></li>
-                                       <li><a href="#">Career</a></li>
-                                       <li><a href="#">Become a Teacher</a></li>
-                                       <li><a href="#">Contact</a></li>
-                                    </ul>
+                                 <div class="footer__link footer__link-2">
+                                    <div class="footer__logo">
+                                       <a href="index">
+
+                                       </a>
+                                    </div>
                                  </div>
                               </div>
                            </div>
@@ -999,18 +1039,11 @@
                         <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
                            <div class="footer__widget mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Platform</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__link">
-                                    <ul>
-                                       <li><a href="#">Browse Library</a></li>
-                                       <li><a href="#">Library</a></li>
-                                       <li><a href="#">Partners</a></li>
-                                       <li><a href="#">News & Blogs</a></li>
-                                       <li><a href="#">FAQs</a></li>
-                                       <li><a href="#">Tutorials</a></li>
-                                    </ul>
+                                 <div class="footer__link footer__link-2">
+                                    
                                  </div>
                               </div>
                            </div>
@@ -1018,20 +1051,26 @@
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
                            <div class="footer__widget footer__pl-70 mb-50">
                               <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Subscribe</h3>
+                                 
                               </div>
                               <div class="footer__widget-body">
-                                 <div class="footer__subscribe">
+                                 <div class="footer__subscribe footer__subscribe-2">
                                     <form action="#">
                                        <div class="footer__subscribe-input mb-15">
-                                          <input type="email" placeholder="Your email address">
-                                          <button type="submit">
-                                             <i class="far fa-arrow-right"></i>
-                                             <i class="far fa-arrow-right"></i>
-                                          </button>
+                                          
+                                          <div class="footer__social" style="margin-left: 100px;">
+                                             <ul>
+                                                <li><a href="#"><i class="social_facebook"></i></a></li>
+                                                <li><a href="#" class="tw"><i class="social_twitter"></i></a></li>
+                                                <li><a href="#" class="pin"><i class="social_pinterest"></i></a></li>
+                                             </ul>
+                                          </div>
+                                          
                                        </div>
+                                       
                                     </form>
-                                    <p>Get the latest news and updates right at your inbox.</p>
+                                    
+                                    
                                  </div>
                               </div>
                            </div>
@@ -1039,12 +1078,12 @@
                      </div>
                   </div>
                </div>
-               <div class="footer__bottom">
+               <div class="footer__bottom footer__bottom-2">
                   <div class="container">
                      <div class="row">
                         <div class="col-xxl-12">
-                           <div class="footer__copyright text-center">
-                              <p>© 2022 Educal, All Rights Reserved. Design By <a href="index">Theme Pure</a></p>
+                           <div class="footer__copyright footer__copyright-2 text-center">
+                              <p>Shout out to Soyun Kim <a href="">By BK jeon</a></p>
                            </div>
                         </div>
                      </div>

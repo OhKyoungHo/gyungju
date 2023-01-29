@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
@@ -21,9 +23,11 @@ public class CalendarVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer calId;
 	
+	@DateTimeFormat(pattern = "%Y-%m-%d %T")
 	private Date calStart;
+	@DateTimeFormat(pattern = "%Y-%m-%d %T")
 	private Date calEnd;
-	private String calTitle;
+	
 	
 	@Column(name="t_id")
 	private Integer teacherId;

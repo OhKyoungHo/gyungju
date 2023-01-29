@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.domain.CalendarVO;
 import com.example.domain.EducationVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.TeacherVO;
@@ -38,6 +40,7 @@ import com.example.persistence.ReviewRepository;
 import com.example.persistence.VchatFileRepository;
 import com.example.persistence.VchatRecordRepository;
 import com.example.persistence.WishListRepository;
+import com.example.service.CalendarService;
 import com.example.service.EducationService;
 import com.example.service.TeacherService;
 import com.example.service.WishListService;
@@ -76,6 +79,9 @@ public class MypageController {
 	
 	@Autowired
 	private VchatFileRepository vchatFileRepo;
+	
+	@Autowired
+	private CalendarService calService;
 
 
 
@@ -95,6 +101,8 @@ public class MypageController {
 		return  "/mypage/educationInsert";
 
 	}
+	
+	
 
 
 
@@ -607,6 +615,14 @@ public class MypageController {
 	public String deleteTeacherReservation(Integer calId) {
 		calRepo.deleteReservation(calId);
 		// 추후에 마이페이지로 리턴값수정해야함
+		return "redirect:/mypage/tutorReserve";
+	}
+	
+	// 예약 등록(선생님, 경주)
+	@RequestMapping("/insertReservation")
+	public String insertReservation(CalendarVO vo, HttpSession session) {
+		
+		calService.insertReservation(vo);
 		return "redirect:/mypage/tutorReserve";
 	}
 

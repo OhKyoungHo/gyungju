@@ -549,6 +549,8 @@
                </div>
                
                <div class="course__enroll-btn">
+                  <!-- 스케쥴 버튼(각 선생님의 일정을 가지고 calendar페이지로 이동)-->
+                  <a href="calendar?tId=${lecture.tcId}" class="e-btn e-btn-7 w-100" style="margin-bottom: 10px;">예약하기 <i class="far fa-arrow-right"></i></a>
                   <!-- 누르면 이확원이 등록했던 걸 키워드 검색 파라미터로 넘겨 학원 정보를 더 확인할 수 있다-->
                   <a href="/lecture/lecture-sidebar?keywords=${lecture.vcTitle}" class="e-btn e-btn-7 w-100">강의 더보기! <i class="far fa-arrow-right"></i></a>
                </div>

@@ -56,7 +56,7 @@ public class CalendarController {
 		calRepo.reservation(calId, tempidString);
 		
 		// 추후에 마이페이지로 리턴값수정해야함
-		return "redirect:/lecture/tutor";
+		return "redirect:/mypage/tutorReserve";
 	}
 	
 	

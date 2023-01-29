@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					<% for (CalendarVO vo : calendarList) {%>
 					{
 					   id :'<%=vo.getCalId()%>',
-					   title : '<%=vo.getCalTitle()%>',
+					   title : '예약하기',
 					   start : '<%=vo.getCalStart()%>',
 					   end : '<%=vo.getCalEnd()%>'
 					 },
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			 }).then((result) => {
 				if (result.isConfirmed) {
-				   x(test.event.id, test.event.title, test.event.start, test.event.end);
+				   x(test.event.id, test.event.start, test.event.end);
 				   //window.location.href="reservation?calId="+test.event.id;
 				}
 			 })
@@ -115,14 +115,14 @@ document.addEventListener('DOMContentLoaded', function() {
 	IMP.init("imp58188004"); // 예: imp00000000
 
 	
-	var x = function(test_id, test_title, test_start, test_end){
+	var x = function(test_id,test_start, test_end){
 	
 		//alert( Math.trunc((Number(test_end) - Number(test_start))/1000/60/60) );
 		  IMP.request_pay({
 			 pg : 'html5_inicis',
 			 pay_method : 'card', //생략 가능
 			 merchant_uid: "CODE_O_CLOCK"+ new Date().getTime(), // 상점에서 관리하는 주문 번호 
-			 name : test_title, // 상품이름 및 갯수
+			 name : test_start.getMonth()+1+"월 "+test_start.getDate()+"일 "+test_start.getHours()+"시"+test_start.getMinutes()+"분", // 상품이름 및 갯수
 			 amount : Math.trunc((Number(test_end) - Number(test_start))/1000/60/60)*10000, //결제 금액 
 			 buyer_email : 'support@kosmo.com', 
 			 buyer_name : 'JBK', 

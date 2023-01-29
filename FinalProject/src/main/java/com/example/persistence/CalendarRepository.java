@@ -1,5 +1,6 @@
 package com.example.persistence;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,11 +33,12 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 	// 취소 누를 시 해당 cal_id의 데이터를 삭제
 	@Query(value="DELETE FROM calendar WHERE cal_id = ?1", nativeQuery = true)
 	void deleteReservation(Integer calId);
+	
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
 	
 	// 회원 예약 현황
-	@Query(value="SELECT c.cal_id calid, c.cal_title caltitle, c.cal_start calstart, c.cal_reserve calreserve, "
+	@Query(value="SELECT c.cal_id calid, c.cal_start calstart, c.cal_reserve calreserve, "
 			+ "c. cal_end calend, c.m_idint memidint, c.room_id roomid, c.t_id tid, v.vc_title vctitle, t.t_pic tcpic, t.t_name tcname "
 			+ "FROM calendar c left outer join vchat_class v ON c.vc_id = v.vc_id "
 			+ "left outer join vchat_teacher t ON c.t_id = t.t_id "
@@ -102,7 +104,7 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 //---------------------------------------------------------------------------------------------------------------------------
 	
 	// 선생님 예약 현황
-	@Query(value="SELECT c.cal_id calid, c.cal_title caltitle, c.cal_start calstart, c.cal_reserve calreserve, "
+	@Query(value="SELECT c.cal_id calid, c.cal_start calstart, c.cal_reserve calreserve, "
 			+ "c. cal_end calend, c.m_idint memidint, c.room_id roomid, c.t_id tid, v.vc_title vctitle, t.t_pic tcpic, t.t_name tcname, "
 			+ "m.m_profile memprofile, m.m_idstring memidstring "
 			+ "FROM calendar c left outer join vchat_class v ON c.vc_id = v.vc_id "
@@ -173,4 +175,6 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 				+ "FROM calendar\r\n"
 				+ "WHERE cal_reserve=1", nativeQuery=true)
 	List<CalendarVO> CheckoutInfom(CalendarVO vo);
+	
+	
 }

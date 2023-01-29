@@ -616,7 +616,7 @@
                       </ul>
                     </div>
                     <div class="header__btn ml-20 d-none d-sm-block" style="margin-left: 40px; margin-top: 20px;">
-                      <a href="/sign-in" class="e-btn">예약하기</a>
+                        <button class="e-btn e-btn-4" data-bs-toggle="modal" data-bs-target="#exampleModal">등록하기</button>
                     </div>
                   </div>
                 </div>
@@ -733,6 +733,39 @@
     </section>
 
   </main>
+
+  <!-- modal: HonestQuestion -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+       <div class="modal-content">
+          <form action="insertReservation" method="post">
+             <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">솔직 질문</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                <input type="hidden" name="calReserve" value="0">
+                <input type="hidden" name="tId" value="${sessionScope.tId}">
+                <a>${sessionScope.tId}</a>
+                <div class="row mb-2">
+                   <div class="col-4">
+                      <label for="hq_keyIn" class="col-form-label">시작날짜</label>
+                      <input type="datetime-local" class="form-control" name="calStart">
+                      <label for="hq_keyIn" class="col-form-label">종료날짜</label>
+                      <input type="datetime-local" class="form-control" name="calEnd">
+                   </div>
+                   <div class="col-8" id="keyword_show"></div>
+                   <input type="hidden" id="hq_keyOut" name="hq_keyword">
+                </div>
+             </div>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">등록하기</button>
+             </div>
+          </form>
+       </div>
+    </div>
+ </div>
   
 
     <!-- footer area start -->
@@ -864,7 +897,7 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
 
     
-    <script>
+    <script type="text/javascript">
       // FullCalendar 설정
       document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
@@ -893,7 +926,7 @@
                     <% for (Map vo : calendarList) {%>
                     {
                       id :'<%=(Integer)vo.get("calid")%>',
-                      title : '<%=(String)vo.get("caltitle")%>',
+                      title : '예약',
                       start : '<%=(Date)vo.get("calstart")%>',
                       end : '<%=(Date)vo.get("calend")%>',
                         

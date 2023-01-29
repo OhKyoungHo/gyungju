@@ -183,7 +183,7 @@
                                                     <tr>
                                                         <th>예약 번호</th>
                                                         <th>결제자</th>
-                                                        <th>결제 내용</th>
+                                                        <th>강의시간</th>
                                                         <th>결제금액</th>
                                                         <th>결제일</th>
                                                     </tr>
@@ -192,7 +192,7 @@
                                                     <tr>
                                                         <th>예약 번호</th>
                                                         <th>결제자</th>
-                                                        <th>결제 내용</th>
+                                                        <th>강의시간</th>
                                                         <th>결제금액</th>
                                                         <th>결제일</th>
                                                     </tr>
@@ -202,7 +202,7 @@
                                                         <tr>
                                                             <td>${checkout.calId}</td>
                                                             <td>${checkout.checkoutName}</td>
-                                                            <td>${checkout.calTitle}</td>
+                                                            <td><fmt:formatDate value="${checkout.calStart}" pattern="YYYY.MM.DD HH:mm:ss" /></td>
                                                             <td>${checkout.price}</td>
                                                             <td><fmt:formatDate value="${checkout.checkoutDate}" pattern="YYYY.MM.DD" /></td>
                                                         </tr>

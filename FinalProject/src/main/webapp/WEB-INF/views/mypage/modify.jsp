@@ -619,6 +619,9 @@
                                 <div class="sign__form">
                                     <!-- bk 수정하기 버튼 액션-->
                                     <form method="post" id="modifyForm" action="modifyForm">
+                                      <div class="sign__input-wrapper mb-25">
+                                        <input type="file"><br/>
+                                      </div>
                                       <input type="hidden" name="memIdInt" value="${member.memIdInt}" /> 
                                       <div class="sign__input-wrapper mb-25">
                                             <h5>아이디</h5>

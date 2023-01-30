@@ -23,10 +23,10 @@ public class CalendarVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer calId;
 	
-	@DateTimeFormat(pattern = "%Y-%m-%d %T")
-	private Date calStart;
-	@DateTimeFormat(pattern = "%Y-%m-%d %T")
-	private Date calEnd;
+	//@DateTimeFormat(pattern = "yyyy-MM-dd HH:mi")
+	private String calStart;
+	//@DateTimeFormat(pattern = "yyyy-MM-dd HH:mi")
+	private String calEnd;
 	
 	
 	@Column(name="t_id")

@@ -622,6 +622,14 @@ public class MypageController {
 	@RequestMapping("/insertReservation")
 	public String insertReservation(CalendarVO vo, HttpSession session) {
 		
+//		Date test = vo.getCalStart();
+//		System.out.println(test);
+//		String test2 = test.toString();
+//		System.out.println(test2);
+//		String test3 = test2.replace("T", " ");
+//		System.out.println(test3);
+		
+		
 		calService.insertReservation(vo);
 		return "redirect:/mypage/tutorReserve";
 	}

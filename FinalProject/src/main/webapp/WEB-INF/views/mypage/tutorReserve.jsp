@@ -928,9 +928,7 @@
                       id :'<%=(Integer)vo.get("calid")%>',
                       title : '예약',
                       start : '<%=(Date)vo.get("calstart")%>',
-                      end : '<%=(Date)vo.get("calend")%>',
-                        
-                        
+                      end : '<%=(Date)vo.get("calend")%>'
                      },
             <% }
           } %>

@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="eventLi"/>
+		<item key="selection" value="Format"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="format"/>
+			<item value="title"/>
+			<item value="cal_title"/>
+			<item value="calid"/>
+			<item value="al_title"/>
+			<item value="c.cal_title"/>
+			<item value="itle"/>
+			<item value="session"/>
 			<item value="eventLi"/>
 			<item value="teacher"/>
 			<item value="tId"/>
@@ -15,14 +23,6 @@
 			<item value="teacher_id"/>
 			<item value="updateTempPw"/>
 			<item value="1140"/>
-			<item value="footer"/>
-			<item value="6D6E"/>
-			<item value=".footer"/>
-			<item value=".footer_top"/>
-			<item value=".footer_row"/>
-			<item value="footer_row"/>
-			<item value="Footer"/>
-			<item value="favi"/>
 		</list>
 		<list key="replacehistory">
 		</list>

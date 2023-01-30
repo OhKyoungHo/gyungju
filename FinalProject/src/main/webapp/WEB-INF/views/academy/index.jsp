@@ -88,13 +88,9 @@
                                     <li>
                                        <a href="course-grid" class="cat-menu d-flex align-items-center">
                                           <div class="cat-dot-icon d-inline-block">
-
                                              <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
-
                                           </div>
-
                                        </a>
-
                                     </li>
                                  </ul>
                               </nav>
@@ -223,10 +219,6 @@
                                        <button type="submit"><i class="fad fa-search"></i></button>
                                     </form>
                                     <!-- 검색 끝-->
-
-
-
-
                                     <div class="header__cart">
                                        <a href="javascript:void(0);" class="cart-toggle-btn">
                                           <div class="header__cart-icon">
@@ -567,7 +559,7 @@
                         
                               <p><i class="icon_star"></i> ${rank[3]}</p>
 
-                              <a href="about" class="link-btn-2">
+                              <a href="${rank[5]}" class="link-btn-2">
                                  <i class="far fa-arrow-right"></i>
                                  <i class="far fa-arrow-right"></i>
                               </a>
@@ -601,7 +593,7 @@
                               <p><i class="icon_star"></i> ${rank[3]}</p>
                               
 
-                              <a href="about" class="link-btn-2">
+                              <a href="${rank[5]}" class="link-btn-2">
                                  <i class="far fa-arrow-right"></i>
                                  <i class="far fa-arrow-right"></i>
                               </a>
@@ -645,7 +637,7 @@
                               
                               <p><i class="icon_star"></i> ${rank[3]}</p>
 
-                              <a href="about" class="link-btn-2">
+                              <a href="${rank[5]}" class="link-btn-2">
                                  <i class="far fa-arrow-right"></i>
                                  <i class="far fa-arrow-right"></i>
                               </a>

@@ -391,7 +391,6 @@
                         <h2 class="section__title">
                            <span class="yellow-bg yellow-bg-big">부트캠프 랭킹<img src="/assets/img/shape/yellow-bg.png" alt=""></span>
                         </h2>
-                        <p>You don't have to struggle alone, you've got our assistance and help.</p>
                      </div>
                   </div>
                </div>
@@ -400,14 +399,14 @@
                   <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
                      <div class="blog__item white-bg mb-30 transition-3 fix">
                         <div class="blog__thumb w-img fix">
-                           <a href="#">
+                           <a href="${rank[5]}">
                               <!--sql 첫번쨰 인덱스를 출력, 해당 사진 -->
                               <img src="/assets/img/course/${rank[1]}" alt="" width='100' height='260'>
                            </a>
                         </div>
                         <div class="blog__content">
                            <!--sql 첫번쨰 인덱스를 출력, 해당 학원이름 -->
-                           <h3 class="blog__title"><a href="#">${rank[0]}</a></h3>
+                           <h3 class="blog__title"><a href="${rank[5]}">${rank[0]}</a></h3>
                            <div class="blog__meta d-flex align-items-center justify-content-between">
                               <div class="blog__author d-flex align-items-center">
                                  <span><i class="icon_star"></i></span>
@@ -415,7 +414,7 @@
                                  <div>${rank[3]}</div>
                               </div>
                               <div class="blog__date d-flex align-items-center">
-                                 <a href="#" class="link-btn">
+                                 <a href="${rank[5]}" class="link-btn">
                                     View More
                                     <i class="far fa-arrow-right"></i>
                                     <i class="far fa-arrow-right"></i>
@@ -440,7 +439,7 @@
                               <!-- 나중에 순위 메길것 -->
                               <span><h4>${rankOther[4]}</h4></span>
                               <!--sql 첫번쨰 인덱스를 출력, 해당 학원이름 -->
-                              <h3 class="events__title"><a href="#">${rankOther[0]}</a></h3>
+                              <h3 class="events__title"><a href="${rankOther[5]}">${rankOther[0]}</a></h3>
                               <div class="events__content">
                                  <div class="events__meta">
                                     <!--sql 첫번쨰 인덱스를 출력, 해당 학원 후기 평균낸점수 -->
@@ -448,7 +447,7 @@
                                  </div>
                               </div>
                               <div class="events__more">
-                                 <a href="#" class="link-btn">
+                                 <a href="${rankOther[5]}" class="link-btn">
                                     View More
                                     <i class="far fa-arrow-right"></i>
                                     <i class="far fa-arrow-right"></i>

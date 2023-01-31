@@ -434,16 +434,16 @@
                   <div class="row">
                      <c:forEach items="${rankOther}" var="rankOther">
                      <div class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
-                        <div class="events__item mb-10 hover__active">
+                        <div class="events__item mb-10 hover__active" style="text-align: center;">
                            <div class="events__item-inner d-sm-flex align-items-center justify-content-between white-bg" style="margin-left: -11%; margin-right: -11%;">
                               <!-- 나중에 순위 메길것 -->
                               <span><h4>${rankOther[4]}</h4></span>
                               <!--sql 첫번쨰 인덱스를 출력, 해당 학원이름 -->
                               <h3 class="events__title"><a href="${rankOther[5]}">${rankOther[0]}</a></h3>
-                              <div class="events__content">
+                              <div class="events__title">
                                  <div class="events__meta">
                                     <!--sql 첫번쨰 인덱스를 출력, 해당 학원 후기 평균낸점수 -->
-                                    <span><i class="icon_star"></i>&nbsp;&nbsp;${rankOther[3]}</span>
+                                    <span><i class="icon_star"></i>${rankOther[3]}</span>
                                  </div>
                               </div>
                               <div class="events__more">

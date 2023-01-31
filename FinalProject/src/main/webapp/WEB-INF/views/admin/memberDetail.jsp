@@ -49,37 +49,40 @@
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    
-                </div>
-                <div class="sidebar-brand-text mx-3">CODE O' CLOCK Admin </div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- 메인페이지로 이동Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>User Page</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
+            <div class="sidebar-brand-icon rotate-n-15">
+                
             </div>
+            <div class="sidebar-brand-text mx-3">CODE O' CLOCK Admin </div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- 메인페이지로 이동Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" href="index">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Education DashBoard</span></a>
+            <a class="nav-link" href="index-member">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Member DashBoard</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Interface
+        </div>
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item"><a class="nav-link" href="/admin/academyList">
@@ -145,16 +148,56 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+              
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item -->
-						<li>
-							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-dark" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                       
+                       <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="logoutAdmin" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 large">${sessionScope.adId}</span>
+                                <img class="img-profile rounded-circle"
+                                    src="../admin/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <div class="dropdown"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    로그아웃
                                 </a>
-						</li>
-                        
+                            </div>
+                        </li>
+
                     </ul>
 
                 </nav>
@@ -212,72 +255,29 @@
                             <div class="card-body">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                    <tr>
-                                        <td>사진</td>
-                                    	<td>강의 상세 번호</td>
-                                    	<td>강의 이름</td>
-                                        <td>구매 일자</td>
-                                        <td>비고</td>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items='${oList }' var='list1'>
-                                        	<tr>
-                                        		<td>${list1.order_detail_number }</td>
-                                        		<td>${list1.product_name }</td>
-                                        		<td>${list1.order_detail_status }</td>
-                                        		<td>${list1.order_date }</td>
-                                        	</tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-dark">강의리뷰내역</h6>
-                        </div>
-                            <div class="card-body">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                    <tr>
-                                    	<td>강의 이름</td>
-                                    	<td>리뷰 내용</td>
-                                    	<td>작성 일자</td>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items='${rList}' var='list2'>
-                                       		 <tr>
-                                        		<td>${list2.product_name}</td>
-                                        		<td>${list2.review_content}</td>
-                                        		<td>${list2.review_date}</td>
-                                        	</tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-dark">교육과정리뷰내역</h6>
-                            </div>
-                                <div class="card-body">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
                                         <tr>
-                                            <td>교육과정 이름</td>
-                                            <td>리뷰 내용</td>
-                                            <td>작성 일자</td>
+                                            <th>예약 번호</th>
+                                            <th>결제자</th>
+                                            <th>결제 내용</th>
+                                            <th>결제금액</th>
+                                            <th>결제일</th>
                                         </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach items='${rList}' var='list2'>
-                                                    <tr>
-                                                    <td>${list2.product_name}</td>
-                                                    <td>${list2.review_content}</td>
-                                                    <td>${list2.review_date}</td>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items='${checkoutList}' var='checkout'>
+                                            <tr>
+                                                <td>${checkout.calId}</td>
+                                                <td>${checkout.checkoutName}</td>
+                                                <td></td>
+                                                <td>${checkout.price}</td>
+                                                <td><fmt:formatDate value="${checkout.checkoutDate}" pattern="YYYY.MM.DD" /></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                  
+                   
                     </div>
 
                 </div>
@@ -288,48 +288,46 @@
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; PetDo 2021</span>
+        
+                        <!-- Footer -->
+                        <footer class="sticky-footer bg-white">
+                            <div class="container my-auto">
+                                <div class="copyright text-center my-auto">
+                                    <span>Copyright &copy; CODE O' CLOCK 2023</span>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- End of Footer -->
+
                     </div>
+                    <!-- End of Content Wrapper -->
+
                 </div>
-            </footer>
-            <!-- End of Footer -->
+                <!-- End of Page Wrapper -->
 
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body" >로그아웃 하시겠습니까?</div>
-				<div class="modal-footer" style="height:75px;">
-					<button class="btn btn-secondary" type="button" style="border-radius: 10px;"
-						data-dismiss="modal">취소</button>
-					<a class="btn btn-dark" href="../logOut.do" style="border-radius: 10px;">로그아웃</a>
-				</div>
-			</div>
-		</div>
-	</div>
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+ <!-- Logout Modal-->
+ <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+ aria-hidden="true">
+ <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
+             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">×</span>
+             </button>
+         </div>
+         <div class="modal-body">정말로 로그아웃하시겠습니까?</div>
+         <div class="modal-footer">
+             <button class="btn btn-secondary" type="button" data-dismiss="modal">아니요</button>
+             <a class="btn btn-dark" href="login">로그아웃</a>
+         </div>
+     </div>
+ </div>
+</div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../admin/vendor/jquery/jquery.min.js"></script>

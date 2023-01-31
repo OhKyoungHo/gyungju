@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -79,7 +79,7 @@ public class MypageController {
 	
 	@Autowired
 	private VchatFileRepository vchatFileRepo;
-	
+
 	@Autowired
 	private CalendarService calService;
 
@@ -101,8 +101,6 @@ public class MypageController {
 		return  "/mypage/educationInsert";
 
 	}
-	
-	
 
 
 
@@ -595,6 +593,64 @@ public class MypageController {
 
 	}
 	
+	// 자료 파일 업로드
+	@RequestMapping("/uploadRecord")
+	@ResponseBody
+	public void insertRecord(@RequestParam("file") List<MultipartFile> files, VchatRecordVO dto) throws IOException {
+		
+		try {
+			System.out.println("uploadRecord 요청");
+			System.out.println("VchatRecordVO : " + dto);
+			
+			for (MultipartFile file :files) {
+				String origFilename = file.getOriginalFilename();
+				System.out.println("origFilename : " + origFilename);
+				
+				// 파일첨부를한경우에만
+				if( origFilename != null && !origFilename.equals(""))
+				{   	
+
+					String filename = new MD5Generator(origFilename).toString();
+					/* 실행되는위치의 'files' 폴더에파일이저장됩니다. */
+					String savePath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\assets\\files\\rec";
+					/* 파일이저장되는폴더가없으면폴더를생성합니다. */
+					if (!new File(savePath).exists()) {
+						try {
+							new File(savePath).mkdir();
+						}
+						catch(Exception e) {
+							e.getStackTrace();
+						}
+					}
+					String filepath = savePath + "\\" + filename;
+					System.out.println("filepath : "+filepath);
+
+					file.transferTo(new File(filepath));
+
+					VchatRecordVO vo = new VchatRecordVO();
+					
+					vo.setOrigRecName(origFilename);
+					vo.setRecName(filename);
+					vo.setRecPath(filepath);
+					vo.setCalId(dto.getCalId());
+					vo.setMemIdInt(dto.getMemIdInt());
+					vo.setTeacherId(dto.getTeacherId());
+
+					vchatRecordRepo.save(vo);
+					System.out.println("웹캠 동영상 첨부인경우");
+				}else {
+					System.out.println("웹캠 동영상 첨부가아닌경우");
+				}
+			
+			}
+			
+		} catch(Exception e) {
+			System.out.println("웹캠 동영상 업로드실패:" + e.getMessage());
+			e.printStackTrace();
+		}
+		
+	}
+	
 	// 녹화 영상 보여주는 창을 띄울 때 사용
 	@RequestMapping("/video")
 	public void showVideo(String loc, Model m) {
@@ -617,7 +673,7 @@ public class MypageController {
 		// 추후에 마이페이지로 리턴값수정해야함
 		return "redirect:/mypage/tutorReserve";
 	}
-	
+
 	// 예약 등록(선생님, 경주)
 	@RequestMapping("/insertReservation")
 	public String insertReservation(CalendarVO vo, HttpSession session) {

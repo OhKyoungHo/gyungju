@@ -77,7 +77,7 @@
                      <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6">
                         <div class="header__left d-flex">
                            <div class="logo">
-                              <a href="index">
+                              <a href="/startpage">
                                  <img src="/assets/img/logo/logo.png" alt="logo">
                               </a>
                            </div>
@@ -112,10 +112,12 @@
                                              <a href="/aboutus">AboutUs</a>
                                           </li>
                                           <li class="has-dropdown">
-                                             <a href="course-grid">학원</a>
+                                             <a href="course-grid">학원/강의</a>
                                              <ul class="submenu">
-                                                <li><a href="/academy/course-sidebar">학원 목록</a></li>
-                                                <li><a href="/academy/rank">학원 랭크</a></li>
+                                                   <li><a href="/academy/course-sidebar">학원 목록</a></li>
+                                                   <li><a href="/academy/rank">학원 랭크</a></li>
+                                                   <li><a href="/lecture/tutor">튜터 목록</a></li>
+                                                   <li><a href="/lecture/lecture-sidebar">강의 목록</a></li>
                                              </ul>
                                           </li>
                                           <li class="has-dropdown">
@@ -128,7 +130,7 @@
                                              </ul>
                                           </li>
                                           <li>
-                                             <a href="/chatbot">챗봇</a>
+                                             <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                           </li>
                                        </ul>
                                     </nav>
@@ -176,10 +178,12 @@
                                              <a href="/aboutus">AboutUs</a>
                                           </li>
                                           <li class="has-dropdown">
-                                             <a href="course-grid">학원</a>
+                                             <a href="course-grid">학원/강의</a>
                                              <ul class="submenu">
-                                                <li><a href="/academy/course-sidebar">학원 목록</a></li>
-                                                <li><a href="/academy/rank">학원 랭크</a></li>
+                                                   <li><a href="/academy/course-sidebar">학원 목록</a></li>
+                                                   <li><a href="/academy/rank">학원 랭크</a></li>
+                                                   <li><a href="/lecture/tutor">튜터 목록</a></li>
+                                                   <li><a href="/lecture/lecture-sidebar">강의 목록</a></li>
                                              </ul>
                                           </li>
                                           <li class="has-dropdown">
@@ -192,7 +196,7 @@
                                              </ul>
                                           </li>
                                           <li>
-                                             <a href="/chatbot">챗봇</a>
+                                             <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                           </li>
                                        </ul>
                                     </nav>
@@ -425,7 +429,7 @@
                   부트캠프와 국비지원의 '리얼한' 정보를 전달 할 순 없을까? <br>
                   <br>
                   이 단순한 물음에서 Code O'clock 이 시작되었습니다. </h2>
-                <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div>
+                <div><a href="/startpage.jsp" class="btn-get-started scrollto">Get Started</a></div>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 hero-img">
                 <img src="/assets/img/main.gif" style="width: 600px; height: 450px;"  alt="main">
@@ -448,7 +452,7 @@
       
               <div class="section-title">
                 <h2>Services</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                
               </div>
       
               <div class="row">
@@ -478,22 +482,22 @@
                   <div class="icon-box">
                     <div class="icon"><i class="fal fa-newspaper" style="color:#41cf2e;"></i></div>
                     <h4 class="title">Web Crawling</h4>
-                    <p class="description">Python 을 이용하여 뉴스, 코딩정보 및 <br>부트캠프와 국비지원 정보 공유</p>
+                    <p class="description">뉴스, 코딩정보 및 <br>부트캠프와 국비지원 정보 공유</p>
                   </div>
                 </div>
       
                 <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
                   <div class="icon-box">
-                    <div class="icon"><i class="fal fa-lock" style="color: #d6ff22;"></i></div>
-                    <h4 class="title"><a href="">Nemo Enim</a></h4>
-                    <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                    <div class="icon"><i class="fal fa-chart-bar" style="color: #d6ff22;"></i></div>
+                    <h4 class="title">ELK</h4>
+                    <p class="description">전체적인 정보를 주제별로 <br> 알아보기 쉽게 시각화</p>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-wow-delay="0.2s">
                   <div class="icon-box">
-                    <div class="icon"><i class="fal fa-lock" style="color: #4680ff;"></i></div>
-                    <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                    <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                    <div class="icon"><i class="fal fa-calendar" style="color: #4680ff;"></i></div>
+                    <h4 class="title">Full Calendar</h4>
+                    <p class="description">달력으로 일정 조회 및 <br/> 간편한 예약 시스템 구축 </p>
                   </div>
                 </div>
               </div>
@@ -511,7 +515,7 @@
       
               <div class="section-title">
                 <h2>Team</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>우리 무적팀은 Code O'clock 을 사용하는 사용자들의 편의를 위해 항상 열정을 다해 노력하고 있습니다.</p>
               </div>
       
               <div class="row">
@@ -633,8 +637,7 @@
                      <div class="container">
          
                         <div class="section-title">
-                           <h2>Tools</h2>
-                           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                           <h2>Tools</h2>                           
                          </div>
                
                        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
@@ -699,8 +702,7 @@
             <div class="container">
       
               <div class="section-title">
-                <h2>Contact</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <h2>Contact</h2>                
               </div>
       
               <div>

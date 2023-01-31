@@ -130,7 +130,7 @@
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="/chatbot">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -200,7 +200,7 @@
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="/chatbot">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -401,7 +401,7 @@
     <form class="form" action="#" method="post" id="pwForm">
     <div class="social-container"></div>
     <div class="social-container"></div>
-      <h1 >Find Password</h1>
+      <h1 >비밀번호 찾기</h1>
       <div class="social-container">
 
       </div>
@@ -420,7 +420,7 @@
   </div>
   <div class="form-container sign-in-container" >
     <form class="form" method="post" id="idForm">
-      <h1>Find ID</h1>
+      <h1>아이디 찾기</h1>
       <div class="social-container">
       </div>
       <tr/>     
@@ -439,13 +439,13 @@
       <div class="overlay-panel overlay-left" >
         <img src="/assets/img/logo/pw3.gif" >
         <img src="/assets/img/logo/logo.png" alt="logo">
-        <p class="p">Forgot your ID?</p>
+        <p class="p">아이디를 잊으셨나요?</p>
         <button class="button" id="signIn">아이디 찾기</button>
       </div>
       <div class="overlay-panel overlay-right" >
         <img src="/assets/img/logo/pw2.gif" >
         <img src="/assets/img/logo/logo.png" alt="logo">
-        <p class="p">Forgot your password?</p>
+        <p class="p">비밀번호를 잊으셨나요?</p>
         <button class="button" id="signUp">비밀번호 찾기</button>
       </div>
     </div>

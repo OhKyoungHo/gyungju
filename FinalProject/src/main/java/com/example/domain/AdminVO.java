@@ -23,10 +23,5 @@ public class AdminVO {										//관리자 회원가입
 
 	private String adEmail;									// 이메일
 	
-	private char adPost;									// 우편 번호
-	
-	private String adAddr;									// 주소
-	
-	private String adAddrSub;								// 상세주소
 	
 }

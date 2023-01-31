@@ -21,6 +21,10 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+
+<!-- 캘린더용 css -->
+<link rel="stylesheet" href="/assets/css/calendar.css">
+
 <style>
 /*Calendar api에 css */
 /* body 스타일 */
@@ -54,6 +58,10 @@ html, body {
 
 
 <script type="text/javascript">
+
+const urlParams = new URL(location.href).searchParams;
+const vcId = urlParams.get('vcId');
+
 //calendar
 document.addEventListener('DOMContentLoaded', function() {
    //calendar 호출
@@ -64,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	headerToolbar : {
 		 left: 'prev,next today', //왼쪽부분에 이전달, 다음달, 오늘 설정
 		  center: 'title',       // 가운데에 title 설정
-		  end : 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'   // 오른쪽부분에 나올것 설정
+		  end : 'dayGridMonth,timeGridWeek,listWeek'   // 오른쪽부분에 나올것 설정
 		  },
 		  height: '700px', // calendar 높이 설정
 		 expandRows: true, // 화면에 맞게 높이 재설정
@@ -83,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					<% for (CalendarVO vo : calendarList) {%>
 					{
 					   id :'<%=vo.getCalId()%>',
-					   title : '예약하기',
+					   title : '예약가능',
 					   start : '<%=vo.getCalStart()%>',
 					   end : '<%=vo.getCalEnd()%>'
 					 },
@@ -101,8 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			 }).then((result) => {
 				if (result.isConfirmed) {
-				   x(test.event.id, test.event.start, test.event.end);
-				   //window.location.href="reservation?calId="+test.event.id;
+				   x(test.event.id, test.event.title, test.event.start, test.event.end);
+				   //window.location.href="reservation?calId="+test.event.id+"&vcId="+vcId;
 				}
 			 })
 		   
@@ -115,14 +123,14 @@ document.addEventListener('DOMContentLoaded', function() {
 	IMP.init("imp58188004"); // 예: imp00000000
 
 	
-	var x = function(test_id,test_start, test_end){
+	var x = function(test_id, test_title, test_start, test_end){
 	
 		//alert( Math.trunc((Number(test_end) - Number(test_start))/1000/60/60) );
 		  IMP.request_pay({
-			 pg : 'html5_inicis',
+			 pg : 'danal_tpay',
 			 pay_method : 'card', //생략 가능
 			 merchant_uid: "CODE_O_CLOCK"+ new Date().getTime(), // 상점에서 관리하는 주문 번호 
-			 name : test_start.getMonth()+1+"월 "+test_start.getDate()+"일 "+test_start.getHours()+"시"+test_start.getMinutes()+"분", // 상품이름 및 갯수
+			 name : test_title, // 상품이름 및 갯수
 			 amount : Math.trunc((Number(test_end) - Number(test_start))/1000/60/60)*10000, //결제 금액 
 			 buyer_email : 'support@kosmo.com', 
 			 buyer_name : 'JBK', 
@@ -136,7 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			 msg += '상점 거래ID : ' + rsp.merchant_uid;
 			 msg += '결제 금액 : ' + rsp.paid_amount;
 			 msg += '카드 승인번호 : ' + rsp.apply_num;
-		  	 window.location.href="reservation?calId="+test_id;
+
+			
+		  	 window.location.href="reservation?calId="+test_id+"&vcId="+vcId;
 		     
 			 } 
 		  });

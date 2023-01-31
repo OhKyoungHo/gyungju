@@ -125,7 +125,7 @@
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="/chatbot">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -195,7 +195,7 @@
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="/chatbot">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -390,11 +390,11 @@
                   <div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                      <div class="error__item text-center">
                         <div class="error__thumb mb-45">
-                           <img src="/assets/img/error/error.png" alt="">
+                           <img src="/assets/img/error/error.gif" alt="">
                         </div>
                         <div class="error__content">
                            <h3 class="error__title">Page Not Found!</h3>
-                           <p>Please try searching for some other page.</p>
+                           <p>페이지를 찾을 수 없습니다!</p>
                            <button class="e-btn e-btn-3 e-btn-4" onclick="bback()">뒤로가기</button>
                         </div>
                      </div>

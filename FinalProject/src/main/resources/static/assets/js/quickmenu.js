@@ -16,7 +16,7 @@ $(document).ready(function(){
       
    
       // 버튼이 눌렸을 때
-      $('.quickmenu').on('click',function(){
+      $('#quickmenu2').on('click',function(){
       
          //alert($('#memberId').val());
       

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.domain.EducationVO;
 import com.example.domain.LectureVO;
 import com.example.domain.ReviewVO;
 import com.example.domain.TeacherVO;
@@ -40,7 +41,41 @@ public class LectureController {
 	
 	@Autowired
 	private TeacherRepository teacherRepository;
-
+	
+	//0128
+	//인덱스에서최신등록순
+	@GetMapping("/index")
+	 
+	public String getNewIndex(Model m, 
+	   @PageableDefault(size = 6, direction = Sort.Direction.DESC) Pageable paging, 
+	   @RequestParam(required = false, defaultValue = "") String order,
+	   @RequestParam(required = false, defaultValue = "") String keywords){
+	      
+	   //keywords 값 잘넘어옵니다 확인완료
+	   System.out.println("keywords 값 확인 : " + keywords);
+	   //order 값 잘 넘어옵니다 확인완료
+	   System.out.println("order 값 확인:"+ order);
+	      
+	   Page<LectureVO> elist = null;
+	   
+	   elist = lecRepo.getNewIndex(paging, keywords, order);
+	     
+	      
+	     
+	   //각 값들을 jsp 파일에 붙이기
+	   
+	   m.addAttribute("lectureList", elist.getContent());
+	      
+//	   //찬주 리스트 별점평균용
+//	   List<Object[]> avg = reviewService.avgStar();
+//	   System.out.println("list.size():" + avg.size());   
+//	   m.addAttribute("avg",avg);
+	      
+	      
+	   //리턴페이지의 디폴트 값
+	   return "/lecture/index";
+	}//end of getAcademyList
+	
 	@GetMapping("/lecture-sidebar")
 	public String getLectureList(Model m, 
 			@PageableDefault(size = 4, direction = Sort.Direction.DESC) Pageable paging, 
@@ -141,6 +176,7 @@ public class LectureController {
 
 		return "lecture/lecture-details";
 	}//end of getBoard
+	
 
 
 }

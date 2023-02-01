@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		 slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
 		 navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
 		 nowIndicator: true, // 현재 시간 마크
-	   	 selectable : true, // 선택가능 서렂ㅇ
+	   	 selectable : true, // 선택가능 설정
 	   	 droppable : true,  
 	   	 //eventLimit : true, 
 	   	 //backgroundColor: '#378006',
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			 }).then((result) => {
 				if (result.isConfirmed) {
 				   x(test.event.id, test.event.title, test.event.start, test.event.end);
-				   //window.location.href="reservation?calId="+test.event.id+"&vcId="+vcId;
+				   // window.location.href="reservation?calId="+test.event.id+"&vcId="+vcId;
 				}
 			 })
 		   

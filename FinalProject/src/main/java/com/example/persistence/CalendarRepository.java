@@ -42,7 +42,8 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 			+ "c. cal_end calend, c.m_idint memidint, c.room_id roomid, c.t_id tid, v.vc_title vctitle, t.t_pic tcpic, t.t_name tcname "
 			+ "FROM calendar c left outer join vchat_class v ON c.vc_id = v.vc_id "
 			+ "left outer join vchat_teacher t ON c.t_id = t.t_id "
-			+ "WHERE c.m_idint =?1 AND c.cal_start >= (SELECT DATE_ADD(NOW(), INTERVAL 30 MINUTE)) AND c.cal_reserve=1", nativeQuery=true)
+			+ "WHERE c.m_idint =?1 AND c.cal_start >= (SELECT DATE_ADD(NOW(), INTERVAL 30 MINUTE)) AND c.cal_reserve=1 "
+			+ "ORDER BY c.cal_start", nativeQuery=true)
 	List<Map<String, Object>> memberCalendarSearch(Integer memIdInt);
 	
 	// 회원 수업함 (CalendarVO) (전체)
@@ -110,7 +111,8 @@ public interface CalendarRepository extends CrudRepository<CalendarVO, Integer> 
 			+ "FROM calendar c left outer join vchat_class v ON c.vc_id = v.vc_id "
 			+ "left outer join vchat_teacher t ON c.t_id = t.t_id "
 			+ "left outer join member m ON c.m_idint = m.m_idint "
-			+ "WHERE c.t_id =?1", nativeQuery=true)
+			+ "WHERE c.t_id =?1 AND c.cal_start >= (SELECT DATE_ADD(NOW(), INTERVAL 30 MINUTE)) AND c.cal_reserve=1 "
+			+ "ORDER BY c.cal_start", nativeQuery=true)
 	List<Map<String, Object>> teacherCalendarSearch(Integer teacherId);
 	
 	// 선생님 수업함 (CalendarVO) (전체)

@@ -7,7 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.example.domain.EducationVO;
 import com.example.domain.LectureVO;
 
 public interface LectureRepository extends CrudRepository<LectureVO, Integer> {
@@ -77,7 +76,7 @@ public interface LectureRepository extends CrudRepository<LectureVO, Integer> {
 
 	//강의아이디로 상세정보 출력
 	List<LectureVO> findByVcId(Integer vcId);
-	
+
 	//------------------------------------------------------------------------
 	//lecture-index
 	//인덱스페이지에서 별점 높은 녀석만 출력
@@ -87,6 +86,7 @@ public interface LectureRepository extends CrudRepository<LectureVO, Integer> {
             + " OR lower(vc_keyword) LIKE CONCAT('%',?1,'%')"
             + " ORDER BY avg DESC", nativeQuery=true)
     Page<LectureVO> getNewIndex (Pageable paging, String keywords, String order);
+
 
 
 

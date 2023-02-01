@@ -109,14 +109,14 @@
                                        <li class="has-dropdown">
                                           <a href="">게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -129,15 +129,7 @@
                                     <input type="text" name ="keywords" placeholder="Search...">
                                     <button type="submit"><i class="fad fa-search"></i></button>
                                  </form>
-                                 <div class="header__cart">
-                                    <a href="javascript:void(0);" class="cart-toggle-btn">
-                                       <div class="header__cart-icon">
-                                          <img src="/assets/img/heart.png" alt="heart">
-
-                                       </div>
-                                       <span class="cart-item">2</span>
-                                    </a>
-                                 </div>
+                                 
                               </div>
                               <div class="header__btn ml-20 d-none d-sm-block">
                                  <a href="/sign-in" class="e-btn">로그인</a>
@@ -173,14 +165,14 @@
                                        <li class="has-dropdown">
                                           <a href="">게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -205,7 +197,7 @@
                                        <div class="header__cart-icon">
                                           <img src="/assets/img/heart.png" alt="heart"/ >
                                        </div>
-                                       <span class="cart-item">2</span>
+                                       <span class="cart-item">!</span>
                                     </a>
                                  </div>
                               </div>
@@ -281,7 +273,7 @@
    <div class="cartmini__area">
       <div class="cartmini__wrapper">
          <div class="cartmini__title">
-            <h4>Shopping cart</h4>
+            <h4>찜/위시리스트</h4>
          </div>
          <div class="cartmini__close">
             <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
@@ -312,7 +304,7 @@
             <div class="cartmini__checkout">
   
                <div class="cartmini__checkout-btn">
-                  <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
+                  <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> 찜 목록 </a>
                </div>
             </div>
             <div class="cartmini__inner ">
@@ -340,7 +332,7 @@
             <div class="cartmini__checkout">
   
                <div class="cartmini__checkout-btn">
-                  <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
+                  <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> 위시리스트 </a>
                </div>
             </div>
          </div>
@@ -375,7 +367,7 @@
                            <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                         </svg>
                      </div>
-                     <span class="cart-item">2</span>
+                     <span class="cart-item">!</span>
                   </a>
                </div>
             </div>
@@ -436,7 +428,9 @@
          </section>
          <!-- hero area end -->
 
+         
          <!-- category area start -->
+         <!--
          <section class="category__area pt-120 pb-70">
             <div class="container">
                <div class="row align-items-end">
@@ -616,8 +610,8 @@
                </div>
             </div>
          </section>
+         -->
          <!-- category area end -->
-
         
 
          <!-- course area start 인기리스트(작업필요)-->

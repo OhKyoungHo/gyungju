@@ -79,13 +79,10 @@
                            <nav>
                               <ul>
                                  <li>
-                                    <a href="course-grid" class="cat-menu d-flex align-items-center">
-                                       <div class="cat-dot-icon d-inline-block">
-                                          <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
-                                       </div>
-
-                                    </a>
-
+                                    <div class="cat-dot-icon d-inline-block">
+                                       <input type="checkbox" id="switch" />
+                                       <label class="onoff" for="switch">Toggle</label>
+                                    </div>
                                  </li>
                               </ul>
                            </nav>
@@ -115,14 +112,14 @@
                                        <li class="has-dropdown">
                                           <a href="">게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -135,15 +132,15 @@
                                     <input type="text" name ="keywords" placeholder="Search...">
                                     <button type="submit"><i class="fad fa-search"></i></button>
                                  </form>
-                                 <div class="header__cart">
+                                 <!-- <div class="header__cart">
                                     <a href="javascript:void(0);" class="cart-toggle-btn">
                                        <div class="header__cart-icon">
                                           <img src="/assets/img/heart.png" alt="heart">
 
                                        </div>
-                                       <span class="cart-item">2</span>
+                                       <span class="cart-item">!</span>
                                     </a>
-                                 </div>
+                                 </div> -->
                               </div>
                               <div class="header__btn ml-20 d-none d-sm-block">
                                  <a href="/sign-in" class="e-btn">로그인</a>
@@ -179,14 +176,14 @@
                                        <li class="has-dropdown">
                                           <a href="">게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -211,7 +208,7 @@
                                        <div class="header__cart-icon">
                                           <img src="/assets/img/heart.png" alt="heart"/ >
                                        </div>
-                                       <span class="cart-item">2</span>
+                                       <span class="cart-item">!</span>
                                     </a>
                                  </div>
                               </div>
@@ -392,7 +389,7 @@
                            <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                         </svg>
                      </div>
-                     <span class="cart-item">2</span>
+                     <span class="cart-item">!</span>
                   </a>
                </div>
             </div>
@@ -454,9 +451,9 @@
                               <p>${education.edStartDate} ~ ${education.edEndDate} </p>
                            </div>
 
-                           <div class="course__lesson"> <!--0106 좋아요버튼-->
+                           <div class="course__lesson" > <!--0106 좋아요버튼-->
                               <span> <a href="/mypage/wishInsert?memIdInt=${sessionScope.memIdInt}&edId=${education.edId}">
-                                 <input type="image" style="width:10px;" class="icon.heart" src="/assets/img/course/off.png" alt="찜하기" id="likeImg">
+                                 <input type="image" style="width:30px;  margin-bottom: 10px; margin-right:10px"  class="icon.heart" src="/assets/img/course/on.png" alt="찜하기" id="likeImg">
                             </a></span>
                            </div>
                          
@@ -901,7 +898,7 @@
                                                                      <div class="course__form-input">
                                                                         <!--아이디값 저장 지금은 그냥 임의의 값 넣어줌-->
                                                                         <!--참고로 re_id 는 시퀀스라 자동이고 날짜도 자동으로 들어가게 해놓음-->
-                                                                        <input type="text" name="memIdString" value="${sessionScope.memIdString}"  id = memIdString> <!-- "${sessionScope.memIdString}"-->
+                                                                        <input type="text" name="memIdString" value="${sessionScope.memIdString}"  id = memIdString readonly> <!-- "${sessionScope.memIdString}"-->
                                                                         <input type="hidden" name="memIdInt" value="${sessionScope.memIdInt}"  id = memIdInt>
                                                                         
                                                                      </div>
@@ -963,7 +960,7 @@
                                              
                                                          <div class="section-title">
                                                             <h2>Contact</h2>
-                                                            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                                                            
                                                          </div>
 
                                              
@@ -1144,6 +1141,19 @@
       <script src="/assets/js/main.js"></script>
       <script src="/assets/js/star.js"></script>
       <script src="/assets/js/reviewAjax.js"></script>
+      <script type = "text/javascript">
+         $(function() {
+             $(".onoff").click( function() { 
+                 // if( $("#switch").is_CHECKED) {
+                        //alert("s");
+                        setTimeout(() => {
+                           window.location.href="/lecture/index";
+                        }, 300);
+                        
+                 // }    
+               });
+            })
+      </script>
 
    </body>
 </html>

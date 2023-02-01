@@ -74,13 +74,10 @@
                            <nav>
                               <ul>
                                  <li>
-                                    <a href="course-grid" class="cat-menu d-flex align-items-center">
-                                       <div class="cat-dot-icon d-inline-block">
-                                          <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
-                                       </div>
-
-                                    </a>
-
+                                    <div class="cat-dot-icon d-inline-block">
+                                       <input type="checkbox" id="switch" checked/>
+                                       <label class="onoff" for="switch">Toggle</label>
+                                    </div>
                                  </li>
                               </ul>
                            </nav>
@@ -110,14 +107,14 @@
                                        <li class="has-dropdown">
                                           <a href="">게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -130,15 +127,15 @@
                                     <input type="text" name ="keywords" placeholder="Search...">
                                     <button type="submit"><i class="fad fa-search"></i></button>
                                  </form>
-                                 <div class="header__cart">
+                                 <!-- <div class="header__cart">
                                     <a href="javascript:void(0);" class="cart-toggle-btn">
                                        <div class="header__cart-icon">
                                           <img src="/assets/img/heart.png" alt="heart">
 
                                        </div>
-                                       <span class="cart-item">2</span>
+                                       <span class="cart-item">!</span>
                                     </a>
-                                 </div>
+                                 </div> -->
                               </div>
                               <div class="header__btn ml-20 d-none d-sm-block">
                                  <a href="/sign-in" class="e-btn">로그인</a>
@@ -174,14 +171,14 @@
                                        <li class="has-dropdown">
                                           <a href="">게시판</a>
                                           <ul class="submenu">
-                                             <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                             
                                              <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                              <li><a href="/board/newsList">뉴스</a></li>
                                              <li><a href="/board/announcement">공지</a></li>
                                           </ul>
                                        </li>
                                        <li>
-                                          <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                          <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                        </li>
                                     </ul>
                                  </nav>
@@ -206,7 +203,7 @@
                                        <div class="header__cart-icon">
                                           <img src="/assets/img/heart.png" alt="heart"/ >
                                        </div>
-                                       <span class="cart-item">2</span>
+                                       <span class="cart-item">!</span>
                                     </a>
                                  </div>
                               </div>
@@ -383,7 +380,7 @@
                            <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
                         </svg>
                      </div>
-                     <span class="cart-item">2</span>
+                     <span class="cart-item">!</span>
                   </a>
                </div>
             </div>
@@ -616,5 +613,18 @@
       <script src="/assets/js/wow.min.js"></script>
       <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
       <script src="/assets/js/main.js"></script>
+      <script type = "text/javascript">
+         $(function() {
+             $(".onoff").click( function() { 
+                 // if( $("#switch").is_CHECKED) {
+                        //alert("s");
+                        setTimeout(() => {
+                           window.location.href="/academy/index";
+                        }, 300);
+                        
+                 // }    
+               });
+            })
+      </script>
    </body>
 </html>

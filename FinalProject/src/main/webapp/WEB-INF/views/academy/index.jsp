@@ -121,14 +121,14 @@
                                           <li class="has-dropdown">
                                              <a href="">게시판</a>
                                              <ul class="submenu">
-                                                <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                                
                                                 <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                                 <li><a href="/board/newsList">뉴스</a></li>
                                                 <li><a href="/board/announcement">공지</a></li>
                                              </ul>
                                           </li>
                                           <li>
-                                             <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                             <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                           </li>
                                        </ul>
                                     </nav>
@@ -141,15 +141,7 @@
                                        <input type="text" name ="keywords" placeholder="Search...">
                                        <button type="submit"><i class="fad fa-search"></i></button>
                                     </form>
-                                    <div class="header__cart">
-                                       <a href="javascript:void(0);" class="cart-toggle-btn">
-                                          <div class="header__cart-icon">
-                                             <img src="/assets/img/heart.png" alt="heart">
-
-                                          </div>
-                                          <span class="cart-item">2</span>
-                                       </a>
-                                    </div>
+                                    
                                  </div>
                                  <div class="header__btn ml-20 d-none d-sm-block">
                                     <a href="/sign-in" class="e-btn">로그인</a>
@@ -185,14 +177,14 @@
                                           <li class="has-dropdown">
                                              <a href="">게시판</a>
                                              <ul class="submenu">
-                                                <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                                
                                                 <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                                 <li><a href="/board/newsList">뉴스</a></li>
                                                 <li><a href="/board/announcement">공지</a></li>
                                              </ul>
                                           </li>
                                           <li>
-                                             <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                             <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                           </li>
                                        </ul>
                                     </nav>
@@ -217,7 +209,7 @@
                                           <div class="header__cart-icon">
                                              <img src="/assets/img/heart.png" alt="heart"/ >
                                           </div>
-                                          <span class="cart-item">2</span>
+                                          <span class="cart-item">!</span>
                                        </a>
                                     </div>
                                  </div>
@@ -387,7 +379,7 @@
                               <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6" />
                            </svg>
                         </div>
-                        <span class="cart-item">2</span>
+                        <span class="cart-item">!</span>
                      </a>
                   </div>
                </div>
@@ -587,7 +579,7 @@
                             <!-- 랭킹 값을 넣어서 해야함 수정 필요 -->
                            <c:forEach items="${rankFirst}" var="rank">
                            <div class="services__content">
-                              <h3 class="services__title"><a href="about">${rank[0]}</a></h3>
+                              <h3 class="services__title"><a href="${rank[5]}">${rank[0]}</a></h3>
                         
                               <p><i class="icon_star"></i> ${rank[3]}</p>
 
@@ -621,7 +613,7 @@
                            </div>
                            <c:forEach items="${rankSecond}" var="rank">
                            <div class="services__content">
-                              <h3 class="services__title"><a href="about">${rank[0]}</a></h3>
+                              <h3 class="services__title"><a href="${rank[5]}">${rank[0]}</a></h3>
                               <p><i class="icon_star"></i> ${rank[3]}</p>
                               
 
@@ -665,7 +657,7 @@
                            </div>
                            <c:forEach items="${rankThird}" var="rank">
                            <div class="services__content">
-                              <h3 class="services__title"><a href="about">${rank[0]}</a></h3>
+                              <h3 class="services__title"><a href="${rank[5]}">${rank[0]}</a></h3>
                               
                               <p><i class="icon_star"></i> ${rank[3]}</p>
 

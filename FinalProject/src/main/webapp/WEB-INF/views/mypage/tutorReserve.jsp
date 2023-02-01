@@ -45,6 +45,15 @@
     <!-- 캘린더용 css -->
     <link rel="stylesheet" href="/assets/css/calendar.css">
 
+    <script type="text/javascript">
+      var member_id = '<%=(Integer)session.getAttribute("memIdInt")%>';
+      
+      if(member_id == 'null') {
+         alert('로그인해야 이용할 수 있는 페이지입니다.');
+         location.href = "/sign-in";
+      }
+   </script>
+
     <style>
       #accordionSidebar {
         background-color: aliceblue;
@@ -136,25 +145,11 @@
                            <img src="/assets/img/logo/logo.png" alt="logo">
                         </a>
                      </div>
-                     <div class="header__category d-none d-lg-block">
-                        <nav>
-                           <ul>
-                              <li>
-                                 <a href="course-grid" class="cat-menu d-flex align-items-center">
-                                    <div class="cat-dot-icon d-inline-block">
-                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
-                                    </div>
-
-                                 </a>
-
-                              </li>
-                           </ul>
-                        </nav>
-                     </div>
+                    
                   </div>
                </div>
 
-               <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
+                   <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
                <c:choose>
                   <c:when test="${empty sessionScope.memIdInt}">
 
@@ -167,7 +162,7 @@
                                        <a href="/aboutus">AboutUs</a>
                                     </li>
                                     <li class="has-dropdown">
-                                       <a href="course-grid">학원/강의</a>
+                                       <a href="/academy/course-sidebar">학원/강의</a>
                                        <ul class="submenu">
                                              <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                              <li><a href="/academy/rank">학원 랭크</a></li>
@@ -176,16 +171,16 @@
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
-                                       <a href="">게시판</a>
+                                       <a href="/board/honestQuestionList">게시판</a>
                                        <ul class="submenu">
-                                          <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                          
                                           <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                           <li><a href="/board/newsList">뉴스</a></li>
                                           <li><a href="/board/announcement">공지</a></li>
                                        </ul>
                                     </li>
                                     <li>
-                                       <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                       <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                     </li>
                                  </ul>
                               </nav>
@@ -204,7 +199,7 @@
                                        <img src="/assets/img/heart.png" alt="heart">
 
                                     </div>
-                                    <span class="cart-item">2</span>
+                                    <span class="cart-item">!</span>
                                  </a>
                               </div>
                            </div>
@@ -233,7 +228,7 @@
                                        <a href="/aboutus">AboutUs</a>
                                     </li>
                                     <li class="has-dropdown">
-                                       <a href="course-grid">학원/강의</a>
+                                       <a href="/academy/course-sidebar">학원/강의</a>
                                        <ul class="submenu">
                                              <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                              <li><a href="/academy/rank">학원 랭크</a></li>
@@ -244,14 +239,14 @@
                                     <li class="has-dropdown">
                                        <a href="">게시판</a>
                                        <ul class="submenu">
-                                          <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                          
                                           <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                           <li><a href="/board/newsList">뉴스</a></li>
                                           <li><a href="/board/announcement">공지</a></li>
                                        </ul>
                                     </li>
                                     <li>
-                                       <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                       <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                     </li>
                                  </ul>
                               </nav>
@@ -276,7 +271,7 @@
                                     <div class="header__cart-icon">
                                        <img src="/assets/img/heart.png" alt="heart"/ >
                                     </div>
-                                    <span class="cart-item">2</span>
+                                    <span class="cart-item">!</span>
                                  </a>
                               </div>
                            </div>
@@ -349,76 +344,76 @@
    <!-- header area end -->
 
 <!-- cart mini area start -->
-<div class="cartmini__area">
-   <div class="cartmini__wrapper">
-      <div class="cartmini__title">
-         <h4>Shopping cart</h4>
-      </div>
-      <div class="cartmini__close">
-         <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
-      </div>
-      <div class="cartmini__widget ">
-         <div class="cartmini__inner" style="overflow-x:hidden;">
-            <ul>
-               <c:forEach items="${jjimList}" var="wish">
-               <li>
-                  <div class="cartmini__thumb">
-                     <a href="#">
-                        <img src="/assets/img/lecture/${wish[3]}" alt="">
-                     </a>
+      <div class="cartmini__area">
+         <div class="cartmini__wrapper">
+            <div class="cartmini__title">
+               <h4>찜/위시리스트</h4>
+            </div>
+            <div class="cartmini__close">
+               <button type="button" class="cartmini__close-btn"><i class="fal fa-times"></i></button>
+            </div>
+            <div class="cartmini__widget ">
+               <div class="cartmini__inner" style="overflow-x:hidden;">
+                  <ul>
+                     <c:forEach items="${jjimList}" var="wish">
+                     <li>
+                        <div class="cartmini__thumb">
+                           <a href="#">
+                              <img src="/assets/img/lecture/${wish[3]}" alt="">
+                           </a>
+                        </div>
+                        <div class="cartmini__content">
+                           <h5><a href="#">${wish[0]} </a></h5>
+                           <div class="product-quantity mt-10 mb-10">
+                           </div>
+                           <div class="product__sm-price-wrapper">
+                              <span class="product__sm-price">${wish[3]}</span>
+                           </div>
+                        </div>
+                        <a href="/mypage/deleteJjim?memIdInt=${wish[2]}&jjId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
+                     </li>
+                     </c:forEach>
+                  </ul>
+               </div>
+               <div class="cartmini__checkout">
+     
+                  <div class="cartmini__checkout-btn">
+                     <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span>찜 목록</a>
                   </div>
-                  <div class="cartmini__content">
-                     <h5><a href="#">${wish[0]} </a></h5>
-                     <div class="product-quantity mt-10 mb-10">
-                     </div>
-                     <div class="product__sm-price-wrapper">
-                        <span class="product__sm-price">${wish[3]}</span>
-                     </div>
+               </div>
+               <div class="cartmini__inner ">
+                  <ul>
+                     <c:forEach items="${wishList}" var="wish">
+                     <li>
+                        <div class="cartmini__thumb">
+                           <a href="#">
+                              <img src="/assets/img/course/${wish[4]}" alt="">
+                           </a>
+                        </div>
+                        <div class="cartmini__content">
+                           <h5><a href="#">${wish[0]} </a></h5>
+                           <div class="product-quantity mt-10 mb-10">
+                           </div>
+                           <div class="product__sm-price-wrapper">
+                              <span class="product__sm-price">${wish[3]}</span>
+                           </div>
+                        </div>
+                        <a href="/mypage/deleteWish?memIdInt=${wish[2]}&wId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
+                     </li>
+                     </c:forEach>
+                  </ul>
+               </div>
+               <div class="cartmini__checkout">
+     
+                  <div class="cartmini__checkout-btn">
+                     <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span>위시리스트 목록</a>
                   </div>
-                  <a href="/mypage/deleteJjim?memIdInt=${wish[2]}&jjId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
-               </li>
-               </c:forEach>
-            </ul>
-         </div>
-         <div class="cartmini__checkout">
-
-            <div class="cartmini__checkout-btn">
-               <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
+               </div>
             </div>
          </div>
-         <div class="cartmini__inner ">
-            <ul>
-               <c:forEach items="${wishList}" var="wish">
-               <li>
-                  <div class="cartmini__thumb">
-                     <a href="#">
-                        <img src="/assets/img/course/${wish[4]}" alt="">
-                     </a>
-                  </div>
-                  <div class="cartmini__content">
-                     <h5><a href="#">${wish[0]} </a></h5>
-                     <div class="product-quantity mt-10 mb-10">
-                     </div>
-                     <div class="product__sm-price-wrapper">
-                        <span class="product__sm-price">${wish[3]}</span>
-                     </div>
-                  </div>
-                  <a href="/mypage/deleteWish?memIdInt=${wish[2]}&wId=${wish[1]}" class="cartmini__del"><i class="fal fa-times"></i></a>
-               </li>
-               </c:forEach>
-            </ul>
-         </div>
-         <div class="cartmini__checkout">
-
-            <div class="cartmini__checkout-btn">
-               <a href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}" class="e-btn e-btn-border mb-10 w-100"> <span></span> view cart</a>
-            </div>
-         </div>
       </div>
-   </div>
-</div>
-<div class="body-overlay"></div>
-<!-- cart mini area end -->
+      <div class="body-overlay"></div>
+      <!-- cart mini area end -->
 
     <!-- sidebar area start -->
     <div class="sidebar__area">
@@ -455,7 +450,7 @@
                   />
                 </svg>
               </div>
-              <span class="cart-item">2</span>
+              <span class="cart-item">!</span>
             </a>
           </div>
         </div>
@@ -478,7 +473,7 @@
                 <h3 class="page__title">예약 현황</h3>
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/startpage">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">예약 현황</li>
                   </ol>
                 </nav>
@@ -489,20 +484,21 @@
       </section>
       <!-- page title area end -->
 
-      <!-- 위시리스트 Strat-->
+      <!-- 왼쪽 메뉴 표 Strat-->
       
       <section class="cart-area pt-100 pb-100">
-        
-        <div class="container">
-         
-          <div class="row">
-            <div class="col-sm-3">
-              <div class="left-sidebar">
-                <ul
-                  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-                  id="accordionSidebar"
-                >
-                  <li class="nav-item">
+      
+         <div class="container">
+          
+           <div class="row">
+             <div class="col-sm-3">
+               <div class="left-sidebar">
+                 <ul
+                   class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+                   id="accordionSidebar"
+                 >
+  
+                 <li class="nav-item">
                     <a
                       class="nav-link collapsed"
                       href="admin/academyList"
@@ -511,7 +507,7 @@
                       aria-expanded="true"
                       aria-controls="collapseOne"
                     >
-                      <i class="fas fa-fw fa-address-card"></i> <span>회원 정보 관리</span>
+                      <i class="fas fa-fw fa-address-card"></i> <span>회원정보 관리</span>
                     </a>
                     <div
                       id="collapseOne"
@@ -525,7 +521,7 @@
                       </div>
                     </div>
                   </li>
-
+  
                   <li class="nav-item">
                     <a
                       class="nav-link collapsed"
@@ -544,14 +540,13 @@
                       data-parent="#accordionSidebar"
                     >
                       <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/mypage/myreview">리뷰관리</a><br />
-                        <a class="collapse-item" href="">1:1문의</a><br />
-                        <a class="collapse-item" href="">코딩게시판</a><br />
-                        <a class="collapse-item" href="/mypage/myquestion">솔직답변</a><br />
-                        <a class="collapse-item" href="">학원 탈퇴</a>
+                        <a class="collapse-item" href="/mypage/myreview">국비/부트 리뷰</a><br />
+                        <a class="collapse-item" href="/mypage/myreview2">화상/교육 리뷰</a><br />
+                        
                       </div>
                     </div>
                   </li>
+  
                   <li class="nav-item">
                     <a
                       class="nav-link collapsed"
@@ -565,11 +560,12 @@
                     </a>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                       <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/mypage/wishlistaca">관심학원리스트</a><br/> 
-                        <a class="collapse-item" href="/mypage/wishlistlec">관심강의리스트</a>
+                        <a class="collapse-item" href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}">관심학원 리스트</a><br/> 
+                        <a class="collapse-item" href="/mypage/jjimlist?memIdInt=${sessionScope.memIdInt}">관심강의 리스트</a>
                       </div>
                     </div>
                   </li>
+  
                   <li class="nav-item">
                     <a
                       class="nav-link collapsed"
@@ -579,7 +575,7 @@
                       aria-expanded="true"
                       aria-controls="collapseFour"
                     >
-                      <i class="fas fa-fw fa-desktop"></i> <span>나의 학습</span>
+                      <i class="fas fa-fw fa-desktop"></i> <span>화상 내역</span>
                     </a>
                     <div
                       id="collapseFour"
@@ -593,16 +589,66 @@
                       </div>
                     </div>
                   </li>
-
+  
+  
+  
                   <li class="nav-item">
-                    <a class="nav-link" href="/mypage/tutorInsert">
-                      <i class="fas fa-fw fa-table"></i> <span>튜터등록</span>
+                    <a 
+                    class="nav-link collapsed"
+                      href="admin/lectureList.do"
+                      data-toggle="collapse"
+                      data-target="#collapseFour2"
+                      aria-expanded="true"
+                      aria-controls="collapseFour2">
+                      <i class="fas fa-fw fa-table"></i> <span>등록관리</span>
                     </a>
+                   
+                    <div
+                    id="collapseFour2"
+                    class="collapse"
+                    aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar"
+                  >
+                  <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="/mypage/tutorInsert">선생님 등록</a><br />
+                    <a class="collapse-item" href="/mypage/educationInsert">학원 등록</a><br />
+                  </div>
+                </div>
                   </li>
-
+                 
+  
+  
+  
+                  
+                  <li class="nav-item">
+                    <a
+                      class="nav-link collapsed"
+                      href="admin/lectureList.do"
+                      data-toggle="collapse"
+                      data-target="#collapseFive"
+                      aria-expanded="true"
+                      aria-controls="collapseFive"
+                    >
+                      <i class="fas fa-fw fa-desktop"></i> <span>튜터의 화상 내역</span>
+                    </a>
+                    <div
+                      id="collapseFive"
+                      class="collapse"
+                      aria-labelledby="headingUtilities"
+                      data-parent="#accordionSidebar"
+                    >
+                      <div class="bg-white py-2 collapse-inner rounded give-border">
+                        <a class="collapse-item" href="/mypage/tutorReserve">예약 현황</a><br />
+                        <a class="collapse-item" href="/mypage/tutorBox">수업함</a>
+                      </div>
+                    </div>
+                  </li>
+  
                   <!-- Nav Item - Pages Collapse Menu -->
                 </ul>
               </div>
+            
+  
 
               <div class="instruction-container mt-20">
                 <div class="instruction-inner">
@@ -631,8 +677,8 @@
                         <li>반드시 예약 시간이 지나기 전에 입장해주세요.</li>
                       </ul>
                     </div>
-                    <div class="header__btn ml-20 d-none d-sm-block" style="margin-left: 40px; margin-top: 20px;">
-                        <button class="e-btn e-btn-4" data-bs-toggle="modal" data-bs-target="#exampleModal">등록하기</button>
+                    <div class="header__btn ml-20 d-none d-sm-block" style="margin-left: 30px; margin-top: 20px;">
+                        <button class="e-btn e-btn-4" data-bs-toggle="modal" data-bs-target="#exampleModal">예약 등록하기</button>
                     </div>
                   </div>
 
@@ -690,7 +736,7 @@
 
           <div class="row">
 
-            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4">
+            <!-- <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4">
               <div class="teacher__item text-center grey-bg-5 transition-3 mb-30">
                 <div class="room__tag pb-15">
                   <a class="">2023-01-31 14:00PM</a>
@@ -713,7 +759,7 @@
                   </div>
                 </div>
               </div>
-           </div>
+           </div> -->
 
           <!-- 예약사항을 카드와 입장하기 버튼으로 구현 -->
           <c:forEach items="${calendarList}" var="CL">
@@ -721,7 +767,7 @@
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4">
               <div class="teacher__item text-center grey-bg-5 transition-3 mb-30">
                 <div class="room__tag pb-15">
-                  <a class="">${CL.calstartSTR}</a>
+                  <a class="cal_font">${CL.calstartSTR}</a>
                 </div>
                 <div class="teacher__content teacher__lecture">
                   <div class="teacher__thumb w-img fix">
@@ -756,28 +802,28 @@
     </section>
 
   </main>
+
   <!-- modal: HonestQuestion -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
        <div class="modal-content">
           <form action="insertReservation" method="post">
              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">솔직 질문</h5>
+                <h5 class="modal-title" id="exampleModalLabel">예약 시간 등록하기</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
              </div>
-             <div class="modal-body">
+             <div class="modal-body" style="text-align: center;">
                 <input type="hidden" name="calReserve" value="0">
-                <input type="hidden" name="tId" value="${sessionScope.teacherId}">
-                <a>${sessionScope.teacherId}</a>
+                <input type="hidden" name="teacherId" value="${sessionScope.teacherId}">
                 <div class="row mb-2">
-                   <div class="col-4">
+
+                   <div class="col-12">
                       <label for="hq_keyIn" class="col-form-label">시작날짜</label>
                       <input type="datetime-local" class="form-control" name="calStart">
                       <label for="hq_keyIn" class="col-form-label">종료날짜</label>
                       <input type="datetime-local" class="form-control" name="calEnd">
                    </div>
-                   <div class="col-8" id="keyword_show"></div>
-                   <input type="hidden" id="hq_keyOut" name="hq_keyword">
+                   
                 </div>
              </div>
              <div class="modal-footer">
@@ -947,7 +993,7 @@
                     <% for (Map vo : calendarList) {%>
                     {
                       id :'<%=(Integer)vo.get("calid")%>',
-                      title : '예약',
+                      title : '<%=(String)vo.get("vctitle")%>',
                       start : '<%=(Date)vo.get("calstart")%>',
                       end : '<%=(Date)vo.get("calend")%>',
                         

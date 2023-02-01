@@ -187,42 +187,44 @@ public class MypageController {
 
 
 	
-	//마이페이지 화상학원부분
-	@GetMapping("/myreview2")
-	public String getEdReview2(ReviewVO rvo, Model model,HttpSession session,
-			@RequestParam(required = false, defaultValue = "") String memIdInt,
-			@PageableDefault(size = 2, direction = Sort.Direction.DESC) Pageable paging) {
+
+	   //마이페이지 화상학원부분
+	   @GetMapping("/myreview2")
+	   public String getEdReview2(ReviewVO rvo, Model model,HttpSession session,
+         @RequestParam(required = false, defaultValue = "") String memIdInt,
+         @PageableDefault(size = 2, direction = Sort.Direction.DESC) Pageable paging) {
 
 
-		//세션에 저장된 값으로 넘겨버리기 
-		rvo.setMemIdInt((Integer) session.getAttribute("memIdInt"));
-		String temp_m_idint = String.valueOf(rvo.getMemIdInt());
-		System.out.println(temp_m_idint);
-		Page<ReviewVO> mypageReviewList2 = reviewRepository.getMyReview2(paging, temp_m_idint);
+      //세션에 저장된 값으로 넘겨버리기 
+      rvo.setMemIdInt((Integer) session.getAttribute("memIdInt"));
+      String temp_m_idint = String.valueOf(rvo.getMemIdInt());
+      System.out.println(temp_m_idint);
+      Page<ReviewVO> mypageReviewList2 = reviewRepository.getMyReview2(paging, temp_m_idint);
 
-		//현재페이지
-		int pageNumber=((Slice<ReviewVO>) mypageReviewList2).getPageable().getPageNumber();
-		//총페이지수
-		int totalPages=((Page<ReviewVO>) mypageReviewList2).getTotalPages(); //검색에따라 10개면 10개..
-		int pageBlock = 5; //블럭의 수 1, 2, 3, 4, 5   
-		//시작하는 블록
-		int startBlockPage = ((pageNumber)/pageBlock)*pageBlock+1; //현재 페이지가 7이라면 1*5+1=6
-		//끝나는 블록
-		int endBlockPage = startBlockPage+pageBlock-1; //6+5-1=10. 6,7,8,9,10해서 10.
-		endBlockPage= totalPages<endBlockPage? totalPages:endBlockPage;
+      //현재페이지
+      int pageNumber=((Slice<ReviewVO>) mypageReviewList2).getPageable().getPageNumber();
+      //총페이지수
+      int totalPages=((Page<ReviewVO>) mypageReviewList2).getTotalPages(); //검색에따라 10개면 10개..
+      int pageBlock = 5; //블럭의 수 1, 2, 3, 4, 5   
+      //시작하는 블록
+      int startBlockPage = ((pageNumber)/pageBlock)*pageBlock+1; //현재 페이지가 7이라면 1*5+1=6
+      //끝나는 블록
+      int endBlockPage = startBlockPage+pageBlock-1; //6+5-1=10. 6,7,8,9,10해서 10.
+      endBlockPage= totalPages<endBlockPage? totalPages:endBlockPage;
 
-		System.out.println("reviewList : " + mypageReviewList2.getContent());
+      System.out.println("reviewList : " + mypageReviewList2.getContent());
 
-		//각 값들을 jsp 파일에 붙이기
-		model.addAttribute("pageNumber", pageNumber);
-		model.addAttribute("totalPages", totalPages);
-		model.addAttribute("startBlockPage", startBlockPage);
-		model.addAttribute("endBlockPage", endBlockPage);
-		model.addAttribute("mypageReviewList1", mypageReviewList2.getContent()); 
+      //각 값들을 jsp 파일에 붙이기
+      model.addAttribute("pageNumber", pageNumber);
+      model.addAttribute("totalPages", totalPages);
+      model.addAttribute("startBlockPage", startBlockPage);
+      model.addAttribute("endBlockPage", endBlockPage);
+      model.addAttribute("mypageReviewList2", mypageReviewList2.getContent()); 
 
 
-		return "mypage/myreview2";
-	}
+      return "mypage/myreview2";
+   }
+	   
 	
 	
 	
@@ -332,7 +334,7 @@ public class MypageController {
 	// 선생님의 수업함
 	@GetMapping("/lessonbox")
 	public String getLessonBox(Model model, HttpSession session,
-		@PageableDefault(size = 7) Pageable paging, 
+		@PageableDefault(size = 3) Pageable paging, 
 		@RequestParam(required = false, defaultValue = "제목") String type,
         @RequestParam(required = false, defaultValue = "") String searchword) {
 		
@@ -365,8 +367,8 @@ public class MypageController {
 			System.out.println("tcname : " + a.get("tcname"));
 		}
 		
-		List<VchatRecordVO> tutorBoxRecord = vchatRecordRepo.findByTeacherId(tempmemIdInt);
-		List<VchatFileVO> tutorBoxFile = vchatFileRepo.findByTeacherId(tempmemIdInt);
+		List<VchatRecordVO> tutorBoxRecord = vchatRecordRepo.findByMemIdInt(tempmemIdInt);
+		List<VchatFileVO> tutorBoxFile = vchatFileRepo.findByMemIdInt(tempmemIdInt);
 		
 		for (VchatRecordVO vo : tutorBoxRecord) {
 			System.out.println("OrigRecName : " + vo.getOrigRecName());
@@ -463,7 +465,7 @@ public class MypageController {
 	// 선생님의 수업함
 	@GetMapping("/tutorBox")
 	public String getTutorBox(Model model, HttpSession session,
-		@PageableDefault(size = 7) Pageable paging, 
+		@PageableDefault(size = 3) Pageable paging, 
 		@RequestParam(required = false, defaultValue = "제목") String type,
         @RequestParam(required = false, defaultValue = "") String searchword) {
 		

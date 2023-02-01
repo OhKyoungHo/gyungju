@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
 prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
   <head>
@@ -25,6 +26,15 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/wishlist.css" />
     <link rel="stylesheet" href="/assets/css/onoff.css">
+
+    <script type="text/javascript">
+      var member_id = '<%=(Integer)session.getAttribute("memIdInt")%>';
+      
+      if(member_id == 'null') {
+         alert('로그인해야 이용할 수 있는 페이지입니다.');
+         location.href = "/sign-in";
+      }
+   </script>
 
     <style>
       #accordionSidebar {
@@ -117,25 +127,11 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                            <img src="/assets/img/logo/logo.png" alt="logo">
                         </a>
                      </div>
-                     <div class="header__category d-none d-lg-block">
-                        <nav>
-                           <ul>
-                              <li>
-                                 <a href="course-grid" class="cat-menu d-flex align-items-center">
-                                    <div class="cat-dot-icon d-inline-block">
-                                       <input type="checkbox" id="switch" /><label class="onoff" for="switch">Toggle</label>
-                                    </div>
-
-                                 </a>
-
-                              </li>
-                           </ul>
-                        </nav>
-                     </div>
+                    
                   </div>
                </div>
 
-               <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
+                    <!-- JSTL if : 로그인, 로그아웃된 상태 구분-->
                <c:choose>
                   <c:when test="${empty sessionScope.memIdInt}">
 
@@ -148,7 +144,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        <a href="/aboutus">AboutUs</a>
                                     </li>
                                     <li class="has-dropdown">
-                                       <a href="course-grid">학원/강의</a>
+                                       <a href="/academy/course-sidebar">학원/강의</a>
                                        <ul class="submenu">
                                              <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                              <li><a href="/academy/rank">학원 랭크</a></li>
@@ -157,16 +153,16 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
-                                       <a href="">게시판</a>
+                                       <a href="/board/honestQuestionList">게시판</a>
                                        <ul class="submenu">
-                                          <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                          
                                           <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                           <li><a href="/board/newsList">뉴스</a></li>
                                           <li><a href="/board/announcement">공지</a></li>
                                        </ul>
                                     </li>
                                     <li>
-                                       <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                       <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                     </li>
                                  </ul>
                               </nav>
@@ -185,7 +181,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        <img src="/assets/img/heart.png" alt="heart">
 
                                     </div>
-                                    <span class="cart-item">2</span>
+                                    <span class="cart-item">!</span>
                                  </a>
                               </div>
                            </div>
@@ -214,7 +210,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        <a href="/aboutus">AboutUs</a>
                                     </li>
                                     <li class="has-dropdown">
-                                       <a href="course-grid">학원/강의</a>
+                                       <a href="/academy/course-sidebar">학원/강의</a>
                                        <ul class="submenu">
                                              <li><a href="/academy/course-sidebar">학원 목록</a></li>
                                              <li><a href="/academy/rank">학원 랭크</a></li>
@@ -223,16 +219,16 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                        </ul>
                                     </li>
                                     <li class="has-dropdown">
-                                       <a href="">게시판</a>
+                                       <a href="/board/honestQuestionList">게시판</a>
                                        <ul class="submenu">
-                                          <li><a href="/board/honestQuestionList">솔직 답변</a></li>
+                                          
                                           <li><a href="/board/codingBoard">코딩 게시판</a></li>
                                           <li><a href="/board/newsList">뉴스</a></li>
                                           <li><a href="/board/announcement">공지</a></li>
                                        </ul>
                                     </li>
                                     <li>
-                                       <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
+                                       <a href="https://app.slack.com/client/T04K98KG26R/C04MTTWJS81" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">챗봇</a>
                                     </li>
                                  </ul>
                               </nav>
@@ -257,7 +253,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                                     <div class="header__cart-icon">
                                        <img src="/assets/img/heart.png" alt="heart"/ >
                                     </div>
-                                    <span class="cart-item">2</span>
+                                    <span class="cart-item">!</span>
                                  </a>
                               </div>
                            </div>
@@ -436,7 +432,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                   />
                 </svg>
               </div>
-              <span class="cart-item">2</span>
+              <span class="cart-item">!</span>
             </a>
           </div>
         </div>
@@ -456,11 +452,11 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
           <div class="row">
             <div class="col-xxl-12">
               <div class="page__title-wrapper mt-110">
-                <h3 class="page__title">My Wishlist</h3>
+                <h3 class="page__title">국비 / 부트 리뷰</h3>
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Wishlist</li>
+                    <li class="breadcrumb-item"><a href="/startpage">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">작성글 관리</li>
                   </ol>
                 </nav>
               </div>
@@ -474,172 +470,172 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
 
 
       
+     
       <!-- 왼쪽 메뉴 표 Strat-->
       
       <section class="cart-area pt-100 pb-100">
-        <div class="accounthead">
-           <h4>국비 / 부트 리뷰관리</h4>
-        </div>
-       <div class="container">
-        
-         <div class="row">
-           <div class="col-sm-3">
-             <div class="left-sidebar">
-               <ul
-                 class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-                 id="accordionSidebar"
-               >
-
-                 <li class="nav-item">
-                   <a
-                     class="nav-link collapsed"
-                     href="admin/academyList"
-                     data-toggle="collapse"
-                     data-target="#collapseOne"
-                     aria-expanded="true"
-                     aria-controls="collapseOne"
-                   >
-                     <i class="fas fa-fw fa-address-card"></i> <span>회원 정보 관리</span>
-                   </a>
-                   <div
-                     id="collapseOne"
-                     class="collapse"
-                     aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar"
-                   >
-                     <div class="bg-white py-2 collapse-inner rounded">
-                       <a class="collapse-item" href="/mypage/modify">회원정보 수정</a><br />
-                       <a class="collapse-item" href="/mypage/withdrawal">회원 탈퇴</a>
-                     </div>
-                   </div>
-                 </li>
-
-                 <li class="nav-item">
-                   <a
-                     class="nav-link collapsed"
-                     href="admin/tutorList"
-                     data-toggle="collapse"
-                     data-target="#collapseTwo"
-                     aria-expanded="true"
-                     aria-controls="collapseTwo"
-                   >
-                     <i class="fas fa-fw fa-pencil"></i> <span>작성글 관리</span>
-                   </a>
-                   <div
-                     id="collapseTwo"
-                     class="collapse"
-                     aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar"
-                   >
-                     <div class="bg-white py-2 collapse-inner rounded">
-                       <a class="collapse-item" href="/mypage/myreview">국비/부트 리뷰</a><br />
-                       <a class="collapse-item" href="/mypage/myreview2">화상/교육 리뷰</a><br />
-                       <a class="collapse-item" href="/mypage/honestAnswer">솔직 답변</a>
-                     </div>
-                   </div>
-                 </li>
-
-                 <li class="nav-item">
-                   <a
-                     class="nav-link collapsed"
-                     href="admin/tutorList"
-                     data-toggle="collapse"
-                     data-target="#collapseThree"
-                     aria-expanded="true"
-                     aria-controls="collapseThree"
-                   >
-                     <i class="fas fa-heart"></i> <span>WishList</span>
-                   </a>
-                   <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                     <div class="bg-white py-2 collapse-inner rounded">
-                       <a class="collapse-item" href="/mypage/wishlistaca">관심학원리스트</a><br/> 
-                       <a class="collapse-item" href="/mypage/wishlistlec">관심강의리스트</a>
-                     </div>
-                   </div>
-                 </li>
-
-                 <li class="nav-item">
-                   <a
-                     class="nav-link collapsed"
-                     href="admin/lectureList.do"
-                     data-toggle="collapse"
-                     data-target="#collapseFour"
-                     aria-expanded="true"
-                     aria-controls="collapseFour"
-                   >
-                     <i class="fas fa-fw fa-desktop"></i> <span>화상 내역</span>
-                   </a>
-                   <div
-                     id="collapseFour"
-                     class="collapse"
-                     aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar"
-                   >
-                     <div class="bg-white py-2 collapse-inner rounded">
-                       <a class="collapse-item" href="/mypage/lessonreserve">예약 현황</a><br />
-                       <a class="collapse-item" href="/mypage/lessonbox">수업함</a>
-                     </div>
-                   </div>
-                 </li>
-
-
-
-                 <li class="nav-item">
-                   <a 
-                   class="nav-link collapsed"
-                     href="admin/lectureList.do"
-                     data-toggle="collapse"
-                     data-target="#collapseFour2"
-                     aria-expanded="true"
-                     aria-controls="collapseFour2">
-                     <i class="fas fa-fw fa-table"></i> <span>등록관리</span>
-                   </a>
-                  
-                   <div
-                   id="collapseFour2"
-                   class="collapse"
-                   aria-labelledby="headingUtilities"
-                   data-parent="#accordionSidebar"
+      
+         <div class="container">
+          
+           <div class="row">
+             <div class="col-sm-3">
+               <div class="left-sidebar">
+                 <ul
+                   class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+                   id="accordionSidebar"
                  >
-                 <div class="bg-white py-2 collapse-inner rounded">
-                   <a class="collapse-item" href="/mypage/tutorInsert">선생님 등록</a><br />
-                   <a class="collapse-item" href="/mypage/educationInsert">학원 등록</a><br />
-                 </div>
-               </div>
-                 </li>
-                
-
-
-
-                 
+  
                  <li class="nav-item">
-                   <a
-                     class="nav-link collapsed"
-                     href="admin/lectureList.do"
-                     data-toggle="collapse"
-                     data-target="#collapseFive"
-                     aria-expanded="true"
-                     aria-controls="collapseFive"
-                   >
-                     <i class="fas fa-fw fa-desktop"></i> <span>튜터의 화상 내역</span>
-                   </a>
-                   <div
-                     id="collapseFive"
-                     class="collapse"
-                     aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar"
-                   >
-                     <div class="bg-white py-2 collapse-inner rounded give-border">
-                       <a class="collapse-item" href="/mypage/tutorReserve">예약 현황</a><br />
-                       <a class="collapse-item" href="/mypage/tutorBox">수업함</a>
-                     </div>
-                   </div>
-                 </li>
-
-                 <!-- Nav Item - Pages Collapse Menu -->
-               </ul>
-             </div>
-           </div>
+                    <a
+                      class="nav-link collapsed"
+                      href="admin/academyList"
+                      data-toggle="collapse"
+                      data-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      <i class="fas fa-fw fa-address-card"></i> <span>회원정보 관리</span>
+                    </a>
+                    <div
+                      id="collapseOne"
+                      class="collapse"
+                      aria-labelledby="headingUtilities"
+                      data-parent="#accordionSidebar"
+                    >
+                      <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/mypage/modify">회원정보 수정</a><br />
+                        <a class="collapse-item" href="/mypage/withdrawal">회원 탈퇴</a>
+                      </div>
+                    </div>
+                  </li>
+  
+                  <li class="nav-item">
+                    <a
+                      class="nav-link collapsed"
+                      href="admin/tutorList"
+                      data-toggle="collapse"
+                      data-target="#collapseTwo"
+                      aria-expanded="true"
+                      aria-controls="collapseTwo"
+                    >
+                      <i class="fas fa-fw fa-pencil"></i> <span>작성글 관리</span>
+                    </a>
+                    <div
+                      id="collapseTwo"
+                      class="collapse"
+                      aria-labelledby="headingUtilities"
+                      data-parent="#accordionSidebar"
+                    >
+                      <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/mypage/myreview">국비/부트 리뷰</a><br />
+                        <a class="collapse-item" href="/mypage/myreview2">화상/교육 리뷰</a><br />
+                       
+                      </div>
+                    </div>
+                  </li>
+  
+                  <li class="nav-item">
+                    <a
+                      class="nav-link collapsed"
+                      href="admin/tutorList"
+                      data-toggle="collapse"
+                      data-target="#collapseThree"
+                      aria-expanded="true"
+                      aria-controls="collapseThree"
+                    >
+                      <i class="fas fa-heart"></i> <span>WishList</span>
+                    </a>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/mypage/wishlist?memIdInt=${sessionScope.memIdInt}">관심학원 리스트</a><br/> 
+                        <a class="collapse-item" href="/mypage/jjimlist?memIdInt=${sessionScope.memIdInt}">관심강의 리스트</a>
+                      </div>
+                    </div>
+                  </li>
+  
+                  <li class="nav-item">
+                    <a
+                      class="nav-link collapsed"
+                      href="admin/lectureList.do"
+                      data-toggle="collapse"
+                      data-target="#collapseFour"
+                      aria-expanded="true"
+                      aria-controls="collapseFour"
+                    >
+                      <i class="fas fa-fw fa-desktop"></i> <span>화상 내역</span>
+                    </a>
+                    <div
+                      id="collapseFour"
+                      class="collapse"
+                      aria-labelledby="headingUtilities"
+                      data-parent="#accordionSidebar"
+                    >
+                      <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/mypage/lessonreserve">예약 현황</a><br />
+                        <a class="collapse-item" href="/mypage/lessonbox">수업함</a>
+                      </div>
+                    </div>
+                  </li>
+  
+  
+  
+                  <li class="nav-item">
+                    <a 
+                    class="nav-link collapsed"
+                      href="admin/lectureList.do"
+                      data-toggle="collapse"
+                      data-target="#collapseFour2"
+                      aria-expanded="true"
+                      aria-controls="collapseFour2">
+                      <i class="fas fa-fw fa-table"></i> <span>등록관리</span>
+                    </a>
+                   
+                    <div
+                    id="collapseFour2"
+                    class="collapse"
+                    aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar"
+                  >
+                  <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="/mypage/tutorInsert">선생님 등록</a><br />
+                    <a class="collapse-item" href="/mypage/educationInsert">학원 등록</a><br />
+                  </div>
+                </div>
+                  </li>
+                 
+  
+  
+  
+                  
+                  <li class="nav-item">
+                    <a
+                      class="nav-link collapsed"
+                      href="admin/lectureList.do"
+                      data-toggle="collapse"
+                      data-target="#collapseFive"
+                      aria-expanded="true"
+                      aria-controls="collapseFive"
+                    >
+                      <i class="fas fa-fw fa-desktop"></i> <span>튜터의 화상 내역</span>
+                    </a>
+                    <div
+                      id="collapseFive"
+                      class="collapse"
+                      aria-labelledby="headingUtilities"
+                      data-parent="#accordionSidebar"
+                    >
+                      <div class="bg-white py-2 collapse-inner rounded give-border">
+                        <a class="collapse-item" href="/mypage/tutorReserve">예약 현황</a><br />
+                        <a class="collapse-item" href="/mypage/tutorBox">수업함</a>
+                      </div>
+                    </div>
+                  </li>
+  
+                  <!-- Nav Item - Pages Collapse Menu -->
+                </ul>
+              </div>
+            </div>
+  
 
 
             <!--내가 작성한 국비/부트에서의 리뷰-->
@@ -670,7 +666,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
                               <td>${mypageReviewList1.reId}</a></td>
                               <td><a href="/academy/course-details?edId=${mypageReviewList1.edId}">${mypageReviewList1.edId}</a></td>
                               <td>${mypageReviewList1.reContent}</a></td>
-                              <td>${mypageReviewList1.reDate}</a></td>
+                         
+                              <td><fmt:formatDate value="${mypageReviewList1.reDate}" pattern="yyyy년 MM월 dd일 "/></td>
                            
                             </tr>
                         </tbody>
